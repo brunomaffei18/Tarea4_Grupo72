@@ -10,6 +10,8 @@ class Casa : public Inmueble {
 
     public:
         Casa(bool esPH, TipoTecho techo);
+        bool getEsPH();
+        TipoTecho getTecho();
         ~Casa();
 };
 
