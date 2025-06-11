@@ -1,6 +1,7 @@
 #ifndef MANEJADORUSUARIO_H
 #define MANEJADORUSUARIO_H
-
+#include "Inmobiliaria.h"
+#include "Propietario.h"
 #include "Cliente.h"
 #include "Usuario.h"
 #include <map>

@@ -1,7 +1,7 @@
 #ifndef INMUEBLE_H
 #define INMUEBLE_H
 #include <string>
-
+#include "DTInmueble.h"
 class Inmueble {
     private:
         int codigo;
