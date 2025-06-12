@@ -1,17 +1,18 @@
 #ifndef MANEJADORINMUEBLE_H
 #define MANEJADORINMUEBLE_H
-
+#include "DTInmueble.h"
 #include "Inmueble.h"
 #include <list>
+#include <map>
 
 class ManejadorInmueble {
     private:
-        std::list<Inmueble*> inmuebles;
+    std::map<int,DTInmueble*> inmuebles;
 
     public:
        
         void eliminarInmueble(int codigoInmueble);
-        std::list<Inmueble*> listarInmuebles();
+        std::list<DTInmueble*> listarInmuebles();
         ~ManejadorInmueble();
 };
 
