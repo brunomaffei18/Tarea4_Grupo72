@@ -10,8 +10,7 @@ class ManejadorPublicaciones {
         std::map<int,Publicacion*> publicaciones;
 
     public:
-        void altaPublicacion(Publicacion* p);
-        void eliminarPublicacion(int codigo);
+        
         std::list<DTPublicacion*> listarPublicacionesAdministradas();
         ~ManejadorPublicaciones();
 };

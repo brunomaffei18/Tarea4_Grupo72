@@ -23,7 +23,9 @@ public:
         std::set<DTUsuario*> ListarInmobiliarias();
         std::set<DTUsuario*> ListarPropietarios();
         std::set<DTUsuario*> ListarClientes();
-        
+        void representarPropietario(std::string nicknamePropietario);
+        void finalizarAltaUsuario();
+        DTUsuario getUsuario(std::string nickname);
         
     ~ControladorUsuario();
 };
