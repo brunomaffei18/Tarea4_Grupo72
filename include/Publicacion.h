@@ -13,11 +13,17 @@ private:
     std::string texto;
     float precio;
     bool activa;
+    AdministraPropiedad * adminProp;    //Link a su unica AdministraPropiedad
 
 public:
     Publicacion(int codigo, DTFecha* fecha, TipoPublicacion tipo, std::string texto, float precio, bool activa);
+    int getCodigo();
+    DTFecha* getFecha();
+    std::string getTexto();
+    std::string getPrecio();
+    std::string getInmobiliaria();
+    AdministraPropiedad* getAdministra();
     bool esActiva();
-    AdministraPropiedad getAdministra();
     bool verificarInmobiiaria(int codigoInmbo,int codigoInmueble,std::string nickNameInmobiliaria,std::string nickNameInmob);
     ~Publicacion();
 };
