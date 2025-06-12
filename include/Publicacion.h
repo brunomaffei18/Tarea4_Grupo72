@@ -1,9 +1,10 @@
-#ifndef PUBLICACION_H
+#ifndef PUBLICACION_H 
 #define PUBLICACION_H
 #include "DTFecha.h"
 #include "TipoPublicacion.h"
 #include <string>
-#include "AdministraPropiedad.h"
+
+class AdministraPropiedad;
 
 class Publicacion {
 private:
@@ -20,7 +21,7 @@ public:
     int getCodigo();
     DTFecha* getFecha();
     std::string getTexto();
-    std::string getPrecio();
+    float getPrecio();
     std::string getInmobiliaria();
     AdministraPropiedad* getAdministra();
     bool esActiva();
