@@ -11,7 +11,7 @@ AdministraPropiedad::AdministraPropiedad(DTFecha* fecha, Inmueble* inmueble, Inm
       inmuebleAdmin(inmueble),
       InmobiliariaResponsable(inmobiliaria){
 }
-    
+
 Inmueble* AdministraPropiedad::getInmueble(){
     return this->inmuebleAdmin;
 }
@@ -40,4 +40,6 @@ AdministraPropiedad::~AdministraPropiedad(){
     for (it = Publicaciones.begin(); it != Publicaciones.end(); ++it){
         delete it->second;
     }
+
+    Publicaciones.clear();
 }
