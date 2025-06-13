@@ -2,8 +2,9 @@ OBJETOS = AdminsitraPropiedad.o Apartamento.o CargaDatos.o Casa.o \
 		  Cliente.o ControladorFechaActual.o DTApartamento.o DTCasa.o DTFecha.o DTInmueble.o \
 		  DTInmuebleAdministrado.o DTInmuebleListado.o DTPublicacion.o DTUsuario.o Factory.o \
 		  IControladorFechaActual.o Inmobiliaria.o Inmueble.o Menu.o Propietario.o Publicacion.o \
-		  TipoInmueble.o TipoPublicacion.o TipoTecho.o Usuario.o ManejadorInmueble.o ManejadorPublicaciones \ 
+		  TipoInmueble.o TipoPublicacion.o TipoTecho.o Usuario.o ManejadorInmueble.o ManejadorPublicaciones.o \
 		  ManejadorUsuario.o ControladorUsuario.o ControladorAdministrarInmueble.o ControladorInmueble.o ControladorPublicacion.o \
+		  ControladorNotificacion.o DTNotificacion.o Subscirptor.o Notificacion.o main.o
 
 
 FUENTES = ./include/AdminsitraPropiedad.h ./src/AdminsitraPropiedad.cpp \
