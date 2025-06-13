@@ -1,0 +1,43 @@
+#include "DTFecha.h"
+#include "Inmueble.h"
+#include "Inmobiliaria.h"
+#include "Publicacion.h"
+#include "AdministraPropiedad.h"
+
+#include "../include/AdministraPropiedad.h"
+
+AdministraPropiedad::AdministraPropiedad(DTFecha* fecha, Inmueble* inmueble, Inmobiliaria* inmobiliaria)
+    : fecha(new DTFecha(fecha)),
+      inmuebleAdmin(inmueble),
+      InmobiliariaResponsable(inmobiliaria){
+}
+
+Inmueble* AdministraPropiedad::getInmueble(){
+    return this->inmuebleAdmin;
+}
+Inmobiliaria* AdministraPropiedad::getInmobiliaria(){
+    return this->InmobiliariaResponsable;
+}
+
+//Asumo que elimina todas las publicaciones, si deberia desactivarlas falda el metodo en Publicaciones.h
+void AdministraPropiedad::DarBajaPublicaciones(){
+std::map<int, Publicacion*>::iterator it;
+for (it = Publicaciones.begin(); it != Publicaciones.end(); ++it){
+    Publicaciones.erase(it->first);
+}
+}
+
+//Asumo que elimina unicamente la publicacion que se le pasa, a pesar de que el nombre esta en plural.
+void AdministraPropiedad::borrarPublicaciones(Publicacion p){
+int key = p.getCodigo();
+this->Publicaciones.erase(key);
+}
+
+AdministraPropiedad::~AdministraPropiedad(){
+    delete this->fecha;
+
+    std::map<int, Publicacion*>::iterator it;
+    for (it = Publicaciones.begin(); it != Publicaciones.end(); ++it){
+        delete it->second;
+    }
+}
