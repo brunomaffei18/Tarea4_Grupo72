@@ -2,7 +2,7 @@
 #define INMOBILIARIA_H
 #include "Usuario.h"
 #include <string>
-#include "Suscriptor.h"
+#include "Subscriptor.h"
 
 class Inmobiliaria : public Usuario {
 private:

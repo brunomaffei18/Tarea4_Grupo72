@@ -6,7 +6,7 @@
 #include <string>
 #include "DTNotificacion.h"
 
-class Suscriptor {
+class Subscriptor {
 public:
     virtual void recibirNotificacion(const DTNotificacion& n) = 0;
     virtual std::set<DTNotificacion> consultarNotificaciones() const = 0;
@@ -14,7 +14,7 @@ public:
     virtual std::list<std::string> suscriptoActualmente() const = 0;
     virtual void seDesuscribe(const std::string& nicknameInmobiliaria) = 0;
 
-    virtual ~Suscriptor() {}
+    virtual ~Subscriptor() {}
 };
 
 #endif
