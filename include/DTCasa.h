@@ -3,7 +3,7 @@
 #include "DTInmueble.h"
 #include "TipoTecho.h"
 
-class DTCasa : public DTInmueble {
+class DTCasa {
     private:
         bool esPH;
         TipoTecho techo;
