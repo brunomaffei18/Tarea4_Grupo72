@@ -21,7 +21,7 @@ class AdministraPropiedad {
     Inmueble* getInmueble();
     Inmobiliaria* getInmobiliaria();
     void DarBajaPublicaciones(); 
-    void borrarPublicaciones(Publicacion p);
+    void borrarPublicacion(Publicacion p);
 
         ~AdministraPropiedad();
 };

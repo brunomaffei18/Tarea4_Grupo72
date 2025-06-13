@@ -11,7 +11,7 @@ AdministraPropiedad::AdministraPropiedad(DTFecha* fecha, Inmueble* inmueble, Inm
       inmuebleAdmin(inmueble),
       InmobiliariaResponsable(inmobiliaria){
 }
-
+    
 Inmueble* AdministraPropiedad::getInmueble(){
     return this->inmuebleAdmin;
 }
@@ -27,8 +27,8 @@ for (it = Publicaciones.begin(); it != Publicaciones.end(); ++it){
 }
 }
 
-//Asumo que elimina unicamente la publicacion que se le pasa, a pesar de que el nombre esta en plural.
-void AdministraPropiedad::borrarPublicaciones(Publicacion p){
+//Asumo que elimina unicamente la publicacion que se le pasa.
+void AdministraPropiedad::borrarPublicacion(Publicacion p){
 int key = p.getCodigo();
 this->Publicaciones.erase(key);
 }
