@@ -9,7 +9,7 @@ class Inmueble {
         int numeroPuerta;
         int superficie;
         int anoConstruccion;
-
+ 
     public:
         Inmueble(int codigo, std::string direccion, int numeroPuerta, int superficie, int anoConstruccion);
         void EliminarPublicaciones();
