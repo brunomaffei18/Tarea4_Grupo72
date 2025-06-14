@@ -1,5 +1,6 @@
  #include "../include/Inmueble.h"
  #include <string>
+ #include "../include/AdministraPropiedad.h"
  
  
  Inmueble::Inmueble(int codigo, std::string direccion, int numeroPuerta, int superficie, int anoConstruccion){
@@ -9,10 +10,23 @@
     this->superficie = superficie;
     this->anoConstruccion = anoConstruccion;
 };
-        
- void Inmueble:: EliminarPublicaciones(){
+        void Inmueble::AgragarAdministrados(AdministraPropiedad *Administados){
+            this->InmueblesAdministrados.insert(Administados);
+        }
+ void Inmueble::EliminarPublicaciones(){
 
+  for (std::set<AdministraPropiedad*>::iterator i = InmueblesAdministrados.begin(); i != InmueblesAdministrados.end(); i++)
+  {
+    (*i)->DarBajaPublicaciones();
+  }
+  
+  
+   
         };
         Inmueble::~Inmueble(){
 
+          for (std::set<AdministraPropiedad*>::iterator i =InmueblesAdministrados.begin();i!=InmueblesAdministrados.end();i++){
+            delete *i;
+          }
+          InmueblesAdministrados.clear();
         };

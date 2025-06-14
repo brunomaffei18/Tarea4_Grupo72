@@ -1,8 +1,10 @@
 #include "../include/Apartamento.h"   
 #include "../include/Inmueble.h"
+#include "../include/DTInmueble.h"
+
 #include <string>
 
-Apartamento::Apartamento(int piso, bool tieneAscensor, float gastosComunes):Inmueble(codigo,direccion, numeroPuerta, superficie, anoConstruccion) {
+Apartamento::Apartamento(int piso, bool tieneAscensor, float gastosComunes,int codigo, std::string direccion, int numeroPuerta, int superficie, int anoConstruccion):Inmueble(codigo,direccion, numeroPuerta, superficie, anoConstruccion) {
     this->piso = piso;
     this->tieneAscensor = tieneAscensor;
     this->gastosComunes = gastosComunes;
@@ -17,5 +19,5 @@ bool Apartamento::getTieneAscensor() {
            return this->gastosComunes;
        };
        Apartamento::~Apartamento(){
-           // Destructor implementation
+          
        };
