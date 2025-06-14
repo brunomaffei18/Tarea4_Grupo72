@@ -12,7 +12,7 @@ class Apartamento : public Inmueble {
     public:
         Apartamento(int piso, bool tieneAscensor, float gastosComunes);
        int getPiso();
-       bool getTieneAscencor();
+       bool getTieneAscensor();
        float getGastosComunes();
        
         ~Apartamento();
