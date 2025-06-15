@@ -9,6 +9,7 @@
 #include "../include/Inmobiliaria.h"
 #include "../include/Propietario.h"
 #include "../include/Cliente.h"
+#include "../include/IControladorPublicacion.h"
 
 
 class ControladorPublicacion
