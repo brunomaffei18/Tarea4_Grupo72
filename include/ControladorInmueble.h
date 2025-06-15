@@ -9,7 +9,7 @@
 #include "../include/Cliente.h"
 #include "../include/ManejadorInmueble.h"
 
-class ControladorInmueble
+class ControladorInmueble: public IControladorInmueble
 {
 private:
     static ControladorInmueble* Instancia;
