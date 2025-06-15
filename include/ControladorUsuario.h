@@ -3,10 +3,10 @@
 
 #include <string>
 #include <set>
-#include "DTUsuario.h"
-#include "Propietario.h"
-#include "Cliente.h"
-#include "Inmobiliaria.h"
+#include "../include/DTUsuario.h"
+#include "../include/Propietario.h"
+#include "../include/Cliente.h"
+#include "../include/Inmobiliaria.h"
 
 
 

@@ -1,7 +1,7 @@
 #ifndef PUBLICACION_H 
 #define PUBLICACION_H
-#include "DTFecha.h"
-#include "TipoPublicacion.h"
+#include "../include/DTFecha.h"
+#include "../include/TipoPublicacion.h"
 #include <string>
 
 class AdministraPropiedad;

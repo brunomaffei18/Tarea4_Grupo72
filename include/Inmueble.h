@@ -1,10 +1,10 @@
 #ifndef INMUEBLE_H
 #define INMUEBLE_H
 #include <string>
-#include "DTInmueble.h"
+#include "../include/DTInmueble.h"
 #include <set>
 #include "../include/DTInmuebleAdministrado.h"
-#include "AdministraPropiedad.h"
+#include "../include/AdministraPropiedad.h"
 
 class Inmueble {
     private:

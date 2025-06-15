@@ -1,7 +1,7 @@
 #ifndef USUARIO_H
 #define USUARIO_H
 #include <string>
-#include "DTUsuario.h"
+#include "../include/DTUsuario.h"
 
 class Usuario {
     private:

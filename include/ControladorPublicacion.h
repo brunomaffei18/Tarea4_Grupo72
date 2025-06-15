@@ -1,14 +1,14 @@
 #ifndef CONTROLADORPUBLICACION_H
 #define CONTROLADORPUBLICACION_H
-#include "TipoPublicacion.h"
-#include "TipoInmueble.h"
+#include "../include/TipoPublicacion.h"
+#include "../include/TipoInmueble.h"
 #include <string>
 #include <set>
-#include "DTInmueble.h"
-#include "DTPublicacion.h"
-#include "Inmobiliaria.h"
-#include "Propietario.h"
-#include "Cliente.h"
+#include "../include/DTInmueble.h"
+#include "../include/DTPublicacion.h"
+#include "../include/Inmobiliaria.h"
+#include "../include/Propietario.h"
+#include "../include/Cliente.h"
 
 
 class ControladorPublicacion
