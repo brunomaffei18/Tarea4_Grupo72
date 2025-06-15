@@ -11,7 +11,7 @@
 
 
 
-class ControladorUsuario
+class ControladorUsuario : public IControladorUsuario
 {
 private:
     static ControladorUsuario* Intancia;
