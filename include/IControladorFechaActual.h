@@ -1,7 +1,7 @@
 #ifndef ICONTROLADORFECHAACTUAL_H
 #define ICONTROLADORFECHAACTUAL_H
 
-#include "DTFecha.h"
+#include "../include/DTFecha.h"
 
 class IControladorFechaActual {
     public:

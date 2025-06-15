@@ -1,7 +1,7 @@
 #ifndef MANEJADORINMUEBLE_H
 #define MANEJADORINMUEBLE_H
-#include "DTInmueble.h"
-#include "Inmueble.h"
+#include "../include/DTInmueble.h"
+#include "../include/Inmueble.h"
 #include <list>
 #include <map>
 

@@ -1,9 +1,9 @@
 #ifndef MANEJADORPUBLICACIONES_H
 #define MANEJADORPUBLICACIONES_H
 #include <map>
-#include "Publicacion.h"
+#include "../include/Publicacion.h"
 #include <list>
-#include "DTPublicacion.h"
+#include "../include/DTPublicacion.h"
 
 class ManejadorPublicaciones {
     private:
