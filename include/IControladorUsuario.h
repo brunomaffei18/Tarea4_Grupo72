@@ -16,8 +16,8 @@ class IControladorUsuario
     virtual bool altaCliente(std::string nickname, std::string contrasena, std::string nombre, std::string email,std::string apellido, std::string documento)=0;
     virtual bool altaInmobiliaria(std::string nickname, std::string contrasena, std::string nombre, std::string email, std::string direccion,std::string url, std::string telefono)=0;
     virtual bool altaPropietario(std::string nickname, std::string contrasena, std::string nombre, std::string email, std::string cuentaBancaria,std::string telefono)=0;
-    virtual void altaCasa(std::string direccion, std::int numeroPuerta, std::int superficie, std::int anoConstruccion, std::bool esPH, TipoTecho techo)=0;
-    virtual void altaApartamento(std::string direccion, std::int numeroPuerta, std::int superficie, std::int anoConstruccion, std::int piso, std::bool tieneAscensor, std::float gastosComunes)=0;
+    virtual void altaCasa(std::string direccion, int numeroPuerta, int superficie, int anoConstruccion, bool esPH, TipoTecho techo)=0;
+    virtual void altaApartamento(std::string direccion, int numeroPuerta, int superficie, int anoConstruccion, int piso, bool tieneAscensor, float gastosComunes)=0;
     virtual std::set<DTUsuario*> ListarInmobiliarias()=0;
     virtual std::set<DTUsuario*> ListarPropietarios()=0;
     virtual std::set<DTUsuario*> ListarClientes()=0;
