@@ -10,7 +10,7 @@
 
 class Propietario : public Usuario, public Subscriptor{
     private:
-       std::set<DTNotificacion> notificaciones;
+        std::set<DTNotificacion> notificaciones;
         std::set<std::string> suscripciones; 
         std::map<int,Inmueble*> propiedades;
         std::string cuentaBancaria;
@@ -18,7 +18,20 @@ class Propietario : public Usuario, public Subscriptor{
 
     public:
         Propietario(std::string nickname, std::string contrasena, std::string nombre, std::string email, std::string cuentaBancaria, std::string telefono);
-        void DesvincularInmueble();
+        std::string getCuentaBancaria();
+        std::string getTelefono();
+        std::set<DTNotificacion> getNotificaciones()const;
+        std::set<std::string> getSuscripciones()const; 
+        std::map<int,Inmueble*> getPropiedades()const;
+
+        void desvincularInmueble(int codigoInmueble);
+        
+        void recibirNotificacion(const DTNotificacion& n) override;
+        std::set<DTNotificacion> consultarNotificaciones() const override;
+        void limpiarNotificaciones() override;
+        std::list<std::string> suscriptoActualmente() const override;
+        void seDesuscribe(const std::string& nicknameInmobiliaria) override;
+
 };
 
 #endif
