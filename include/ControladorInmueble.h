@@ -8,6 +8,7 @@
 #include "../include/Propietario.h"
 #include "../include/Cliente.h"
 #include "../include/ManejadorInmueble.h"
+#include "../include/IControladorInmueble.h"
 
 class ControladorInmueble: public IControladorInmueble
 {
