@@ -7,6 +7,7 @@
 #include "../include/Inmobiliaria.h"
 #include "../include/Propietario.h"
 #include "../include/Cliente.h"
+#include "../include/ManejadorInmueble.h"
 
 class ControladorInmueble
 {
@@ -18,7 +19,7 @@ public:
     DTInmueble detalleInmueble(int codigoInmueble);
     void eliminarInmueble(int codigoInmueble);
     std::set<DTInmueble*> listarInmuebles();
-    DTInmueble getInmueble(int codigo);
+
     ~ControladorInmueble();
 };
 
