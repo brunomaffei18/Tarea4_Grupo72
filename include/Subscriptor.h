@@ -13,7 +13,7 @@ public:
     virtual void limpiarNotificaciones() = 0;
     virtual std::list<std::string> suscriptoActualmente() const = 0;
     virtual void seDesuscribe(const std::string& nicknameInmobiliaria) = 0;
-
+    virtual std::string getNickname()const = 0;
     virtual ~Subscriptor() {}
 };
 
