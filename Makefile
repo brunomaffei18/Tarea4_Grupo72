@@ -4,7 +4,7 @@ OBJETOS = AdminsitraPropiedad.o Apartamento.o CargaDatos.o Casa.o \
 		  IControladorFechaActual.o Inmobiliaria.o Inmueble.o Menu.o Propietario.o Publicacion.o \
 		  TipoInmueble.o TipoPublicacion.o TipoTecho.o Usuario.o ManejadorInmueble.o ManejadorPublicaciones.o \
 		  ManejadorUsuario.o ControladorUsuario.o ControladorAdministrarInmueble.o ControladorInmueble.o ControladorPublicacion.o \
-		  ControladorNotificacion.o DTNotificacion.o Subscirptor.o Notificacion.o main.o
+		  ControladorNotificacion.o DTNotificacion.o Subscirptor.o Notificacion.o main.o 
 
 
 FUENTES = ./include/AdminsitraPropiedad.h ./src/AdminsitraPropiedad.cpp \
@@ -40,7 +40,9 @@ FUENTES = ./include/AdminsitraPropiedad.h ./src/AdminsitraPropiedad.cpp \
 		  ./include/DTNotificacion.h ./src/DTNotificacion.cpp \
 		  ./include/Subscirptor.h ./src/Subscirptor.cpp \
 		  ./include/Notificacion.h ./src/Notificacion.cpp \
-		  ./include/ControladorNotificacion.h ./src/ControladorNotificacion.cpp
+		  ./include/ControladorNotificacion.h ./src/ControladorNotificacion.cpp \
+		  ./include/ControladorUsuario.h ./src/ControladorUsuario.cpp \
+		  ./include/ControladorFechaActual.h ./src/ControladorFechaActual.cpp
 
 
 
