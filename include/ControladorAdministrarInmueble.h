@@ -7,8 +7,8 @@
 #include"../include/DTInmuebleListado.h"
 #include <set>
 #include <string>
-
-class ControladorAdministrarInmueble {
+#include"../include/IControladorAdministrarInmueble.h"
+class ControladorAdministrarInmueble: public: IControladorAdministrarInmueble {
     private:
        static ControladorAdministrarInmueble* instancia;
        ControladorAdministrarInmueble();

@@ -12,7 +12,7 @@
 #include "../include/IControladorPublicacion.h"
 
 
-class ControladorPublicacion
+class ControladorPublicacion :public:IControladorPublicacion
 {
 private:
     static ControladorPublicacion* Instancia;
