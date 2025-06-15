@@ -3,10 +3,10 @@
 
 #include <string>
 #include <set>
-#include "DTInmueble.h"
-#include "Inmobiliaria.h"
-#include "Propietario.h"
-#include "Cliente.h"
+#include "../include/DTInmueble.h"
+#include "../include/Inmobiliaria.h"
+#include "../include/Propietario.h"
+#include "../include/Cliente.h"
 
 class ControladorInmueble
 {

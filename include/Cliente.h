@@ -1,6 +1,6 @@
 #ifndef CLIENTE_H
 #define CLIENTE_H
-#include "Usuario.h"
+#include "../include/Usuario.h"
 #include <string>
 
 class Cliente : public Usuario {

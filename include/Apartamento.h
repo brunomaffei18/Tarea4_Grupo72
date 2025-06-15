@@ -1,6 +1,6 @@
 #ifndef APARTAMENTO_H
 #define APARTAMENTO_H
-#include "Inmueble.h"
+#include "../include/Inmueble.h"
 
 
 class Apartamento : public Inmueble {
@@ -10,9 +10,9 @@ class Apartamento : public Inmueble {
         float gastosComunes;
 
     public:
-        Apartamento(int piso, bool tieneAscensor, float gastosComunes);
+        Apartamento(int piso, bool tieneAscensor, float gastosComunes,int codigo, std::string direccion, int numeroPuerta, int superficie, int anoConstruccion);
        int getPiso();
-       bool getTieneAscencor();
+       bool getTieneAscensor();
        float getGastosComunes();
        
         ~Apartamento();
