@@ -9,12 +9,15 @@
 #include "../include/Cliente.h"
 #include "../include/ManejadorInmueble.h"
 #include "../include/IControladorInmueble.h"
+#include "ManejadorInmueble.h"
+
 
 class ControladorInmueble: public IControladorInmueble
 {
 private:
     static ControladorInmueble* Instancia;
     ControladorInmueble();
+    ManejadorInmueble* manejadorinm;
 public:
     static ControladorInmueble* getInstancia();
     DTInmueble detalleInmueble(int codigoInmueble);

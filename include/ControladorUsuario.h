@@ -8,6 +8,7 @@
 #include "../include/Cliente.h"
 #include "../include/Inmobiliaria.h"
 #include "../include/IControladorUsuario.h"
+#include "ManejadorUsuario.h"
 
 
 
@@ -16,6 +17,7 @@ class ControladorUsuario : public IControladorUsuario
 private:
     static ControladorUsuario* Intancia;
     ControladorUsuario();
+    ManejadorUsuario* manejadorusu;
 public:
    static ControladorUsuario* getInstancia();
      bool altaCliente(std::string nickname, std::string contrasena, std::string nombre, std::string email,std::string apellido, std::string documento);

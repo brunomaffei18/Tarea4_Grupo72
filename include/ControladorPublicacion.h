@@ -10,6 +10,7 @@
 #include "../include/Propietario.h"
 #include "../include/Cliente.h"
 #include "../include/IControladorPublicacion.h"
+#include "ManejadorPublicaciones.h"
 
 
 class ControladorPublicacion :public:IControladorPublicacion
@@ -17,6 +18,7 @@ class ControladorPublicacion :public:IControladorPublicacion
 private:
     static ControladorPublicacion* Instancia;
     ControladorPublicacion();
+    ManejadorPublicaciones* manejadorpub;
 public:
     static ControladorPublicacion* getInstancia();
     bool altaPublicacion(std::string nicknameInmobiliaria, int codigoInmueble, TipoPublicacion tipoPublicacion, std::string texto, float precio);
