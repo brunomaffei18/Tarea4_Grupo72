@@ -24,10 +24,10 @@ class Factory {
         IControladorInmueble* getControladorInmueble();
         IControladorPublicacion* getControladorPublicacion();
         IControladorUsuario* getControladorUsuario();
-        //Manjedores
+       /* //Manjedores
         ManejadorInmueble* getManejadorInmueble();
         ManejadorPublicaciones* getManejadorPublicaciones();
-        ManejadorUsuario* getManejadorUsuario();
+        ManejadorUsuario* getManejadorUsuario();*/
         ~Factory();
 };
 
