@@ -5,11 +5,12 @@
 #include "../include/Inmobiliaria.h"
 #include "../include/DTNotificacion.h"
 #include "../include/ManejadorNotificaciones.h"
+#include "../include/IControladorNotificaciones.h"
 #include <string>
 #include <map>
 #include <set>
 
-class ControladorNotificaciones {
+class ControladorNotificaciones: public IControladorNotificaciones {
 private:
     ControladorNotificaciones();
     static ControladorNotificaciones* instancia;
