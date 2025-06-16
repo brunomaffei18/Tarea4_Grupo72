@@ -26,6 +26,7 @@ public:
     ~DTNotificacion();
 };
 
+bool operator<(const DTNotificacion& a,const DTNotificacion& b);
 
 
 #endif
