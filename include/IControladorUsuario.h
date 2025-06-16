@@ -23,5 +23,7 @@ class IControladorUsuario
     virtual std::set<DTUsuario*> ListarClientes()=0;
     virtual void representarPropietario(std::string nicknamePropietario)=0;
     virtual void finalizarAltaUsuario()=0;
+    virtual ~IControladorUsuario()=default;
+
 };
 #endif

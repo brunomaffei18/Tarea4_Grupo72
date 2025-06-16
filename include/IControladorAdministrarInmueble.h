@@ -12,6 +12,7 @@ class IControladorAdministrarInmueble {
     public:
     virtual std:: set<DTInmuebleListado> listarInmueblesNoAdministradosInmobiliaria(std::string nicknameInmobiliaria);
     virtual void altaAdministrarPropiedad(std::string nickNameInmobiliaria,int codigoInmueble);
+    virtual ~IControladorAdministrarInmueble()=default;
 
 };
 

@@ -18,7 +18,7 @@ public:
     virtual std::list<std::string> nuevasSuscribciones(const std::string& nicknameInteresado);
     virtual void seSuscribe(const std::string& nicknameInmobiliaria, const std::string& nicknameInteresado);
     virtual std::list<std::string> listarInmobiliariasSuscriptas(const std::string& nicknameSubscriptor);
-
+    virtual ~IControladorNotificaciones()=default;
 };
 
 #endif

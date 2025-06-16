@@ -14,6 +14,8 @@ public:
     virtual DTInmueble detalleInmueble(int codigoInmueble)=0;
     virtual void eliminarInmueble(int codigoInmueble)=0;
     virtual std::set<DTInmueble*> listarInmuebles()=0;
+    virtual ~IControladorInmueble()=default;
+
 };
 
 #endif

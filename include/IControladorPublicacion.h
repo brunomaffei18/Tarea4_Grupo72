@@ -18,6 +18,8 @@ public:
     virtual std::set<DTPublicacion*> listarPublicaciones(TipoPublicacion tipoPublicacion, float precioMinimo, float precioMaximo, TipoInmueble tipoInmueble);
     virtual DTPublicacion getPublicacion(int id);
     virtual DTInmueble detalleInmueblePublicacion(int codigoPublicacion);
+    virtual ~IControladorPublicacion()=default;
+
 };
 
 #endif
