@@ -4,6 +4,8 @@ Casa:: Casa(bool esPH, TipoTecho techo,int codigo, std::string direccion, int nu
     this->esPH = esPH;
     this->techo = techo;
 };
+
+
    bool Casa:: getEsPH(){
    return this->esPH;
    };

@@ -1,6 +1,6 @@
 
 #include "../include/IControladorInmueble.h"
-#include "ControladorInmueble.h"
+#include "../include/ControladorInmueble.h"
 #include "../include/ManejadorInmueble.h"
 #include <string>
 #include <set>
@@ -23,10 +23,7 @@ ControladorInmueble* ControladorInmueble::getInstancia(){
  return Instancia;
 }
 
-ControladorInmueble::ControladorInmueble(){
-        
 
-}
 ControladorInmueble::~ControladorInmueble(){
     delete Instancia;
 }
@@ -51,10 +48,15 @@ void ControladorInmueble:: altaCasa(std::string direccion, int numeroPuerta, int
     int codigo=manejador->generarCodigo();
     Casa* casanueva=new Casa(esPH, techo, codigo, direccion, numeroPuerta, superficie, anoConstruccion);
     manejador->agregarInmueble(casanueva);
-
+    
 };
 
 void  ControladorInmueble:: altaApartamento(std::string direccion, int numeroPuerta, int superficie, int anoConstruccion, int piso, bool tieneAscensor, float gastosComunes){
+   ManejadorInmueble* manejadorinm=new ManejadorInmueble();
+    int codigo=manejadorinm->generarCodigo();
+    Apartamento* apartamentoNuevo=new Apartamento(piso, tieneAscensor, gastosComunes, codigo, direccion, numeroPuerta, superficie, anoConstruccion);
+    manejadorinm->agregarInmueble(apartamentoNuevo);
+    
 
 };
     
