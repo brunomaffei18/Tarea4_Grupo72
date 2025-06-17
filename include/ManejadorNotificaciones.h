@@ -27,7 +27,7 @@ public:
 
     std::list<std::string> obtenerNicksSubscriptos();
     std::list<std::string> obtenerNicksInmobiliarias();
-
+ 
     ~ManejadorNotificaciones();
 };
 
