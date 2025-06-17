@@ -8,9 +8,11 @@
 class ManejadorInmueble {
     private:
     std::map<int,Inmueble*> inmuebles;
-
+    int codigoACtual=1;
     public:
         ManejadorInmueble();
+        int generarCodigo();
+        void agregarInmueble(Inmueble* inmueble);
         Inmueble* getInmueble(int codigoInmueble);
         void eliminarInmueble(int codigoInmueble);
         std::list<DTInmueble*> listarInmuebles();
