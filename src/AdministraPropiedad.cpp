@@ -1,10 +1,10 @@
-#include "DTFecha.h"
-#include "Inmueble.h"
-#include "Inmobiliaria.h"
-#include "Publicacion.h"
-#include "AdministraPropiedad.h"
-
+#include "../include/DTFecha.h"
+#include "../include/Inmueble.h"
+#include "../include/Inmobiliaria.h"
+#include "../include/Publicacion.h"
 #include "../include/AdministraPropiedad.h"
+
+//#include "../include/AdministraPropiedad.h"
 
 AdministraPropiedad::AdministraPropiedad(DTFecha* fecha, Inmueble* inmueble, Inmobiliaria* inmobiliaria)
     : fecha(new DTFecha(fecha)),

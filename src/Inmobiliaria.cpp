@@ -1,8 +1,8 @@
 #include <string>
-#include "Usuario.h"
-#include "Subscriptor.h"
-#include "DTNotificacion.h"
-#include "Inmobiliaria.h"
+#include "../include/Usuario.h"
+#include "../include/Subscriptor.h"
+#include "../include/DTNotificacion.h"
+#include "../include/Inmobiliaria.h"
 
 Inmobiliaria::Inmobiliaria(std::string nickname, std::string contrasena, std::string nombre, std::string email,
             std::string direccion, std::string telefono, std::string url):

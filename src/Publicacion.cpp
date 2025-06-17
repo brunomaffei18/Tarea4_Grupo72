@@ -1,4 +1,4 @@
-#include "DTFecha.h"
+#include "../include/DTFecha.h"
 #include "../include/Publicacion.h"
 #include "../include/AdministraPropiedad.h" 
 
