@@ -10,7 +10,7 @@
 #include "../include/Cliente.h"
 #include "../include/ManejadorInmueble.h"
 #include "../include/IControladorInmueble.h"
-#include "ManejadorInmueble.h"
+#include "../include/ManejadorInmueble.h"
 #include "../include/TipoTecho.h"
 
 
