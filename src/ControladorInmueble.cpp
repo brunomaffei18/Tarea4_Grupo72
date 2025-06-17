@@ -4,6 +4,8 @@
 #include "../include/ManejadorInmueble.h"
 #include <string>
 #include <set>
+#include "../include/Casa.h"
+#include "../include/Apartamento.h"
 #include "../include/DTInmueble.h"
 #include "../include/Inmobiliaria.h"
 #include "../include/Propietario.h"
@@ -42,9 +44,11 @@ ControladorInmueble* ControladorInmueble::Instancia = NULL;
     
 }
 void ControladorInmueble:: altaCasa(std::string direccion, int numeroPuerta, int superficie, int anoConstruccion, bool esPH, TipoTecho techo){
-    
-   
-  
+    ManejadorInmueble* manejador=new ManejadorInmueble();
+    int codigo=manejador->generarCodigo();
+    Casa* casanueva=new Casa(esPH, techo, codigo, direccion, numeroPuerta, superficie, anoConstruccion);
+    manejador->agregarInmueble(casanueva);
+
 };
 
 void  ControladorInmueble:: altaApartamento(std::string direccion, int numeroPuerta, int superficie, int anoConstruccion, int piso, bool tieneAscensor, float gastosComunes){
