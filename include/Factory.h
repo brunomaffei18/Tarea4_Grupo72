@@ -1,11 +1,11 @@
 #ifndef FACTORY_H
 #define FACTORY_H
 
-#include "IControladorAdministraInmueble.h"
-#include "IControladorFechaActual.h"
-#include "IControladorInmueble.h"
-#include "IControladorPublicacion.h"
-#include "IControladorUsuario.h"
+#include "../include/IControladorAdministraInmueble.h"
+#include "../include/IControladorFechaActual.h"
+#include "../include/IControladorInmueble.h"
+#include "../include/IControladorPublicacion.h"
+#include "../include/IControladorUsuario.h"
 
 
 class Factory {
