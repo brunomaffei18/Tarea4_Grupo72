@@ -10,7 +10,7 @@
 class ManejadorUsuario {
     private:
         std::map<std::string, Usuario*> usuarios;
-        std::map<std::string, Cliente*> cleintes;
+        std::map<std::string, Cliente*> clientes;
         std::map<std::string, Propietario*> propietario;
         std::map<std::string, Inmobiliaria*> Inmobiliaria;   
 
