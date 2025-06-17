@@ -36,5 +36,7 @@ IControladorUsuario* Factory::getControladorUsuario(){
     return ControladorUsuario::getInstance();
 
 IControladorNotificaciones* Factory::getControladorNotificaciones(){
-    return ControladorNotificaciones::getInstance();            
+    return ControladorNotificaciones::getInstance();   
+    
+Factory::~Factory();   
 }
