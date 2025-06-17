@@ -13,7 +13,7 @@
 
 ControladorInmueble :: ControladorInmueble()
 {
-    this->manejadorinm=ManejadorInmueble::getInstancia();
+    this->manejadorinm=ManejadorInmueble::getManejadorInmueble();
 }
 ControladorInmueble* ControladorInmueble::getInstancia(){
  if(Instancia ==NULL){
@@ -23,19 +23,23 @@ ControladorInmueble* ControladorInmueble::getInstancia(){
  return Instancia;
 }
 
+ControladorInmueble::ControladorInmueble(){
+        
 
+}
 ControladorInmueble::~ControladorInmueble(){
     delete Instancia;
 }
 ControladorInmueble* ControladorInmueble::Instancia = NULL;
 
  DTInmueble ControladorInmueble::detalleInmueble(int codigoInmueble){
-    ManejadorInmueble* manejadorInmueble = ManejadorInmueble::getInstancia();
+    ManejadorInmueble* manejadorInmueble = new ManejadorInmueble();
     std::list<DTInmueble*> inmuebles = manejadorInmueble->listarInmuebles();
     
     for (std::list<DTInmueble*>::iterator i = inmuebles.begin(); i != inmuebles.end(); i++) {
         if ((*i)->getCodigo() == codigoInmueble) {
             DTInmueble result = *(*i);
+            delete manejadorInmueble;
             return result;
         }
     }
@@ -43,21 +47,15 @@ ControladorInmueble* ControladorInmueble::Instancia = NULL;
     
 }
 void ControladorInmueble:: altaCasa(std::string direccion, int numeroPuerta, int superficie, int anoConstruccion, bool esPH, TipoTecho techo){
-    ManejadorInmueble* manejador=ManejadorInmueble::getInstancia();
+    ManejadorInmueble* manejador=new ManejadorInmueble();
     int codigo=manejador->generarCodigo();
-    
     Casa* casanueva=new Casa(esPH, techo, codigo, direccion, numeroPuerta, superficie, anoConstruccion);
     manejador->agregarInmueble(casanueva);
 
 };
 
 void  ControladorInmueble:: altaApartamento(std::string direccion, int numeroPuerta, int superficie, int anoConstruccion, int piso, bool tieneAscensor, float gastosComunes){
- ManejadorInmueble *manejador = ManejadorInmueble::getInstancia();
-    int codigo = manejador->generarCodigo();
-    
-    Apartamento* apartamentonuevo = new Apartamento(piso, tieneAscensor, gastosComunes, codigo, direccion, numeroPuerta, superficie, anoConstruccion);
-    manejador->agregarInmueble(apartamentonuevo);
-     
+
 };
     
 
