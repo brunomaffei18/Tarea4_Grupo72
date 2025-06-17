@@ -1,6 +1,7 @@
 #ifndef CONTROLADORINMUEBLE_H
 #define CONTROLADORINMUEBLE_H
 
+#include "../include/Casa.h"
 #include <string>
 #include <set>
 #include "../include/DTInmueble.h"
