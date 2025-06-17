@@ -9,7 +9,10 @@
 #include "../include/Propietario.h"
 #include "../include/Cliente.h"
 
-
+ControladorInmueble :: ControladorInmueble()
+{
+    this->manejadorinm=ManejadorInmueble::getInstancia();
+}
 ControladorInmueble* ControladorInmueble::getInstancia(){
  if(Instancia ==NULL){
     Instancia=new ControladorInmueble();
