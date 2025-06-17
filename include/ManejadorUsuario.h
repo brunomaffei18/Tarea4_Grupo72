@@ -9,13 +9,13 @@
 
 class ManejadorUsuario {
     private:
-        std::map<std::string, DTUsuario*> usuarios;
+        std::map<std::string, Usuario*> usuarios;
 
     public:
         void altaCliente(std::string nickname, std::string contrasena, std::string nombre, std::string email,std::string apellido, std::string documento);
         void altaInmobiliaria(std::string nickname, std::string contrasena, std::string nombre, std::string email, std::string direccion,std::string url, std::string telefono);
         void altaPropietario(std::string nickname, std::string contrasena, std::string nombre, std::string email, std::string cuentaBancaria,std::string telefono);
-        void liberarCliente(Cliente cliente);
+        void liberarUsuario(Usuario: usuario);
         void eliminarUsuario(std::string nickname);
        
         ~ManejadorUsuario();
