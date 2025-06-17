@@ -42,7 +42,8 @@ ControladorInmueble* ControladorInmueble::Instancia = NULL;
     
 }
 void ControladorInmueble:: altaCasa(std::string direccion, int numeroPuerta, int superficie, int anoConstruccion, bool esPH, TipoTecho techo){
-    ManejadorInmueble* manejadorinmueble= new ManejadorInmueble();
+    
+   
   
 };
 
