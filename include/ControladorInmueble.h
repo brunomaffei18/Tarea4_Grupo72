@@ -10,6 +10,7 @@
 #include "../include/ManejadorInmueble.h"
 #include "../include/IControladorInmueble.h"
 #include "ManejadorInmueble.h"
+#include "../include/TipoTecho.h"
 
 
 class ControladorInmueble: public IControladorInmueble
@@ -23,7 +24,7 @@ public:
     void altaCasa(std::string direccion, int numeroPuerta, int superficie, int anoConstruccion, bool esPH, TipoTecho techo);
         void altaApartamento(std::string direccion, int numeroPuerta, int superficie, int anoConstruccion, int piso, bool tieneAscensor, float gastosComunes);
     DTInmueble detalleInmueble(int codigoInmueble);
-    void eliminarInmueble(int codigoInmueble);
+
     std::set<DTInmueble*> listarInmuebles();
 
     ~ControladorInmueble();

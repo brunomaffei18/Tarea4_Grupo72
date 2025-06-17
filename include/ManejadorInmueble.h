@@ -7,10 +7,11 @@
 
 class ManejadorInmueble {
     private:
-    std::map<int,DTInmueble*> inmuebles;
+    std::map<int,Inmueble*> inmuebles;
 
     public:
-       
+        ManejadorInmueble();
+        Inmueble* getInmueble(int codigoInmueble);
         void eliminarInmueble(int codigoInmueble);
         std::list<DTInmueble*> listarInmuebles();
         ~ManejadorInmueble();

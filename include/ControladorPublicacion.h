@@ -13,7 +13,7 @@
 #include "ManejadorPublicaciones.h"
 
 
-class ControladorPublicacion :public:IControladorPublicacion
+class ControladorPublicacion : public IControladorPublicacion
 {
 private:
     static ControladorPublicacion* Instancia;

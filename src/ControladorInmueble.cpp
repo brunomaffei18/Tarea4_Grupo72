@@ -1,4 +1,6 @@
-#include "../include/ControladorInmueble.h"
+
+#include "../include/IControladorInmueble.h"
+#include "ControladorInmueble.h"
 #include "../include/ManejadorInmueble.h"
 #include <string>
 #include <set>
@@ -39,21 +41,29 @@ ControladorInmueble* ControladorInmueble::Instancia = NULL;
     delete manejadorInmueble;
     
 }
+void ControladorInmueble:: altaCasa(std::string direccion, int numeroPuerta, int superficie, int anoConstruccion, bool esPH, TipoTecho techo){
+    ManejadorInmueble* manejadorinmueble= new ManejadorInmueble();
+  
+};
+
+void  ControladorInmueble:: altaApartamento(std::string direccion, int numeroPuerta, int superficie, int anoConstruccion, int piso, bool tieneAscensor, float gastosComunes){
+
+};
+    
 
 
-
-    void ControladorInmueble::eliminarInmueble(int codigoInmueble){
- //cuando esten hechas las clases faltantes se vuelve 
-    };
-    std::set<DTInmueble*> ControladorInmueble::listarInmuebles(){
-     ManejadorInmueble* manejadorInmueble = new ManejadorInmueble();
-    std::list<DTInmueble*> inmuebles = manejadorInmueble->listarInmuebles();
-    std::set<DTInmueble*> resultado;
-    for (std::list<DTInmueble*>::iterator it = inmuebles.begin(); it != inmuebles.end(); ++it) {
-        resultado.insert(*it);
-    }
-    delete manejadorInmueble;
-    return resultado;
-    };
+//     void ControladorInmueble::eliminarInmueble(int codigoInmueble){
+//  //cuando esten hechas las clases faltantes se vuelve 
+//     };
+//     std::set<DTInmueble*> ControladorInmueble::listarInmuebles(){
+//      ManejadorInmueble* manejadorInmueble = new ManejadorInmueble();
+//     std::list<DTInmueble*> inmuebles = manejadorInmueble->listarInmuebles();
+//     std::set<DTInmueble*> resultado;
+//     for (std::list<DTInmueble*>::iterator it = inmuebles.begin(); it != inmuebles.end(); ++it) {
+//         resultado.insert(*it);
+//     }
+//     delete manejadorInmueble;
+//     return resultado;
+//     };
   
    
