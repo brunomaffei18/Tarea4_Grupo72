@@ -134,12 +134,14 @@ ManejadorUsuario.o: Inmobiliaria.o Propietario.o Cliente.o Usuario.o ./include/M
 Menu.o: ./include/Menu.h ./src/Menu.cpp	
 	$(CC) $(OPCIONES) ./src/Menu.cpp -o Menu.o
 
+##Falta herecia de IControladorUsuario
 ControladorUsuario.o: DTUsuario.o Propietario.o Cliente.o Inmobiliaria.o ./include/ControladorUsuario.h ./src/ControladorUsuario.cpp	
 	$(CC) $(OPCIONES) ./src/ControladorUsuario.cpp -o ControladorUsuario.o
 
 ControladorAdministrarInmueble.o: Inmobiliaria.o ManejadorInmueble.o ManejadorPublicaciones.o ManejadorUsuario.o ControladorUsuario.o ./include/ControladorAdministrarInmueble.h ./src/ControladorAdministrarInmueble.cpp
 	$(CC) $(OPCIONES) ./src/ControladorAdministrarInmueble.cpp -o ControladorAdministrarInmueble.o
 
+##Falta herecia de IControladorInmueble
 ControladorInmueble.o: Inmobiliaria.o ManejadorInmueble.o ManejadorPublicaciones.o ManejadorUsuario.o ControladorUsuario.o ./include/ControladorInmueble.h ./src/ControladorInmueble.cpp
 	$(CC) $(OPCIONES) ./src/ControladorInmueble.cpp -o ControladorInmueble.o
 
