@@ -31,7 +31,7 @@ public:
         void representarPropietario(std::string nicknamePropietario);//fijarse contrato
         void finalizarAltaUsuario();
         DTUsuario getUsuario(std::string nickname);
-        bool existeUsuario(std::string nickname)
+        bool existeUsuario(std::string nickname);
         //void finalizarAltaCliente(); consulta profe
         
     ~ControladorUsuario();
