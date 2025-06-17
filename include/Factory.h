@@ -6,6 +6,8 @@
 #include "../include/IControladorInmueble.h"
 #include "../include/IControladorPublicacion.h"
 #include "../include/IControladorUsuario.h"
+#include "../include/IControladorNotificaciones.h"
+
 
 
 class Factory {
@@ -21,6 +23,7 @@ class Factory {
         IControladorInmueble* getControladorInmueble();
         IControladorPublicacion* getControladorPublicacion();
         IControladorUsuario* getControladorUsuario();
+        IControladorNotificaciones* getControladorNotificaciones();
         ~Factory();
 };
 
