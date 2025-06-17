@@ -12,14 +12,19 @@ class ManejadorUsuario {
         std::map<std::string, Usuario*> usuarios;
         std::map<std::string, Cliente*> clientes;
         std::map<std::string, Propietario*> propietario;
-        std::map<std::string, Inmobiliaria*> Inmobiliaria;   
+        std::map<std::string, Inmobiliaria*> Inmobiliarias;   
 
     public:
         void altaCliente(std::string nickname, std::string contrasena, std::string nombre, std::string email,std::string apellido, std::string documento);
         void altaInmobiliaria(std::string nickname, std::string contrasena, std::string nombre, std::string email, std::string direccion,std::string url, std::string telefono);
         void altaPropietario(std::string nickname, std::string contrasena, std::string nombre, std::string email, std::string cuentaBancaria,std::string telefono);
-        void liberarUsuario(Usuario: usuario);
+        void liberarUsuario(Usuario* usuario);
         void eliminarUsuario(std::string nickname);
+        static ManejadorUsuario getManejadorUsuario();
+        Propietario* getPropietario(std::string nickname);
+        Cliente* getCliente(std::string nickname);
+        Usuario* getUsuario(std::string nickname);
+        Inmobiliaria* getInmobiliaria(std::string nickname);
        
         ~ManejadorUsuario();
 };

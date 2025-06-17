@@ -30,3 +30,6 @@
           }
           InmueblesAdministrados.clear();
         };
+int Inmueble::getCodigo() {
+    return this->codigo;
+}

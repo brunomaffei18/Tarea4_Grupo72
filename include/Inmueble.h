@@ -15,6 +15,7 @@ class Inmueble {
         int anoConstruccion;
         std::set<AdministraPropiedad*> InmueblesAdministrados;
     public:
+     int getCodigo();
         Inmueble(int codigo, std::string direccion, int numeroPuerta, int superficie, int anoConstruccion);
         void AgragarAdministrados(AdministraPropiedad*Administrados);
         void EliminarPublicaciones();

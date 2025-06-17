@@ -22,11 +22,13 @@ public:
     DTFecha* getFecha();
     std::string getTexto();
     float getPrecio();
-    std::string getInmobiliaria();
+    Inmobiliaria* getInmobiliaria();
+    Inmueble* getInmueble();
     AdministraPropiedad* getAdministra();
     bool esActiva();
     bool verificarInmobiiaria(int codigoInmbo,int codigoInmueble,std::string nickNameInmobiliaria,std::string nickNameInmob);
     ~Publicacion();
+    TipoPublicacion getTipo();
 };
 
 #endif

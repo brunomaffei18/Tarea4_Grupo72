@@ -12,6 +12,9 @@ class ManejadorPublicaciones {
         ManejadorPublicaciones();
     public:
         static ManejadorPublicaciones* getManejadorPublicaciones();
+        int generarCodigo();
+        void agregarPublicacion(Publicacion* publicacion);
+        std::list<Publicacion*>listarPublicaciones();
         ManejadorPublicaciones();
         std::list<DTPublicacion*> listarPublicacionesAdministradas();
         ~ManejadorPublicaciones();
