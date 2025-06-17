@@ -13,7 +13,7 @@
 
 ControladorInmueble :: ControladorInmueble()
 {
-    this->manejadorinm=ManejadorInmueble::getInstancia();
+    this->manejadorinm=ManejadorInmueble::getManejadorInmueble();
 }
 ControladorInmueble* ControladorInmueble::getInstancia(){
  if(Instancia ==NULL){

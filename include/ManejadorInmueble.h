@@ -11,7 +11,7 @@ class ManejadorInmueble {
     int codigoACtual=1;
     ManejadorInmueble();
     public:
-        static ManejadorInmueble* getInstancia();
+        static ManejadorInmueble* getManejadorInmueble();
         ManejadorInmueble();
         int generarCodigo();
         void agregarInmueble(Inmueble* inmueble);
