@@ -3,9 +3,9 @@
 
 #include <string>
 #include <set>
-#include "../include/Usuario.h"
-#include "../include/Subscriptor.h"
-#include "../include/DTNotificacion.h"
+#include "Usuario.h"
+#include "Subscriptor.h"
+#include "DTNotificacion.h"
 
 class Inmobiliaria : public Usuario {
 private:

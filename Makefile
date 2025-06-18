@@ -6,7 +6,7 @@ OBJETOS = AdministraPropiedad.o Apartamento.o CargaDatos.o Casa.o \
 		  ManejadorUsuario.o ControladorUsuario.o ControladorAdministrarInmueble.o ControladorInmueble.o ControladorPublicacion.o \
 		  ControladorNotificacion.o DTNotificacion.o Subscirptor.o Notificacion.o main.o \
 		  ControladorFechaActual.o IControladorFechaActual.o Factory.o ControladorUsuario.o \
-		  ControladorAdministrarInmueble.o ControladorInmueble.o ControladorPublicacion.o ControladorNotificacion.o
+		  ControladorAdministrarInmueble.o ControladorInmueble.o ControladorPublicacion.o ControladorNotificacion.o Propietario.o 
 
 
 FUENTES = ./include/AdminsitraPropiedad.h ./src/AdminsitraPropiedad.cpp \
@@ -53,7 +53,8 @@ FUENTES = ./include/AdminsitraPropiedad.h ./src/AdminsitraPropiedad.cpp \
 		  ./include/ControladorAdministrarInmueble.h ./src/ControladorAdministrarInmueble.cpp \
 		  ./include/ControladorInmueble.h ./src/ControladorInmueble.cpp \
 		  ./include/ControladorPublicacion.h ./src/ControladorPublicacion.cpp \
-		  ./include/ControladorNotificacion.h ./src/ControladorNotificacion.cpp
+		  ./include/ControladorNotificacion.h ./src/ControladorNotificacion.cpp \
+		  ./include/Propietario.h ./src/Propietario.cpp 
 
 
 
@@ -173,6 +174,12 @@ Subscirptor.o: DTFecha.o ./include/Subscirptor.h ./src/Subscirptor.cpp
 
 Notificacion.o: DTFecha.o Subscirptor.o ./include/Notificacion.h ./src/Notificacion.cpp
 	$(CC) $(OPCIONES) ./src/Notificacion.cpp -o Notificacion.o
+
+Propietario.o: Usuario.o DTUsuario.o ./include/Propietario.h ./src/Propietario.cpp
+	$(CC) $(OPCIONES) ./src/Propietario.cpp -o Propietario.o
+
+TipoInmueble.o: ./include/TipoInmueble.h ./src/TipoInmueble.cpp
+	$(CC) $(OPCIONES) ./src/TipoInmueble.cpp -o TipoInmueble.o
 
 
 

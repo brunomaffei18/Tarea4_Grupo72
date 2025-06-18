@@ -4,7 +4,9 @@
 #include <set>
 #include <list>
 #include <string>
-#include "../include/DTNotificacion.h"
+#include "DTNotificacion.h"
+#include "Inmobiliaria.h"
+#include "Publicacion.h"
 
 class Subscriptor {
 public:
