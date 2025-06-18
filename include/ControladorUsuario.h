@@ -20,7 +20,7 @@ private:
     ControladorUsuario();
     ManejadorUsuario* manejadorusu;
 public:
-   static ControladorUsuario* getInstancia();
+        static ControladorUsuario* getInstancia();
         bool altaCliente(std::string nickname, std::string contrasena, std::string nombre, std::string email,std::string apellido, std::string documento);
         bool altaInmobiliaria(std::string nickname, std::string contrasena, std::string nombre, std::string email, std::string direccion,std::string url, std::string telefono);
         bool altaPropietario(std::string nickname, std::string contrasena, std::string nombre, std::string email, std::string cuentaBancaria,std::string telefono);
@@ -32,7 +32,7 @@ public:
         void finalizarAltaUsuario();
         DTUsuario getUsuario(std::string nickname);
         bool existeUsuario(std::string nickname);
-        //void finalizarAltaCliente(); consulta profe
+        void finalizarAltaCliente(); //consulta profe
         
     ~ControladorUsuario();
 };

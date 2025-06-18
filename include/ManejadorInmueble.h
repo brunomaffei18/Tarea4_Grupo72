@@ -7,6 +7,7 @@
 
 class ManejadorInmueble {
     private:
+    static ManejadorInmueble* instancia;
     std::map<int,Inmueble*> inmuebles;
     int codigoACtual=1;
     ManejadorInmueble();

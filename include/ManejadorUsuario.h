@@ -14,7 +14,7 @@ class ManejadorUsuario {
         std::map<std::string, Cliente*> clientes;
         std::map<std::string, Propietario*> propietario;
         std::map<std::string, Inmobiliaria*> Inmobiliarias;   
-
+        ManejadorUsuario();
     public:
         static ManejadorUsuario* getManejadorUsuario();
         void altaCliente(std::string nickname, std::string contrasena, std::string nombre, std::string email,std::string apellido, std::string documento);
