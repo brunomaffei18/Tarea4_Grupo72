@@ -1,4 +1,6 @@
 #include "../include/Casa.h"
+#include "../include/Inmueble.h"
+#include <string>
 
 Casa:: Casa(bool esPH, TipoTecho techo,int codigo, std::string direccion, int numeroPuerta, int superficie, int anoConstruccion):Inmueble(codigo,direccion, numeroPuerta, superficie, anoConstruccion){
     this->esPH = esPH;
