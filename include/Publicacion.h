@@ -26,6 +26,7 @@ public:
     Inmueble* getInmueble();
     AdministraPropiedad* getAdministra();
     bool esActiva();
+    void setAdministra(AdministraPropiedad* admin);
     bool verificarInmobiiaria(int codigoInmbo,int codigoInmueble,std::string nickNameInmobiliaria,std::string nickNameInmob);
     ~Publicacion();
     TipoPublicacion getTipo();
