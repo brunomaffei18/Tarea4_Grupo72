@@ -7,6 +7,9 @@
 #include "../include/ManejadorInmueble.h"
 #include "../include/ControladorAdministrarInmueble.h"
 #include <set>
+#include "../include/ManejadorNotificaciones.h"
+#include"../include/Subscriptor.h"
+#include "../include/DTPublicacion.h"
 
   ControladorPublicacion* ControladorPublicacion::getInstancia(){
     if (Instancia==NULL){
@@ -42,40 +45,60 @@
     nuevaPublicacion->setAdministra(admin);
     manejador->agregarPublicacion(nuevaPublicacion);
 
-    //falta agregar la parte de suscripciones 
+    for (std::list<Subscriptor*>::iterator i = ManejadorNotificaciones::getInstance()->getSubs().begin(); i != ManejadorNotificaciones::getInstance()->getSubs().end(); i++)
+    {
+      if((*i)->estaSuscriptoA(inmobiliaria)){
+        (*i)->notificar(nuevaPublicacion);
+      }
+    }
+    
+    
     
     
     };
-//     Se retorna el conjunto de los datavalue dtp del tipo DTPublicacion correspondientes a las instancias de Publicacion p que cumplen que 
-// p.tipo = tipoPublicacion, p.precio > precioMinimo, 
-// p.precio < precioMáximo y si tipoInmueble no es todos 
-// entonces el Inmueble relacionado a la instancia AdministraPropiadad ap 
-// relacionada a la Publicacion p es del tipo Casa si tipoInmueble = 
-// casa o Apartamento si tipoInmueble = apartamento. Tal que 
-// dtp.codigo = p.codigo, dtp.fecha = p.fecha, dtp.texto 
-// = p.texto, dtp.precio = p.precio y dtp.inmobiliaria = 
-// i.nombre donde i es la Inmobiliaria relacionada a AdministraPropiedad 
-// relacionada a la Publicación p
-    std::set<DTPublicacion*> listarPublicaciones(TipoPublicacion tipoPublicacion, float precioMinimo, float precioMaximo, TipoInmueble tipoInmueble){
+
+  std::set<DTPublicacion*> ControladorPublicacion::listarPublicaciones(TipoPublicacion tipoPublicacion, float precioMinimo, float precioMaximo, TipoInmueble tipoInmueble){
     std::set<DTPublicacion*> publicacionesFiltradas;
     std::list<Publicacion*> listaPublicaciones = ManejadorPublicaciones::getManejadorPublicaciones()->listarPublicaciones();
     for (std::list<Publicacion*>::iterator i = listaPublicaciones.begin(); i !=listaPublicaciones.end(); i++)
     {
-      if ((*i)->getTipo()==tipoPublicacion && (*i)->getPrecio()>precioMinimo&& (*i)->getPrecio<precioMaximo
+      if ((*i)->getTipo()==tipoPublicacion && (*i)->getPrecio()>precioMinimo&& (*i)->getPrecio()<precioMaximo)
+      if (tipoInmueble==(*i)->getTipo())
       {
-        /* code */
+        DTPublicacion* dtdupPlicacion=new DTPublicacion((*i)->getCodigo(),(*i)->getFecha(),(*i)->getTexto(),(*i)->ConvertirPrecio(),(*i)->getInmobiliaria()->getNickname());
+        publicacionesFiltradas.insert(dtdupPlicacion);
+      }else {
+        if( tipoInmueble==Todos){
+          DTPublicacion* dtdupPlicacion=new DTPublicacion((*i)->getCodigo(),(*i)->getFecha(),(*i)->getTexto(),(*i)->ConvertirPrecio(),(*i)->getInmobiliaria()->getNickname());
+          publicacionesFiltradas.insert(dtdupPlicacion);
+        }
       }
       
     }
-    
+    return publicacionesFiltradas;
 
     };
-    DTPublicacion getPublicacion(int id){
+    DTPublicacion ControladorPublicacion::getPublicacion(int id){
+     
 
+      std::list<Publicacion*> listaPublicaciones = ManejadorPublicaciones::getManejadorPublicaciones()->listarPublicaciones();
+      for(std::list<Publicacion*>::iterator i=listaPublicaciones.begin();i!=listaPublicaciones.end();i++){
+        if((*i)->getCodigo()==id){
+         return DTPublicacion((*i)->getCodigo(),(*i)->getFecha(),(*i)->getTexto(),(*i)->ConvertirPrecio(),(*i)->getInmobiliaria()->getNickname());
+          
+        }
+      }
+      
     };
-    DTInmueble detalleInmueblePublicacion(int codigoPublicacion){
-
+    DTInmueble ControladorPublicacion::detalleInmueblePublicacion(int codigoPublicacion){
+ std::list<Publicacion*> listaPublicaciones = ManejadorPublicaciones::getManejadorPublicaciones()->listarPublicaciones();
+      for(std::list<Publicacion*>::iterator i=listaPublicaciones.begin();i!=listaPublicaciones.end();i++){
+        if((*i)->getCodigo()==codigoPublicacion){
+          return DTInmueble((*i)->getInmueble()->getCodigo(),(*i)->getInmueble()->getDireccion(),(*i)->getInmueble()->getNumeroPuerta(),(*i)->getInmueble()->getSuperficie(),(*i)->getInmueble()->getAnoConstruccion());
+        }
+      }
+      
     };
     ControladorPublicacion::~ControladorPublicacion(){
-
+      
     };

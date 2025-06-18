@@ -33,3 +33,10 @@
 int Inmueble::getCodigo() {
     return this->codigo;
 }
+
+   std::string Inmueble:: getDireccion(){
+
+   };
+     int Inmueble:: getNumeroPuerta(){return this->numeroPuerta;};
+     int Inmueble::getSuperficie(){return this->superficie;};
+     int Inmueble::getAnoConstruccion(){return this->anoConstruccion;};
