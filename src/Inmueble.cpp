@@ -35,7 +35,7 @@ int Inmueble::getCodigo() {
 }
 
    std::string Inmueble:: getDireccion(){
-
+return this->direccion;
    };
      int Inmueble:: getNumeroPuerta(){return this->numeroPuerta;};
      int Inmueble::getSuperficie(){return this->superficie;};
