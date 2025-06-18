@@ -2,6 +2,8 @@
 #define PUBLICACION_H
 #include "../include/DTFecha.h"
 #include "../include/TipoPublicacion.h"
+#include "../include/Inmobiliaria.h"
+#include "../include/Inmueble.h"
 #include <string>
 
 class AdministraPropiedad;

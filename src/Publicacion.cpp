@@ -1,6 +1,9 @@
 #include "../include/DTFecha.h"
 #include "../include/Publicacion.h"
 #include "../include/AdministraPropiedad.h" 
+#include "../include/Inmobiliaria.h"
+#include "../include/Inmueble.h"
+#include "../include/TipoPublicacion.h"
 
 Publicacion::Publicacion(int codigo, DTFecha* fecha, TipoPublicacion tipo, std::string texto, float precio, bool activa)
     : codigo(codigo), fecha(fecha), tipo(tipo), texto(texto), precio(precio), activa(activa), adminProp(nullptr) {}

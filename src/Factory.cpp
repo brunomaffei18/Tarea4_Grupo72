@@ -1,10 +1,11 @@
 #include "../include/Factory.h"
 #include "../include/ControladorFechaActual.h"
-#include "../include/ControladorAdministraInmueble.h"
+#include "../include/ControladorAdministrarInmueble.h"
 #include "../include/ControladorInmueble.h"
 #include "../include/ControladorPublicacion.h"
 #include "../include/ControladorUsuario.h"
 #include "../include/ControladorNotificaciones.h"
+#include "../include/IControladorAdministrarInmueble.h"
 
 #include <cstddef>
 
@@ -22,21 +23,29 @@ Factory* Factory::getInstance() {
 
 IControladorFechaActual* Factory::getControladorFechaActual(){
     return ControladorFechaActual::getInstance();
+}
 
-IControladorAdministraInmueble* Factory::ControladorAdministrarInmueble(){
-    return ControladorAdministrarInmueble::getInstance();
+IControladorAdministrarInmueble* Factory::ControladorAdministrarInmueble(){
+    return ControladorAdministrarInmueble::getInstancia();
+}
 
 IControladorInmueble* Factory::getControladorInmueble(){
-    return ControladorInmueble::getInstance();
+    return ControladorInmueble::getInstancia();
+}
 
 IControladorPublicacion* Factory::getControladorPublicacion(){
-    return ControladorPublicacion::getInstance();
+    return ControladorPublicacion::getInstancia();
+}
 
 IControladorUsuario* Factory::getControladorUsuario(){
-    return ControladorUsuario::getInstance();
+    return ControladorUsuario::getInstancia();
+}
 
 IControladorNotificaciones* Factory::getControladorNotificaciones(){
-    return ControladorNotificaciones::getInstance();   
-    
-Factory::~Factory();   
+    return ControladorNotificaciones::getInstance();  
 }
+    
+Factory::~Factory(){
+    delete instance;
+    instance = NULL;
+}   

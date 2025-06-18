@@ -1,14 +1,12 @@
 #ifndef FACTORY_H
 #define FACTORY_H
 
-#include "../include/IControladorAdministraInmueble.h"
-#include "../include/IControladorFechaActual.h"
-#include "../include/IControladorInmueble.h"
-#include "../include/IControladorPublicacion.h"
-#include "../include/IControladorUsuario.h"
-#include "../include/IControladorNotificaciones.h"
-
-
+#include "IControladorFechaActual.h"
+#include "IControladorAdministrarInmueble.h" 
+#include "IControladorInmueble.h"
+#include "IControladorPublicacion.h"
+#include "IControladorUsuario.h"
+#include "IControladorNotificaciones.h"
 
 class Factory {
     private:
@@ -19,11 +17,13 @@ class Factory {
         static Factory* getInstance();
         //Controladores
         IControladorFechaActual* getControladorFechaActual();//Esto es solo si son singleton
-        IControladorAdministraInmueble* getControladorAdministraInmueble();
+        IControladorAdministrarInmueble* getControladorAdministraInmueble();
         IControladorInmueble* getControladorInmueble();
         IControladorPublicacion* getControladorPublicacion();
         IControladorUsuario* getControladorUsuario();
         IControladorNotificaciones* getControladorNotificaciones();
+        IControladorAdministrarInmueble* ControladorAdministrarInmueble();
+        IControladorPublicacion* getControladorPublicacion();
         ~Factory();
 };
 
