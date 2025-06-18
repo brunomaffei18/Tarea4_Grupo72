@@ -23,7 +23,7 @@ class Factory {
         IControladorUsuario* getControladorUsuario();
         IControladorNotificaciones* getControladorNotificaciones();
         IControladorAdministrarInmueble* ControladorAdministrarInmueble();
-        IControladorPublicacion* getControladorPublicacion();
+       
         ~Factory();
 };
 

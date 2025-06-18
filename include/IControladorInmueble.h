@@ -7,6 +7,7 @@
 #include "../include/Inmobiliaria.h"
 #include "../include/Propietario.h"
 #include "../include/Cliente.h"
+#include "../include/TipoTecho.h"
 
 class IControladorInmueble
 {
