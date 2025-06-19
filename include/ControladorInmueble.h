@@ -27,7 +27,7 @@ public:
     DTInmueble detalleInmueble(int codigoInmueble);
 
     std::set<DTInmueble*> listarInmuebles();
-
+   void eliminarInmueble(int codigoInmueble);
     ~ControladorInmueble();
 };
 

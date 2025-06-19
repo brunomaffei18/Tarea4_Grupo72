@@ -10,6 +10,8 @@
 #include "../include/Inmobiliaria.h"
 #include "../include/Propietario.h"
 #include "../include/Cliente.h"
+#include "../include/ManejadorPublicaciones.h"
+#include "../include/ManejadorUsuario.h";
 
 ControladorInmueble :: ControladorInmueble()
 {
@@ -30,13 +32,13 @@ ControladorInmueble::~ControladorInmueble(){
 ControladorInmueble* ControladorInmueble::Instancia = NULL;
 
  DTInmueble ControladorInmueble::detalleInmueble(int codigoInmueble){
-    ManejadorInmueble* manejadorInmueble = new ManejadorInmueble();
+    ManejadorInmueble* manejadorInmueble =ManejadorInmueble::getManejadorInmueble();
     std::list<DTInmueble*> inmuebles = manejadorInmueble->listarInmuebles();
     
     for (std::list<DTInmueble*>::iterator i = inmuebles.begin(); i != inmuebles.end(); i++) {
         if ((*i)->getCodigo() == codigoInmueble) {
             DTInmueble result = *(*i);
-            delete manejadorInmueble;
+            delete *i;
             return result;
         }
     }
@@ -62,18 +64,25 @@ void  ControladorInmueble:: altaApartamento(std::string direccion, int numeroPue
     
 
 
-//     void ControladorInmueble::eliminarInmueble(int codigoInmueble){
-//  //cuando esten hechas las clases faltantes se vuelve 
-//     };
-//     std::set<DTInmueble*> ControladorInmueble::listarInmuebles(){
-//      ManejadorInmueble* manejadorInmueble = new ManejadorInmueble();
-//     std::list<DTInmueble*> inmuebles = manejadorInmueble->listarInmuebles();
-//     std::set<DTInmueble*> resultado;
-//     for (std::list<DTInmueble*>::iterator it = inmuebles.begin(); it != inmuebles.end(); ++it) {
-//         resultado.insert(*it);
-//     }
-//     delete manejadorInmueble;
-//     return resultado;
-//     };
+   void ControladorInmueble::eliminarInmueble(int codigoInmueble){
+       ManejadorUsuario* manejadorUsuario=ManejadorUsuario::getManejadorUsuario();
+        std::map<std::string,Propietario*>&propietarios=manejadorUsuario->getPropietarios();
+        for ()
+
+
+     };
+
+
+
+     std::set<DTInmueble*> ControladorInmueble::listarInmuebles(){
+      ManejadorInmueble* manejadorInmueble = ManejadorInmueble::getManejadorInmueble();
+     std::list<DTInmueble*> inmuebles = manejadorInmueble->listarInmuebles();
+     std::set<DTInmueble*> resultado;
+     for (std::list<DTInmueble*>::iterator it = inmuebles.begin(); it != inmuebles.end(); ++it) {
+         resultado.insert(*it);
+     }
+    
+     return resultado;
+     };
   
    
