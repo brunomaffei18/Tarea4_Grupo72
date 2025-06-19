@@ -23,7 +23,7 @@ private:
 public:
     static ControladorInmueble* getInstancia();
     void altaCasa(std::string direccion, int numeroPuerta, int superficie, int anoConstruccion, bool esPH, TipoTecho techo);
-        void altaApartamento(std::string direccion, int numeroPuerta, int superficie, int anoConstruccion, int piso, bool tieneAscensor, float gastosComunes);
+    void altaApartamento(std::string direccion, int numeroPuerta, int superficie, int anoConstruccion, int piso, bool tieneAscensor, float gastosComunes);
     DTInmueble detalleInmueble(int codigoInmueble);
 
     std::set<DTInmueble*> listarInmuebles();

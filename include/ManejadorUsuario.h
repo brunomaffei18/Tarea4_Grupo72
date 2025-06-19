@@ -26,7 +26,7 @@ class ManejadorUsuario {
         Cliente* getCliente(std::string nickname);
         Usuario* getUsuario(std::string nickname);
         Inmobiliaria* getInmobiliaria(std::string nickname);
-       
+        bool existeUsuario(std::string nickname);
         ~ManejadorUsuario();
 };
 
