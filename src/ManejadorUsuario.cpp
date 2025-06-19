@@ -15,7 +15,7 @@ bool ManejadorUsuario::existeUsuario(std::string nickname)
     return (usuarios.find(nickname) != usuarios.end());
 }
 
-Inmobiliaria* getInmobiliaria(std::string nickname);
+Inmobiliaria* ManejadorUsuario::getInmobiliaria(std::string nickname);
 { 
     inmo=inmobiliarias.find(nickname);
     if(inmo!=inmobiliarias.end()){
@@ -25,7 +25,7 @@ Inmobiliaria* getInmobiliaria(std::string nickname);
         return inmo ;
 }
 
-Usuario* getUsuario(std::string nickname);
+Usuario* ManejadorUsuario::getUsuario(std::string nickname);
 { 
     usu=usuarios.find(nickname);
     if(usu!=usuarios.end()){
@@ -35,7 +35,7 @@ Usuario* getUsuario(std::string nickname);
         return usu ;
 }
 
-Cliente* getCliente(std::string nickname);
+Cliente* ManejadorUsuario::getCliente(std::string nickname);
 { 
     cli=clientes.find(nickname);
     if(cli!=clientes.end()){
@@ -45,7 +45,7 @@ Cliente* getCliente(std::string nickname);
         return cli ;
 }
 
-Propietario* getPropietario(std::string nickname);
+Propietario* ManejadorUsuario::getPropietario(std::string nickname);
 { 
     prop=propietarios.find(nickname);
     if(cli!=propietarios.end()){
@@ -53,4 +53,14 @@ Propietario* getPropietario(std::string nickname);
     }
     else
         return prop ;
+}
+
+void ManejadorUsuario::liberarUsuario(Usuario* usuario)
+{
+
+}
+
+void ManejadorUsuario::eliminarUsuario(std::string nickname)
+{
+    
 }
