@@ -24,3 +24,33 @@ Inmobiliaria* getInmobiliaria(std::string nickname);
     else
         return inmo ;
 }
+
+Usuario* getUsuario(std::string nickname);
+{ 
+    usu=usuarios.find(nickname);
+    if(usu!=usuarios.end()){
+        return usu->second;
+    }
+    else
+        return usu ;
+}
+
+Cliente* getCliente(std::string nickname);
+{ 
+    cli=clientes.find(nickname);
+    if(cli!=clientes.end()){
+        return cli->second;
+    }
+    else
+        return cli ;
+}
+
+Propietario* getPropietario(std::string nickname);
+{ 
+    prop=propietarios.find(nickname);
+    if(cli!=propietarios.end()){
+        return prop->second;
+    }
+    else
+        return prop ;
+}

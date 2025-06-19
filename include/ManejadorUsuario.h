@@ -12,7 +12,7 @@ class ManejadorUsuario {
         static ManejadorUsuario* instancia;
         std::map<std::string, Usuario*> usuarios;
         std::map<std::string, Cliente*> clientes;
-        std::map<std::string, Propietario*> propietario;
+        std::map<std::string, Propietario*> propietarios;
         std::map<std::string, Inmobiliaria*> Inmobiliarias;   
         ManejadorUsuario();
     public:
