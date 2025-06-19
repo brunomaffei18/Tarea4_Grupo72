@@ -24,6 +24,7 @@ public:
     void eliminarSubscripciones(const std::string& nickName, const std::list<std::string>& inmobiliarias);
     std::list<std::string> nuevasSuscribciones(const std::string& nicknameInteresado);
     void seSuscribe(const std::string& nicknameInmobiliaria, const std::string& nicknameInteresado);
+    bool estaSubscripto(std::string nickSub, std::string nickInmobiliaria);
     std::list<std::string> listarInmobiliariasSuscriptas(const std::string& nicknameSubscriptor);
 
     ~ControladorNotificaciones();
