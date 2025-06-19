@@ -17,9 +17,9 @@ class ManejadorUsuario {
         ManejadorUsuario();
     public:
         static ManejadorUsuario* getManejadorUsuario();
-        void altaCliente(std::string nickname, std::string contrasena, std::string nombre, std::string email,std::string apellido, std::string documento);
-        void altaInmobiliaria(std::string nickname, std::string contrasena, std::string nombre, std::string email, std::string direccion,std::string url, std::string telefono);
-        void altaPropietario(std::string nickname, std::string contrasena, std::string nombre, std::string email, std::string cuentaBancaria,std::string telefono);
+        //void altaCliente(std::string nickname, std::string contrasena, std::string nombre, std::string email,std::string apellido, std::string documento);
+        //void altaInmobiliaria(std::string nickname, std::string contrasena, std::string nombre, std::string email, std::string direccion,std::string url, std::string telefono);
+        //void altaPropietario(std::string nickname, std::string contrasena, std::string nombre, std::string email, std::string cuentaBancaria,std::string telefono);
         void liberarUsuario(Usuario* usuario);
         void eliminarUsuario(std::string nickname);
         Propietario* getPropietario(std::string nickname);
