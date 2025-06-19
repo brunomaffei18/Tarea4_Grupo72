@@ -22,7 +22,7 @@ private:
 public:
     static ControladorPublicacion* getInstancia();
     bool altaPublicacion(std::string nicknameInmobiliaria, int codigoInmueble, TipoPublicacion tipoPublicacion, std::string texto, float precio);
-    std::set<DTPublicacion*> listarPublicaciones(TipoPublicacion tipoPublicacion, float precioMinimo, float precioMaximo, TipoInmueble tipoInmueble);
+    std::set<DTPublicacion*> listarPublicaciones(TipoPublicacion tipoPublicacion, float precioMinimo, float precioMaximo, TipoInmuebleenum::TipoInmueble tipoInmueble);
     DTPublicacion getPublicacion(int id);
     DTInmueble detalleInmueblePublicacion(int codigoPublicacion);
     ~ControladorPublicacion();

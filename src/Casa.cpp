@@ -11,9 +11,9 @@ Casa:: Casa(bool esPH, TipoTecho techo,int codigo, std::string direccion, int nu
    bool Casa:: getEsPH(){
    return this->esPH;
    };
-        TipoTecho  Casa:: getTecho(){
+        TipoTecho  Casa:: getTecho(){ 
             return this->techo;
         };
         Casa::~Casa(){
-            
+        
         };
