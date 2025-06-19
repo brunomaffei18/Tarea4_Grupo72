@@ -11,16 +11,16 @@ private:
  int codigoInmueble;
  std::string nickNameInmobiliaria;
  TipoPublicacion tipoPubli;
- TipoInmueble tipoInmueble;
+ TipoInmuebleenum::TipoInmueble tipoInmueble;
  std::string txt;
 public:
     DTNotificacion(int codigoInmueble, std::string nickNameInmobiliaria,
-        TipoPublicacion tipoPubli, TipoInmueble tipoInmueble, std::string txt);
+        TipoPublicacion tipoPubli, TipoInmuebleenum::TipoInmueble tipoInmueble, std::string txt);
     
     int getCodigo() const;
     std::string getNickInmobiliaria() const;
     TipoPublicacion getTipoPubli() const;
-    TipoInmueble getTipoInmueble() const;
+   TipoInmuebleenum:: TipoInmueble getTipoInmueble() const;
     std::string getTxt() const;
     
     ~DTNotificacion();

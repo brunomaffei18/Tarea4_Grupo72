@@ -3,7 +3,7 @@
 #include <string>
 #include "../include/DTNotificacion.h"
 
-DTNotificacion::DTNotificacion(int codigoInmueble, std::string nickNameInmobiliaria,TipoPublicacion tipoPubli, TipoInmueble tipoInmueble, std::string txt):
+DTNotificacion::DTNotificacion(int codigoInmueble, std::string nickNameInmobiliaria,TipoPublicacion tipoPubli, TipoInmuebleenum::TipoInmueble tipoInmueble, std::string txt):
     codigoInmueble(codigoInmueble), nickNameInmobiliaria(nickNameInmobiliaria),tipoPubli(tipoPubli),tipoInmueble(tipoInmueble),txt(txt){}
 
 int DTNotificacion::getCodigo() const {
@@ -15,7 +15,7 @@ std::string DTNotificacion::getNickInmobiliaria() const {
 TipoPublicacion DTNotificacion::getTipoPubli() const {
     return tipoPubli;
 }
-TipoInmueble DTNotificacion::getTipoInmueble() const {
+TipoInmuebleenum::TipoInmueble DTNotificacion::getTipoInmueble() const {
     return tipoInmueble;
 }
 std::string DTNotificacion::getTxt() const {

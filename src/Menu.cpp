@@ -293,11 +293,11 @@ void consultaPublicaciones(){
     std::cout << "Tipo de Inmueble: (1: Casa, 2: Apartamento, 0: Todos)";
     std::cin >> inTipoInmueble;
     std::cin.ignore();
-    TipoInmueble tipoInmueble = Todos;
+    TipoInmuebleenum::TipoInmueble tipoInmueble = TipoInmuebleenum::Todos;
     if(inTipoPublicacion == 1){
-        tipoInmueble = Casa;
+        tipoInmueble =TipoInmuebleenum:: Casa;
     }else if(inTipoPublicacion == 2){
-        tipoInmueble = Apartamento;
+        tipoInmueble = TipoInmuebleenum::Apartamento;
     }
     std::cout << "Publicaciones encontradas:\n";
     //TODO: Coleccion de DTPublicacion = Controlador->listarPublicacion(tipoPublicacion, precionMinimo, precioMaximo, tipoInmueble);
