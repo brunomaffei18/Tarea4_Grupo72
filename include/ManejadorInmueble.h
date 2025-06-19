@@ -13,7 +13,6 @@ class ManejadorInmueble {
     ManejadorInmueble();
     public:
         static ManejadorInmueble* getManejadorInmueble();
-        ManejadorInmueble();
         int generarCodigo();
         void agregarInmueble(Inmueble* inmueble);
         Inmueble* getInmueble(int codigoInmueble);
