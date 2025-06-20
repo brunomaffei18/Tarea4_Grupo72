@@ -26,6 +26,14 @@ std::map<int,Inmueble*> Propietario::getPropiedades()const{
     return propiedades;
 }
 
+std::map<std::string, Inmobiliaria*> Propietario::getAdministradores(){
+    return administradores;
+}
+
+void Propietario::seSuscribe(const std::string& nickInmobiliaria, const std::string& nickSubscriptor){
+    suscripciones.insert(nickInmobiliaria);
+}
+
 void Propietario::desvincularInmueble(int codigoInmueble){
     propiedades.erase(codigoInmueble);
 }
@@ -33,6 +41,14 @@ void Propietario::desvincularInmueble(int codigoInmueble){
 void Propietario::vincularInmueble(Inmueble* propiedad){
     int code =propiedad->getCodigo();
     propiedades.insert({code,propiedad});
+}
+
+Inmueble* Propietario::getInmueble(int codigoInmueble) {
+    std::map<int, Inmueble*>::iterator it = propiedades.find(codigoInmueble);
+    if (it != propiedades.end()) {
+        return it->second;
+    }
+    return NULL;
 }
 
 void Propietario::recibirNotificacion(const DTNotificacion& n){
