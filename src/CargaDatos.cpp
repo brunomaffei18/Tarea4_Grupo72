@@ -26,8 +26,8 @@ CargaDatos::CargaDatos() {
     cu->altaInmobiliaria("puntacasa", "puntapass", "Punta Casa", "punta@mail.com", "Gorlero 456", "www.puntacasa.com", "26223344");
 
     // 3. Alta de inmuebles (propietario los registra)
-    cu->altaCasa("Ejido 234", 101, 80, 1995, true, A_dos_aguas);             // Juan
-    cu->altaApartamento("Av. Italia 789", 5, 60, 2005, 2, true, 3500);       // Luz
+    
+    ci->altaCasa(datos de la casa)
 
     // 4. Representación (inmobiliaria representa a propietario)
     cu->representarPropietario("urbana", "propjuan");
