@@ -1,5 +1,6 @@
 #include "../include/ManejadorInmueble.h"
 #include "../include/Inmobiliaria.h"
+#include "../include/ManejadorUsuario.h"
 
 ManejadorInmueble* ManejadorInmueble::instancia = nullptr;
 
@@ -28,21 +29,24 @@ ManejadorInmueble* ManejadorInmueble::getManejadorInmueble(){
 
         };
         void ManejadorInmueble::eliminarInmueble(int codigoInmueble){
-            
-            Inmueble* inmueble=inmuebles[codigoInmueble];
+            auto it =inmuebles.find(codigoInmueble);
+            Inmueble* inmueble=it->second;
             std::set<AdministraPropiedad*>administracion=inmueble->getInmueblesAdministrados();
             for (auto admin: administracion){
                 admin->DarBajaPublicaciones();
                     Inmobiliaria*i=admin->getInmobiliaria();
-                i->getAdministraciones();
+                i->eliminarAdministracion(admin);
+                delete admin;
             }
-            
+            ManejadorUsuario* manejdorU=ManejadorUsuario::getManejadorUsuario();
+            std::map<std::string,Propietario*>& propietario=manejdorU->getPropietarios();
+            for (auto& prop:propietario){
+                prop.second->desvincularInmueble(codigoInmueble);
+            }
 
-            auto inm=inmuebles.find(codigoInmueble);
-            if(inm!=inmuebles.end()){
-                delete inm->second;
-                inmuebles.erase(inm);
-            }
+            delete inmueble;
+            inmuebles.erase(it);
+            
 
 
         };
