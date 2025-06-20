@@ -18,12 +18,8 @@ CargaDatos::CargaDatos() {
     cu->altaCliente("luisito23", "qweasd12", "Luis", "luisito23@gmail.com", "Perez", "46859342");
     cu->altaCliente("anarojo88", "claveAna1", "Ana", "anarojo88@hotmail.com", "Rojo", "31287465");
 
-    //3. Alta de Inmobiliarias
-    cu->altaInmobiliaria("casasur123","casasur99","Casa Sur","contacto@casasur.com","Canelones 2345","https://casasur.com.uy","24012345");
-    cu->altaInmobiliaria("idealhome","home2025","IHome","info@idealhome.uy","Av. Italia 4567","https://idealhome.uy","099123456");
-    cu->altaInmobiliaria("vivaurbana","viva4567","Viva Urbana","contacto@vivaurbana.com","18 de Julio 7890","https://vivaurbana.com","29109876");
 
-    //4. Alta de Propietarios y sus Inmuebles
+    //3. Alta de Propietarios y sus Inmuebles
     cu->altaPropietario("marcelom",	"banco123",	"Marcelo","marcelo.m@gmail.com","099876543","123456789012");
         ci->altaCasa("Av. Rivera", 1011 ,120,1995,true,Plano);
         ci->altaApartamento("Av. Brasil",2031,75,1980,5,true,3500);
@@ -38,6 +34,18 @@ CargaDatos::CargaDatos() {
         ci->altaApartamento("Sarmiento",1476,80,2008,6,true,3100);
         ci->altaCasa("Cno. Carrasco",1576,140,2007,true,Plano);
 
+    //4. Alta de Inmobiliarias y la relacion de quien los administra
+    cu->altaInmobiliaria("casasur123","casasur99","Casa Sur","contacto@casasur.com","Canelones 2345","https://casasur.com.uy","24012345");
+        cu->representarPropietario("marcelom");
+        cu->representarPropietario("jorge88");
+    cu->altaInmobiliaria("idealhome","home2025","IHome","info@idealhome.uy","Av. Italia 4567","https://idealhome.uy","099123456");
+        cu->representarPropietario("marcelom");
+        cu->representarPropietario("martagal");
+        cu->representarPropietario("jorge88");
+    cu->altaInmobiliaria("vivaurbana","viva4567","Viva Urbana","contacto@vivaurbana.com","18 de Julio 7890","https://vivaurbana.com","29109876");
+        cu->representarPropietario("robertarce");
+        cu->representarPropietario("soledadf");
+        cu->representarPropietario("jorge88");
 /*
     // 4. Representación (inmobiliaria representa a propietario)
     cu->representarPropietario("urbana", "propjuan");
