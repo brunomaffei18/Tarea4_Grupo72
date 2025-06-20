@@ -14,9 +14,9 @@ class ControladorAdministrarInmueble: public IControladorAdministrarInmueble {
        ControladorAdministrarInmueble();
 
     public:
-    static ControladorAdministrarInmueble* getInstancia();
-    std:: set<DTInmuebleListado> listarInmueblesNoAdministradosInmobiliaria(std::string nicknameInmobiliaria);
-    void altaAdministrarPropiedad(std::string nickNameInmobiliaria,int codigoInmueble);
+        static ControladorAdministrarInmueble* getInstancia();
+        std:: set<DTInmuebleListado> listarInmueblesNoAdministradosInmobiliaria(std::string nicknameInmobiliaria);
+        void altaAdministrarPropiedad(std::string nickNameInmobiliaria,int codigoInmueble);
 
 };
 
