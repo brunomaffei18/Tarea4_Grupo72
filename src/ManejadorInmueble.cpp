@@ -23,8 +23,6 @@ ManejadorInmueble* ManejadorInmueble::getManejadorInmueble(){
         Inmueble* ManejadorInmueble::getInmueble(int codigoInmueble){
             if(inmuebles.find(codigoInmueble)!=inmuebles.end()){
                 return inmuebles[codigoInmueble];
-            }else{
-                return nullptr;
             }
 
         };
