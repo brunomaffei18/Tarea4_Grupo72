@@ -17,7 +17,7 @@ class Factory {
         static Factory* getInstance();
         //Controladores
         IControladorFechaActual* getControladorFechaActual();//Esto es solo si son singleton
-        IControladorAdministrarInmueble* getControladorAdministraInmueble();
+        IControladorAdministrarInmueble* getControladorAdministrarInmueble();
         IControladorInmueble* getControladorInmueble();
         IControladorPublicacion* getControladorPublicacion();
         IControladorUsuario* getControladorUsuario();
