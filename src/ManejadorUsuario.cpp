@@ -64,3 +64,8 @@ void ManejadorUsuario::eliminarUsuario(std::string nickname)
 {
     
 }
+
+ManejadorUsuario::~ManejadorUsuario(){
+    delete instancia;
+    instancia = nullptr;
+}  

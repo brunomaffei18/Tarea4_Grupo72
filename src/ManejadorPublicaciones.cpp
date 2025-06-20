@@ -7,3 +7,12 @@ ManejadorPublicaciones* ManejadorPublicaciones::getManejadorPublicaciones(){
         instancia= new ManejadorPublicaciones();
     return instancia;
 }
+
+
+
+
+
+ManejadorPublicaciones::~ManejadorPublicaciones(){
+    delete instancia;
+    instancia = nullptr;
+}  

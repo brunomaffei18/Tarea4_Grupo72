@@ -7,3 +7,11 @@ ManejadorNotificaciones* ManejadorNotificaciones::getManejadorNotificaciones(){
         instancia= new ManejadorNotificaciones();
     return instancia;
 }
+
+
+
+
+ManejadorNotificaciones::~ManejadorNotificaciones(){
+    delete instancia;
+    instancia = nullptr;
+}  
