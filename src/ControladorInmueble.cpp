@@ -64,16 +64,21 @@ void  ControladorInmueble:: altaApartamento(std::string direccion, int numeroPue
     
 
 
-   void ControladorInmueble::eliminarInmueble(int codigoInmueble){
-        ManejadorUsuario* manejadorUsuario=ManejadorUsuario::getManejadorUsuario();
-        std::map<std::string,Propietario*>& propietarios = manejadorUsuario->getPropietarios();
+//    void ControladorInmueble::eliminarInmueble(int codigoInmueble){
+//         ManejadorUsuario* manejadorUsuario=ManejadorUsuario::getManejadorUsuario();
+//         std::map<std::string,Propietario*>& propietarios = manejadorUsuario->getPropietarios();
        
-        Inmueble*inmu=manejadorinm->getInmueble(codigoInmueble);
-        inmu->EliminarPublicaciones();
-        std::set<AdministraPropiedad*>administrar=inmu->getInmueblesAdministrados(); 
+//         Inmueble*inmu=manejadorinm->getInmueble(codigoInmueble);
+//         inmu->EliminarPublicaciones();
+//         std::set<AdministraPropiedad*>administrar=inmu->getInmueblesAdministrados();
+//         for ( std::set<AdministraPropiedad*>::iterator i = administrar.begin(); i !=administrar.end(); i++)
+//         {
+            
+//         }
+         
 
 
-     };
+//      };
 
 
 
