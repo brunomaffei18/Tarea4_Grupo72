@@ -23,13 +23,24 @@ void Inmobiliaria::notificar(const DTNotificacion& n){
     }
 }
 
+void Inmobiliaria::agregarAdministracion(AdministraPropiedad* administracion){
+    administrados.insert(administracion);
+}
+void Inmobiliaria::eliminarAdministracion(AdministraPropiedad*admin){
+    administrados.erase(admin);
+}
+
+std::set<Subscriptor*> Inmobiliaria::getSuscriptores() const{
+    return this->suscriptores;
+}
+
+std::set<AdministraPropiedad*> Inmobiliaria::getAdministraciones() const{
+    return this->administrados;
+}
+std::map<std::string, Propietario*> Inmobiliaria::getRepresentados() const{
+    return this->representados;
+}
+
 Inmobiliaria::~Inmobiliaria(){
     suscriptores.clear();
 }
-void Inmobiliaria::agregarAdministracion(AdministraPropiedad* administracion){
-    administra.insert(administracion);
-}
-void Inmobiliaria::eliminarAdministracion(AdministraPropiedad*admin){
-    administra.erase(admin);
-}
-
