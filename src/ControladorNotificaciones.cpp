@@ -49,7 +49,7 @@ void ControladorNotificaciones::eliminarSubscripciones(const std::string& nickNa
             Inmobiliaria* inmobiliaria = manejador->obtenerInmobiliaria(*it);
             if (inmobiliaria != NULL)
             {
-                inmobiliaria->eliminarSubscriptor(nickName);
+                inmobiliaria->eliminarSubscriptor(sub);
                 sub->seDesuscribe(*it);
             }
             
