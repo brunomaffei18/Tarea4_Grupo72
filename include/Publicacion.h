@@ -6,7 +6,7 @@
 #include "../include/Inmueble.h"
 #include <string>
 
-class AdministraPropiedad;
+
 
 class Publicacion {
 private:

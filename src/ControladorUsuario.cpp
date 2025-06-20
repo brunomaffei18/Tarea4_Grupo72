@@ -3,6 +3,8 @@
 #include "../include/ManejadorInmueble.h"
 #include "../include/ControladorAdministrarInmueble.h"
 #include "../include/Usuario.h"
+#include "../include/DTInmuebleAdministrado.h"
+#include "../include/ControladorFechaActual.h"
 
 ControladorUsuario* ControladorUsuario::Intancia = nullptr;
 
@@ -34,34 +36,62 @@ bool ControladorUsuario::altaPropietario(std::string nickname, std::string contr
 std::set<DTInmuebleAdministrado*> ControladorUsuario::listarInmueblesAdministrados(std::string nicknameInmobiliaria) {
     ManejadorUsuario* manejadorusu = ManejadorUsuario::getManejadorUsuario();
     Inmobiliaria* inmo = manejadorusu->getInmobiliaria(nicknameInmobiliaria);
-    std::set<AdministraPropiedad*>administrados=inmo->getInmueblesAdministrados();
-    return administrados;
+    std::set<AdministraPropiedad*>administrados=inmo->getAdministraciones();
+    std::set<DTInmuebleAdministrado*> administradosDT;
+    for (auto& administracion : administrados) {
+        Inmueble* inmueble = administracion->getInmueble();
+        DTInmuebleAdministrado* dtInmueble = new DTInmuebleAdministrado(
+            inmueble->getCodigo(),
+            inmueble->getDireccion(),
+            administracion->getFechaPublicacion()
+        );
+        administradosDT.insert(dtInmueble);
+    }
+    return administradosDT;
 }
 std::set<DTUsuario*> ControladorUsuario::ListarInmobiliarias() {
     ManejadorUsuario* manejadorusu = ManejadorUsuario::getManejadorUsuario();
     ManejadorInmueble* manejadorinm = ManejadorInmueble::getManejadorInmueble();
-    users = manejadorusu->getInmobiliarias();
+    std::map<std::string, Inmobiliaria*> users = manejadorusu->getInmobiliarias();
     std::set<DTUsuario*> listaDT;
     for (auto& inmobiliaria : users) {
         DTUsuario* dtInmobiliaria = new DTUsuario(
             inmobiliaria.second->getNickname(),
             inmobiliaria.second->getNombre(),
-            inmobiliaria.second->getEmail(),
-            inmobiliaria.second->getTipo()
         );
         listaDT.insert(dtInmobiliaria);
     }
     return listaDT;
 }
 std::set<DTUsuario*> ControladorUsuario::ListarPropietarios() {
-    ManejadorUsuario* manejadorusu = ManejadorUsuario::getInstancia();
-    ManejadorUsuario* manejadorinm = ManejadorInmueble::getManejadorInmueble();
-    return manejadorusu->ListarPropietarios();
+    ManejadorUsuario* manejadorusu = ManejadorUsuario::getManejadorUsuario();
+    ManejadorInmueble* manejadorinm = ManejadorInmueble::getManejadorInmueble();
+    std::map<std::string, Propietario*> dueños = manejadorusu->getPropietarios();
+    std::set<DTUsuario*> listaDT;
+    for (auto& propietario : dueños) {
+        DTUsuario* dtPropietario = new DTUsuario(
+            propietario.second->getNickname(),
+            propietario.second->getNombre()
+        );
+        listaDT.insert(dtPropietario);
+    }
+    return listaDT;
 }
 std::set<DTUsuario*> ControladorUsuario::ListarClientes() {
-    return manejadorusu->ListarClientes();
+    ManejadorUsuario* manejadorusu = ManejadorUsuario::getManejadorUsuario();
+    auto clientes = manejadorusu->getClientes();
+    std::set<DTUsuario*> listaDT;
+    for (auto& cliente : clientes) {
+        DTUsuario* dtCliente = new DTUsuario(
+            cliente.second->getNickname(),
+            cliente.second->getNombre()
+        );
+        listaDT.insert(dtCliente);
+    }
+    return listaDT;
 }
 void ControladorUsuario::representarPropietario(std::string nicknamePropietario) {
+ManejadorUsuario* manejadorusu = ManejadorUsuario::getManejadorUsuario();
     manejadorusu->representarPropietario(nicknamePropietario);
 }
 void ControladorUsuario::finalizarAltaUsuario() {

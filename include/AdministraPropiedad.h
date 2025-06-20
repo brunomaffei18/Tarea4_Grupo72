@@ -22,6 +22,7 @@ class AdministraPropiedad {
     Inmobiliaria* getInmobiliaria();
     void DarBajaPublicaciones(); 
     void borrarPublicacion(Publicacion p);
+    DTFecha* getFechaPublicacion();
 
         ~AdministraPropiedad();
 };

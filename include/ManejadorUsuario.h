@@ -18,6 +18,8 @@ class ManejadorUsuario {
     public:
         static ManejadorUsuario* getManejadorUsuario();
         std::map<std::string,Propietario*>& getPropietarios();
+        std::map<std::string,Inmobiliaria*>& getInmobiliarias();
+        std::map<std::string,Cliente*>& getClientes();
         virtual void agregarUsuario(Usuario* usuario);
         void liberarUsuario(Usuario* usuario);
         void eliminarUsuario(std::string nickname);
@@ -25,6 +27,7 @@ class ManejadorUsuario {
         Cliente* getCliente(std::string nickname);
         Usuario* getUsuario(std::string nickname);
         Inmobiliaria* getInmobiliaria(std::string nickname);
+
         bool existeUsuario(std::string nickname);
         ~ManejadorUsuario();
 };
