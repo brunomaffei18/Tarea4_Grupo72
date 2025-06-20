@@ -7,6 +7,7 @@
 
 class ManejadorPublicaciones {
     private:
+        static ManejadorPublicaciones* instancia;
         std::map<int,Publicacion*> publicaciones;
         int codigo;
         ManejadorPublicaciones();

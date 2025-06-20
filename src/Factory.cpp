@@ -9,13 +9,13 @@
 
 #include <cstddef>
 
-Factory* Factory::instance = NULL;
+Factory* Factory::instance = nullptr;
 
 Factory::Factory() {
 }
 
 Factory* Factory::getInstance() {
-    if (instance == NULL) {
+    if (instance == nullptr) {
         instance = new Factory();
     }
     return instance;
@@ -25,7 +25,7 @@ IControladorFechaActual* Factory::getControladorFechaActual(){
     return ControladorFechaActual::getInstance();
 }
 
-IControladorAdministrarInmueble* Factory::ControladorAdministrarInmueble(){
+IControladorAdministrarInmueble* Factory::getControladorAdministrarInmueble(){
     return ControladorAdministrarInmueble::getInstancia();
 }
 
@@ -47,5 +47,5 @@ IControladorNotificaciones* Factory::getControladorNotificaciones(){
     
 Factory::~Factory(){
     delete instance;
-    instance = NULL;
+    instance = nullptr;
 }   

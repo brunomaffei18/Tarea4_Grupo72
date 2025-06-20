@@ -27,6 +27,11 @@ ManejadorInmueble* ManejadorInmueble::getManejadorInmueble(){
 
         };
         void ManejadorInmueble::eliminarInmueble(int codigoInmueble){
+            
+            Inmueble* inmueble=inmuebles[codigoInmueble];
+            std::set<AdministraPropiedad*>administracion=inmueble->getInmueblesAdministrados();
+            
+
             auto inm=inmuebles.find(codigoInmueble);
             if(inm!=inmuebles.end()){
                 delete inm->second;
@@ -43,13 +48,15 @@ ManejadorInmueble* ManejadorInmueble::getManejadorInmueble(){
                 DTInmueble* DTinmuebles=new DTInmueble(inmueble->getCodigo(), inmueble->getDireccion(), inmueble->getNumeroPuerta(), inmueble->getSuperficie(), inmueble->getAnoConstruccion());
                 listaDTInmuebles.push_back(DTinmuebles);
             }
-            return listaDTInmuebles
-;        };
+            return listaDTInmuebles;
+                };
+
+
         ManejadorInmueble::~ManejadorInmueble(){
-for (auto i = inmuebles.begin(); i != inmuebles.end(); i++)
-{
-    delete i->second;
-}
-inmuebles.clear();
+            for (auto i = inmuebles.begin(); i != inmuebles.end(); i++)
+                {
+                    delete i->second;
+                }
+            inmuebles.clear();
 
         };
