@@ -15,6 +15,7 @@ bool ManejadorUsuario::existeUsuario(std::string nickname)
     return (usuarios.find(nickname) != usuarios.end());
 }
 
+<<<<<<< HEAD
 
 Inmobiliaria* ManejadorUsuario::getInmobiliaria(std::string nickname)
 { 
@@ -55,6 +56,28 @@ Propietario* ManejadorUsuario::getPropietario(std::string nickname)
     else
         return prop ;
 };
+=======
+Inmobiliaria* ManejadorUsuario::getInmobiliaria(std::string nickname)
+{ 
+    return Inmobiliarias.at(nickname);
+  
+}
+
+Usuario* ManejadorUsuario::getUsuario(std::string nickname)
+{ 
+    return usuarios.at(nickname);
+}
+
+Cliente* ManejadorUsuario::getCliente(std::string nickname)
+{ 
+    return clientes.at(nickname);
+}
+
+Propietario* ManejadorUsuario::getPropietario(std::string nickname)
+{ 
+   return propietarios.at(nickname);
+}
+>>>>>>> 8e6f5efcbac8dfa947c19ae42b0f5c8e1c7c944d
 
 void ManejadorUsuario::liberarUsuario(Usuario* usuario)
 {
