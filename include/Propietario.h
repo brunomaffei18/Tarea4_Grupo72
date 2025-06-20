@@ -25,7 +25,7 @@ class Propietario : public Usuario, public Subscriptor{
         std::map<int,Inmueble*> getPropiedades()const;
 
         void desvincularInmueble(int codigoInmueble);
-        
+        Inmueble*getInmueble(int codigoInmueble);
         void recibirNotificacion(const DTNotificacion& n) override;
         std::set<DTNotificacion> consultarNotificaciones() const override;
         void limpiarNotificaciones() override;

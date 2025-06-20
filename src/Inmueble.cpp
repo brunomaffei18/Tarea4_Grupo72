@@ -37,6 +37,9 @@ int Inmueble::getCodigo() {
    std::string Inmueble:: getDireccion(){
 return this->direccion;
    };
+   std::set<AdministraPropiedad*> Inmueble::getInmueblesAdministrados(){
+    return this->InmueblesAdministrados;
+   }
      int Inmueble:: getNumeroPuerta(){return this->numeroPuerta;};
      int Inmueble::getSuperficie(){return this->superficie;};
      int Inmueble::getAnoConstruccion(){return this->anoConstruccion;};

@@ -48,13 +48,13 @@ ControladorInmueble* ControladorInmueble::Instancia = NULL;
 void ControladorInmueble:: altaCasa(std::string direccion, int numeroPuerta, int superficie, int anoConstruccion, bool esPH, TipoTecho techo){
     ManejadorInmueble* manejador=ManejadorInmueble::getManejadorInmueble();
     int codigo=manejador->generarCodigo();
-    ::Casa* casanueva=new ::Casa(esPH, techo, codigo, direccion, numeroPuerta, superficie, anoConstruccion);
+    Casa* casanueva=new Casa(esPH, techo, codigo, direccion, numeroPuerta, superficie, anoConstruccion);
     manejador->agregarInmueble(casanueva);
     
 };
 
 void  ControladorInmueble:: altaApartamento(std::string direccion, int numeroPuerta, int superficie, int anoConstruccion, int piso, bool tieneAscensor, float gastosComunes){
-   ManejadorInmueble* manejadorinm=ManejadorInmueble::getManejadorInmueble();
+    ManejadorInmueble* manejadorinm=ManejadorInmueble::getManejadorInmueble();
     int codigo=manejadorinm->generarCodigo();
     Apartamento* apartamentoNuevo=new Apartamento(piso, tieneAscensor, gastosComunes, codigo, direccion, numeroPuerta, superficie, anoConstruccion);
     manejadorinm->agregarInmueble(apartamentoNuevo);
@@ -65,9 +65,12 @@ void  ControladorInmueble:: altaApartamento(std::string direccion, int numeroPue
 
 
    void ControladorInmueble::eliminarInmueble(int codigoInmueble){
-       ManejadorUsuario* manejadorUsuario=ManejadorUsuario::getManejadorUsuario();
-        std::map<std::string,Propietario*>&propietarios=manejadorUsuario->getPropietarios();
-        for ()
+        ManejadorUsuario* manejadorUsuario=ManejadorUsuario::getManejadorUsuario();
+        std::map<std::string,Propietario*>& propietarios = manejadorUsuario->getPropietarios();
+       
+        Inmueble*inmu=manejadorinm->getInmueble(codigoInmueble);
+        inmu->EliminarPublicaciones();
+        std::set<AdministraPropiedad*>administrar=inmu->getInmueblesAdministrados(); 
 
 
      };
