@@ -54,7 +54,6 @@ void ControladorInmueble:: altaCasa(std::string direccion, int numeroPuerta, int
         if (this->propietarioRecordado != NULL)
         {
         this->propietarioRecordado->vincularInmueble(casanueva);
-        casanueva.
         }  
 };
 
