@@ -1,9 +1,9 @@
 #include "../include/ManejadorUsuario.h"
 
-ManejadorUsuario* ManejadorUsuario::instancia = nullptr;
+ManejadorUsuario* ManejadorUsuario::instancia = NULL;
 
 ManejadorUsuario* ManejadorUsuario::getManejadorUsuario(){
-    if(instancia==nullptr)
+    if(instancia==NULL)
         instancia= new ManejadorUsuario();
     return instancia;
 }
@@ -36,17 +36,13 @@ Propietario* ManejadorUsuario::getPropietario(std::string nickname)
    return propietarios.at(nickname);
 }
 
-void ManejadorUsuario::liberarUsuario(Usuario* usuario)
-{
 
-}
-
-void ManejadorUsuario::eliminarUsuario(std::string nickname)
+/*void ManejadorUsuario::eliminarUsuario(std::string nickname)
 {
     
-}
+}*/
 
 ManejadorUsuario::~ManejadorUsuario(){
     delete instancia;
-    instancia = nullptr;
+    instancia = NULL;
 }  
