@@ -1,6 +1,7 @@
 #include "../include/ControladorUsuario.h"
 #include "../include/ManejadorUsuario.h"
 #include "../include/ManejadorInmueble.h"
+#include "../include/ControladorAdministrarInmueble.h"
 #include "../include/Usuario.h"
 
 ControladorUsuario* ControladorUsuario::Intancia = nullptr;
@@ -32,20 +33,9 @@ bool ControladorUsuario::altaPropietario(std::string nickname, std::string contr
 }
 std::set<DTInmuebleAdministrado*> ControladorUsuario::listarInmueblesAdministrados(std::string nicknameInmobiliaria) {
     ManejadorUsuario* manejadorusu = ManejadorUsuario::getManejadorUsuario();
-    ManejadorInmueble* manejadorinm = ManejadorInmueble::getManejadorInmueble();
     Inmobiliaria* inmo = manejadorusu->getInmobiliaria(nicknameInmobiliaria);
-    std::list<DTInmueble*> lista = manejadorinm->;
-    std::set<DTInmuebleAdministrado*> listaDT;
-    for (auto& inmueble : lista) {
-        DTInmuebleAdministrado* dtInmueble = new DTInmuebleAdministrado(
-            inmueble->getCodigo(),
-            inmueble->getDireccion(),
-            inmueble->getPrecio(),
-            inmueble->getTipo()
-        );
-        listaDT.insert(dtInmueble);
-    }
-    return listaDT;
+    std::set<AdministraPropiedad*>administrados=inmo->getInmueblesAdministrados();
+    return administrados;
 }
 std::set<DTUsuario*> ControladorUsuario::ListarInmobiliarias() {
     ManejadorUsuario* manejadorusu = ManejadorUsuario::getManejadorUsuario();

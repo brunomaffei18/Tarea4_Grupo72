@@ -23,7 +23,7 @@ class Propietario : public Usuario, public Subscriptor{
         std::set<DTNotificacion> getNotificaciones()const;
         std::set<std::string> getSuscripciones()const; 
         std::map<int,Inmueble*> getPropiedades()const;
-
+        void seSuscribe(const std::string& nickInmobiliaria, const std::string& nickSubscriptor) override;
         std::string getNickname() const override;
         bool estaSuscriptoA(Inmobiliaria* inmo) const override;
         void notificar(Publicacion* pub) override;
