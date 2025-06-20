@@ -26,3 +26,10 @@ void Inmobiliaria::notificar(const DTNotificacion& n){
 Inmobiliaria::~Inmobiliaria(){
     suscriptores.clear();
 }
+void Inmobiliaria::agregarAdministracion(AdministraPropiedad* administracion){
+    administra.insert(administracion);
+}
+void Inmobiliaria::eliminarAdministracion(AdministraPropiedad*admin){
+    administra.erase(admin);
+}
+
