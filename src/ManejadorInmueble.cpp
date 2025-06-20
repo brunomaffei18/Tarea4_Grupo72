@@ -1,4 +1,5 @@
 #include "../include/ManejadorInmueble.h"
+#include "../include/Inmobiliaria.h"
 
 ManejadorInmueble* ManejadorInmueble::instancia = nullptr;
 
@@ -30,6 +31,11 @@ ManejadorInmueble* ManejadorInmueble::getManejadorInmueble(){
             
             Inmueble* inmueble=inmuebles[codigoInmueble];
             std::set<AdministraPropiedad*>administracion=inmueble->getInmueblesAdministrados();
+            for (auto admin: administracion){
+                admin->DarBajaPublicaciones();
+                    Inmobiliaria*i=admin->getInmobiliaria();
+                i.
+            }
             
 
             auto inm=inmuebles.find(codigoInmueble);
