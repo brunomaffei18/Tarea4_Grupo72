@@ -20,6 +20,9 @@ class Cliente : public Usuario, public Subscriptor{
         std::set<DTNotificacion> getNotificaciones()const;
         std::set<std::string> getSuscripciones()const; 
 
+        std::string getNickname() const override;
+        bool estaSuscriptoA(Inmobiliaria* inmo) const override;
+        void notificar(Publicacion* pub) override;
         void recibirNotificacion(const DTNotificacion& n) override;
         std::set<DTNotificacion> consultarNotificaciones() const override;
         void limpiarNotificaciones() override;

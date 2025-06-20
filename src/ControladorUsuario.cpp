@@ -1,15 +1,12 @@
 #include "../include/ControladorUsuario.h"
+#include "../include/ManejadorUsuario.h"
+#include "../include/ManejadorInmueble.h"
 #include "../include/Usuario.h"
 
-static ControladorUsuario* ControladorUsuario::Intancia = nullptr;
-ControladorUsuario* ControladorUsuario::getInstancia() {
-    if (Instancia == nullptr) {
-        Instancia = new ControladorUsuario();
-    }
-    return Instancia;
-}
+ControladorUsuario* ControladorUsuario::Intancia = nullptr;
+
 bool ControladorUsuario::altaCliente(std::string nickname, std::string contrasena, std::string nombre, std::string email,std::string apellido, std::string documento) {
-    ManejadorUsuario* manejadorusu = ManejadorUsuario::getInstancia();
+    ManejadorUsuario* manejadorusu = ManejadorUsuario::getManejadorUsuario();
     if (manejadorusu->existeUsuario(nickname)) {
         return false;}
     Cliente* cliente = new Cliente(nickname, contrasena, nombre, email, apellido, documento);
@@ -18,7 +15,7 @@ bool ControladorUsuario::altaCliente(std::string nickname, std::string contrasen
     return true;
 }
 bool ControladorUsuario::altaInmobiliaria(std::string nickname, std::string contrasena, std::string nombre, std::string email, std::string direccion,std::string url, std::string telefono) {
-    ManejadorUsuario* manejadorusu = ManejadorUsuario::getInstancia();
+    ManejadorUsuario* manejadorusu = ManejadorUsuario::getManejadorUsuario();
     if (manejadorusu->existeUsuario(nickname)) {
         return false;}
     Inmobiliaria* inmobiliaria = new Inmobiliaria(nickname, contrasena, nombre, email, direccion, url, telefono);
@@ -26,7 +23,7 @@ bool ControladorUsuario::altaInmobiliaria(std::string nickname, std::string cont
     return true;
 }
 bool ControladorUsuario::altaPropietario(std::string nickname, std::string contrasena, std::string nombre, std::string email, std::string cuentaBancaria,std::string telefono) {
-    ManejadorUsuario* manejadorusu = ManejadorUsuario::getInstancia();
+    ManejadorUsuario* manejadorusu = ManejadorUsuario::getManejadorUsuario();
     if (manejadorusu->existeUsuario(nickname)) {
         return false;}
     Propietario* propietario = new Propietario(nickname, contrasena, nombre, email, cuentaBancaria, telefono);
@@ -34,10 +31,10 @@ bool ControladorUsuario::altaPropietario(std::string nickname, std::string contr
     return true;
 }
 std::set<DTInmuebleAdministrado*> ControladorUsuario::listarInmueblesAdministrados(std::string nicknameInmobiliaria) {
-    ManejadorUsuario* manejadorusu = ManejadorUsuario::getInstancia();
+    ManejadorUsuario* manejadorusu = ManejadorUsuario::getManejadorUsuario();
     ManejadorInmueble* manejadorinm = ManejadorInmueble::getManejadorInmueble();
     Inmobiliaria* inmo = manejadorusu->getInmobiliaria(nicknameInmobiliaria);
-    lista = manejadorinm->listarInmuebles(inmo);
+    std::list<DTInmueble*> lista = manejadorinm->;
     std::set<DTInmuebleAdministrado*> listaDT;
     for (auto& inmueble : lista) {
         DTInmuebleAdministrado* dtInmueble = new DTInmuebleAdministrado(
@@ -51,9 +48,9 @@ std::set<DTInmuebleAdministrado*> ControladorUsuario::listarInmueblesAdministrad
     return listaDT;
 }
 std::set<DTUsuario*> ControladorUsuario::ListarInmobiliarias() {
-    ManejadorUsuario* manejadorusu = ManejadorUsuario::getInstancia();
+    ManejadorUsuario* manejadorusu = ManejadorUsuario::getManejadorUsuario();
     ManejadorInmueble* manejadorinm = ManejadorInmueble::getManejadorInmueble();
-    users = manejadorusu.getInmobiliarias();
+    users = manejadorusu->getInmobiliarias();
     std::set<DTUsuario*> listaDT;
     for (auto& inmobiliaria : users) {
         DTUsuario* dtInmobiliaria = new DTUsuario(
