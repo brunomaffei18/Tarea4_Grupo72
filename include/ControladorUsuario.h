@@ -33,6 +33,9 @@ public:
         DTUsuario getUsuario(std::string nickname);
         void finalizarAltaCliente(); //consulta profe
         
+        std:: set<DTInmuebleListado> listarInmueblesNoAdministradosInmobiliaria(std::string nicknameInmobiliaria)=0;
+        void altaAdministrarPropiedad(std::string nickNameInmobiliaria,int codigoInmueble)=0;
+        
     ~ControladorUsuario();
 };
 
