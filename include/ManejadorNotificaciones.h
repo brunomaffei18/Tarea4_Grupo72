@@ -17,7 +17,7 @@ private:
     ManejadorNotificaciones();
 
 public:
-    static ManejadorNotificaciones* getManejadorNotificaciones();
+    static ManejadorNotificaciones* getInstance();
     std::list<Subscriptor*> getSubs();
     void agregarSubscriptor(Subscriptor* s);
     void agregarInmobiliaria(Inmobiliaria* i);

@@ -8,9 +8,9 @@
 #include <map>
 #include <set>
 
-ControladorNotificaciones* ControladorNotificaciones::instance = NULL;
+ControladorNotificaciones* ControladorNotificaciones::instancia = NULL;
 
-static ControladorNotificaciones* ControladorNotificaciones::getInstance(){
+ControladorNotificaciones* ControladorNotificaciones::getInstance(){
     if (instancia == NULL)
     instancia = new ControladorNotificaciones();
     return instancia;
@@ -46,10 +46,10 @@ void ControladorNotificaciones::eliminarSubscripciones(const std::string& nickNa
         std::list<std::string>::const_iterator it;
         for (it = inmobiliarias.begin(); it != inmobiliarias.end(); ++it)
         {
-            Inmobiliaria inmobiliaria = manejador->obtenerInmobiliaria(*it);
+            Inmobiliaria* inmobiliaria = manejador->obtenerInmobiliaria(*it);
             if (inmobiliaria != NULL)
             {
-                inmobiliaria->eliminarSubscriptor(nickName);
+                inmobiliaria->eliminarSubscriptor(sub);
                 sub->seDesuscribe(*it);
             }
             
@@ -59,10 +59,54 @@ void ControladorNotificaciones::eliminarSubscripciones(const std::string& nickNa
     
 }
 std::list<std::string> ControladorNotificaciones::nuevasSuscribciones(const std::string& nicknameInteresado){
-    
+    ManejadorNotificaciones* manejador = ManejadorNotificaciones::getInstance();
+    Subscriptor* sub =manejador->obtenerSubscriptor(nicknameInteresado);
+    std::list<std::string> resultado;
+
+    if (sub != NULL)
+    {
+        std::list<std::string> todas = manejador->obtenerNicksInmobiliarias();
+        std::list<std::string> actuales = sub->suscriptoActualmente();
+
+        std::list<std::string>::const_iterator it;
+        for (it = todas.begin(); it != todas.end(); ++it) {
+            if (std::find(actuales.begin(), actuales.end(), *it) == actuales.end()) {
+                resultado.push_back(*it);
+            }
+        }
+    }
+    return resultado;
 }
-void ControladorNotificaciones::seSuscribe(const std::string& nicknameInmobiliaria, const std::string& nicknameInteresado){}
-bool ControladorNotificaciones::estaSubscripto(std::string nickSub, std::string nickInmobiliaria){}
-std::list<std::string> ControladorNotificaciones::listarInmobiliariasSuscriptas(const std::string& nicknameSubscriptor){}
+void ControladorNotificaciones::seSuscribe(const std::string& nicknameInmobiliaria, const std::string& nicknameInteresado){
+    ManejadorNotificaciones* manejador = ManejadorNotificaciones::getInstance();
+    Subscriptor* sub = manejador->obtenerSubscriptor(nicknameInteresado);
+    Inmobiliaria* inmobiliaria = manejador->obtenerInmobiliaria(nicknameInmobiliaria);
+
+    if (inmobiliaria != NULL && sub != NULL && !estaSubscripto(nicknameInteresado, nicknameInmobiliaria)) {
+        inmobiliaria->agregarSubscriptor(sub);
+        sub->seSuscribe(nicknameInmobiliaria, nicknameInteresado);
+    }
+}
+bool ControladorNotificaciones::estaSubscripto(std::string nickSub, std::string nickInmobiliaria){
+    ManejadorNotificaciones* manejador = ManejadorNotificaciones::getInstance();
+    Subscriptor* sub = manejador->obtenerSubscriptor(nickSub);
+    if (sub == NULL){
+        return false;
+    }
+    else{
+        std::list<std::string> actuales = sub->suscriptoActualmente();
+        return std::find(actuales.begin(), actuales.end(), nickInmobiliaria) != actuales.end();
+    }
+}
+std::list<std::string> ControladorNotificaciones::listarInmobiliariasSuscriptas(const std::string& nicknameSubscriptor){
+    ManejadorNotificaciones* manejador = ManejadorNotificaciones::getInstance();
+    Subscriptor* sub = manejador->obtenerSubscriptor(nicknameSubscriptor);
+    if (sub == NULL){
+        return std::list<std::string>();
+    }
+    else{
+        return sub->suscriptoActualmente();
+    }
+}
 
 ControladorNotificaciones::~ControladorNotificaciones(){}

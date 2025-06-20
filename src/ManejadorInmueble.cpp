@@ -53,10 +53,10 @@ ManejadorInmueble* ManejadorInmueble::getManejadorInmueble(){
 
 
         ManejadorInmueble::~ManejadorInmueble(){
-for (auto i = inmuebles.begin(); i != inmuebles.end(); i++)
-{
-    delete i->second;
-}
-inmuebles.clear();
+            for (auto i = inmuebles.begin(); i != inmuebles.end(); i++)
+                {
+                    delete i->second;
+                }
+            inmuebles.clear();
 
         };
