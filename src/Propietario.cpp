@@ -43,6 +43,11 @@ void Propietario::vincularInmueble(Inmueble* propiedad){
     propiedades.insert({code,propiedad});
 }
 
+void Propietario::agregarRepresentante(Inmobiliaria* i){
+    std::string nick = i->getNickname();
+    this->administradores.insert({nick,i});
+}
+
 Inmueble* Propietario::getInmueble(int codigoInmueble) {
     std::map<int, Inmueble*>::iterator it = propiedades.find(codigoInmueble);
     if (it != propiedades.end()) {

@@ -26,8 +26,11 @@ public:
     void eliminarSubscriptor(Subscriptor* s);
     void notificar(const DTNotificacion& n);
     std::set<Subscriptor*> getSuscriptores() const;
-    std::set<AdministraPropiedad*> getAdministraciones() const;
+
     std::map<std::string, Propietario*> getRepresentados() const;
+    void agregarRepresentado(Propietario* p);
+
+    std::set<AdministraPropiedad*> getAdministraciones() const;
     void agregarAdministracion(AdministraPropiedad* administracion);
     void eliminarAdministracion(AdministraPropiedad* administracion);
     

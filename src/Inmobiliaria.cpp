@@ -40,7 +40,10 @@ std::set<AdministraPropiedad*> Inmobiliaria::getAdministraciones() const{
 std::map<std::string, Propietario*> Inmobiliaria::getRepresentados() const{
     return this->representados;
 }
-
+void Inmobiliaria::agregarRepresentado(Propietario* p){
+    std::string nick = p->getNickname();
+    representados.insert({nick,p});
+}
 Inmobiliaria::~Inmobiliaria(){
     suscriptores.clear();
 }

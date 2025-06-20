@@ -29,6 +29,8 @@ class Propietario : public Usuario, public Subscriptor{
 
         void vincularInmueble(Inmueble* propiedad);
         void desvincularInmueble(int codigoInmueble);
+
+        void agregarRepresentante(Inmobiliaria* i);
         
         void recibirNotificacion(const DTNotificacion& n) override;
         std::set<DTNotificacion> consultarNotificaciones() const override;
