@@ -9,6 +9,11 @@
 #include "../include/Inmobiliaria.h"
 #include "TipoTecho.h"
 
+#include "../include/Inmobiliaria.h"
+#include "../include/Inmueble.h"
+#include "../include/DTInmuebleAdministrado.h"
+#include"../include/DTInmuebleListado.h"
+
 class IControladorUsuario
 {
     public:
@@ -24,6 +29,9 @@ class IControladorUsuario
     virtual void finalizarAltaUsuario()=0;
     virtual bool existeUsuario(std::string nickname)=0;
     virtual ~IControladorUsuario()=default;
+
+    virtual std:: set<DTInmuebleListado> listarInmueblesNoAdministradosInmobiliaria(std::string nicknameInmobiliaria)=0;
+    virtual void altaAdministrarPropiedad(std::string nickNameInmobiliaria,int codigoInmueble)=0;
 
 };
 #endif

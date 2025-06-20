@@ -6,7 +6,6 @@
 #include "../include/IControladorFechaActual.h"
 #include "../include/IControladorNotificaciones.h"
 #include "../include/IControladorInmueble.h"
-#include "../include/IControladorAdministrarInmueble.h"
 #include "../include/Factory.h"
 class CargaDatos {
     private:
@@ -18,7 +17,6 @@ class CargaDatos {
         IControladorFechaActual* cf;
         IControladorNotificaciones* cn;
         IControladorInmueble* ci;
-        IControladorAdministrarInmueble* ca;
 
     public:
         static CargaDatos* getInstance();

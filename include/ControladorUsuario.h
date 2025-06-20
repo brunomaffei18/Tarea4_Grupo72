@@ -19,6 +19,7 @@ private:
     static ControladorUsuario* Intancia;
     ControladorUsuario();
     ManejadorUsuario* manejadorusu;
+    Inmobiliaria* ultimaInmobiliaria;
 public:
         static ControladorUsuario* getInstancia();
         bool altaCliente(std::string nickname, std::string contrasena, std::string nombre, std::string email,std::string apellido, std::string documento);
@@ -32,6 +33,9 @@ public:
         void finalizarAltaUsuario();
         DTUsuario getUsuario(std::string nickname);
         void finalizarAltaCliente(); //consulta profe
+        
+        std:: set<DTInmuebleListado> listarInmueblesNoAdministradosInmobiliaria(std::string nicknameInmobiliaria)=0;
+        void altaAdministrarPropiedad(std::string nickNameInmobiliaria,int codigoInmueble)=0;
         
     ~ControladorUsuario();
 };

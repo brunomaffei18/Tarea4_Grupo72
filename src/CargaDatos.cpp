@@ -10,7 +10,6 @@ CargaDatos::CargaDatos() {
     cf = factory->getControladorFechaActual();
     cn = factory->getControladorNotificaciones();
     ci = factory->getControladorInmueble();
-    ca = factory->getControladorAdministrarInmueble();
 
     // 1. Establecer fecha actual
     cf->setNewFechaActual(15, 3, 2025);

@@ -2,7 +2,6 @@
 #define FACTORY_H
 
 #include "IControladorFechaActual.h"
-#include "IControladorAdministrarInmueble.h" 
 #include "IControladorInmueble.h"
 #include "IControladorPublicacion.h"
 #include "IControladorUsuario.h"
@@ -17,12 +16,10 @@ class Factory {
         static Factory* getInstance();
         //Controladores
         IControladorFechaActual* getControladorFechaActual();//Esto es solo si son singleton
-        IControladorAdministrarInmueble* getControladorAdministrarInmueble();
         IControladorInmueble* getControladorInmueble();
         IControladorPublicacion* getControladorPublicacion();
         IControladorUsuario* getControladorUsuario();
         IControladorNotificaciones* getControladorNotificaciones();
-        IControladorAdministrarInmueble* ControladorAdministrarInmueble();
        
         ~Factory();
 };

@@ -1,7 +1,6 @@
 #include "../include/ControladorUsuario.h"
 #include "../include/ManejadorUsuario.h"
 #include "../include/ManejadorInmueble.h"
-#include "../include/ControladorAdministrarInmueble.h"
 #include "../include/Usuario.h"
 #include "../include/DTInmuebleAdministrado.h"
 #include "../include/ControladorFechaActual.h"
@@ -100,3 +99,7 @@ void ControladorUsuario::finalizarAltaUsuario() {
 DTUsuario ControladorUsuario::getUsuario(std::string nickname) {
     return manejadorusu->getUsuario(nickname);
 }
+
+
+    std::set<DTInmuebleListado> listarInmueblesNoAdministradosInmobiliaria(std::string nicknameInmobiliaria);{}
+    void altaAdministrarPropiedad(std::string nickNameInmobiliaria,int codigoInmueble){}
