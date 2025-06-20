@@ -90,16 +90,18 @@ std::set<DTUsuario*> ControladorUsuario::ListarClientes() {
     return listaDT;
 }
 void ControladorUsuario::representarPropietario(std::string nicknamePropietario) {
-ManejadorUsuario* manejadorusu = ManejadorUsuario::getManejadorUsuario();
-    manejadorusu->representarPropietario(nicknamePropietario);
+    ManejadorUsuario* manejadorusu = ManejadorUsuario::getManejadorUsuario();
+    
 }
 void ControladorUsuario::finalizarAltaUsuario() {
-    manejadorusu->finalizarAltaUsuario();
+    
 }
 DTUsuario ControladorUsuario::getUsuario(std::string nickname) {
-    return manejadorusu->getUsuario(nickname);
+
 }
 
 
-    std::set<DTInmuebleListado> listarInmueblesNoAdministradosInmobiliaria(std::string nicknameInmobiliaria);{}
-    void altaAdministrarPropiedad(std::string nickNameInmobiliaria,int codigoInmueble){}
+std::set<DTInmuebleListado> listarInmueblesNoAdministradosInmobiliaria(std::string nicknameInmobiliaria){
+    return ;
+}
+void altaAdministrarPropiedad(std::string nickNameInmobiliaria,int codigoInmueble){}
