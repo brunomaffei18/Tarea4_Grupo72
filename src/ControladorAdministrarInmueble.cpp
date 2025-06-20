@@ -1,10 +1,10 @@
  #include "../include/ControladorAdministrarInmueble.h" 
   
   ControladorAdministrarInmueble* ControladorAdministrarInmueble::getInstancia(){
-    if (Instancia==NULL){
-        Instancia=new ControladorAdministrarInmueble();
+    if (instancia==NULL){
+        instancia=new ControladorAdministrarInmueble();
     }
-    return Instancia;
+    return instancia;
 
     std::set<DTInmuebleListado> listarInmueblesNoAdministradosInmobiliaria(std::string nicknameInmobiliaria);
     void altaAdministrarPropiedad(std::string nickNameInmobiliaria,int codigoInmueble);

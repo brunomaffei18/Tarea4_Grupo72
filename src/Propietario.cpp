@@ -30,6 +30,11 @@ void Propietario::desvincularInmueble(int codigoInmueble){
     propiedades.erase(codigoInmueble);
 }
 
+void Propietario::vincularInmueble(Inmueble* propiedad){
+    int code =propiedad->getCodigo();
+    propiedades.insert({code,propiedad});
+}
+
 void Propietario::recibirNotificacion(const DTNotificacion& n){
     notificaciones.insert(n);
 }

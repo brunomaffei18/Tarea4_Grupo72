@@ -43,3 +43,6 @@ return this->direccion;
      int Inmueble:: getNumeroPuerta(){return this->numeroPuerta;};
      int Inmueble::getSuperficie(){return this->superficie;};
      int Inmueble::getAnoConstruccion(){return this->anoConstruccion;};
+     void Inmueble::eliminarAdministrados(AdministraPropiedad* administrados){
+         this->InmueblesAdministrados.erase(administrados);
+     };

@@ -51,6 +51,10 @@ void ControladorInmueble:: altaCasa(std::string direccion, int numeroPuerta, int
     Casa* casanueva=new Casa(esPH, techo, codigo, direccion, numeroPuerta, superficie, anoConstruccion);
     manejador->agregarInmueble(casanueva);
     
+        if (this->propietarioRecordado != NULL)
+        {
+        this->propietarioRecordado->vincularInmueble(casanueva);
+        }  
 };
 
 void  ControladorInmueble:: altaApartamento(std::string direccion, int numeroPuerta, int superficie, int anoConstruccion, int piso, bool tieneAscensor, float gastosComunes){
@@ -58,8 +62,11 @@ void  ControladorInmueble:: altaApartamento(std::string direccion, int numeroPue
     int codigo=manejadorinm->generarCodigo();
     Apartamento* apartamentoNuevo=new Apartamento(piso, tieneAscensor, gastosComunes, codigo, direccion, numeroPuerta, superficie, anoConstruccion);
     manejadorinm->agregarInmueble(apartamentoNuevo);
-    
 
+    if (this->propietarioRecordado != NULL)
+        {
+        this->propietarioRecordado->vincularInmueble(apartamentoNuevo);
+        }
 };
     
 
@@ -93,4 +100,6 @@ void  ControladorInmueble:: altaApartamento(std::string direccion, int numeroPue
      return resultado;
      };
   
-   
+   void ControladorInmueble::setPropietarioRecordado(Propietario* prop){
+    propietarioRecordado=prop;
+   }

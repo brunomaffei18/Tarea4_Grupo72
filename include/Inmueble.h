@@ -24,6 +24,7 @@ class Inmueble {
         void AgragarAdministrados(AdministraPropiedad*Administrados);
         void EliminarPublicaciones();
         std::set<AdministraPropiedad*>getInmueblesAdministrados();
+        void eliminarAdministrados(AdministraPropiedad* administrados);
         ~Inmueble();
 };
 

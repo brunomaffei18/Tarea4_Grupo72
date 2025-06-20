@@ -20,11 +20,13 @@ private:
     static ControladorInmueble* Instancia;
     ControladorInmueble();
     ManejadorInmueble* manejadorinm;
+    Propietario* propietarioRecordado;
 public:
     static ControladorInmueble* getInstancia();
     void altaCasa(std::string direccion, int numeroPuerta, int superficie, int anoConstruccion, bool esPH, TipoTecho techo);
     void altaApartamento(std::string direccion, int numeroPuerta, int superficie, int anoConstruccion, int piso, bool tieneAscensor, float gastosComunes);
     DTInmueble detalleInmueble(int codigoInmueble);
+    void setPropietarioRecordado(Propietario* prop);
 
     std::set<DTInmueble*> listarInmuebles();
 //    void eliminarInmueble(int codigoInmueble);
