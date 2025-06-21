@@ -42,7 +42,8 @@ class Propietario : public Usuario, public Subscriptor{
         std::list<std::string> suscriptoActualmente() const override;
         void seSuscribe(const std::string& nickInmobiliaria, const std::string& nickSubscriptor) override;
         void seDesuscribe(const std::string& nicknameInmobiliaria) override;
-
+          virtual bool estaSuscriptoA(Inmobiliaria* inmo) const override; 
+        virtual void notificar(Publicacion*pub) override;
         virtual ~Propietario();
 
 };

@@ -7,6 +7,7 @@
 #include <string>
 #include <set>
 #include <map>
+#include "../include/Publicacion.h"
 
 Propietario::Propietario(std::string nickname, std::string contrasena, std::string nombre, std::string email, std::string cuentaBancaria, std::string telefono):
     Usuario(nickname,contrasena,nombre,email),telefono(telefono),cuentaBancaria(cuentaBancaria){}
@@ -73,5 +74,10 @@ std::list<std::string> Propietario::suscriptoActualmente() const{
 void Propietario::seDesuscribe(const std::string& nicknameInmobiliaria){
     suscripciones.erase(nicknameInmobiliaria);
 }
-
+ bool Propietario::estaSuscriptoA(Inmobiliaria* inmo) const {
+    return suscripciones.find(inmo->getNickname()) != suscripciones.end();
+  }; 
+     void Propietario::notificar(Publicacion*pub) {
+        DTNotificacion n=DTNotificacion(pub->getInmueble()->getCodigo(), pub->getInmobiliaria()->getNickname(), pub->getTipo(), pub->getInmueble()->getTipoInmueble(), pub->getTexto());
+     };
 Propietario::~Propietario() {}

@@ -4,6 +4,8 @@
 #include "../include/Cliente.h"
 #include <string>
 #include <set>
+#include "../include/Inmobiliaria.h"
+#include "../include/Publicacion.h"
 
 Cliente::Cliente(std::string nickname, std::string contrasena, std::string nombre, std::string email, std::string apellido, std::string documento):
     Usuario(nickname,contrasena,nombre,email),apellido(apellido),documento(documento){}
@@ -39,4 +41,10 @@ void Cliente::seDesuscribe(const std::string& nicknameInmobiliaria){
 void Cliente::seSuscribe(const std::string& nickInmobiliaria, const std::string& nickSubscriptor) {
     suscripciones.insert(nickInmobiliaria);
 }
+   bool Cliente::estaSuscriptoA(Inmobiliaria* inmo) const {
+    return suscripciones.find(inmo->getNickname()) != suscripciones.end();
+  }; 
+     void Cliente::notificar(Publicacion*pub) {
+        DTNotificacion n=DTNotificacion(pub->getInmueble()->getCodigo(), pub->getInmobiliaria()->getNickname(), pub->getTipo(), pub->getInmueble()->getTipoInmueble(), pub->getTexto());
+     };
 Cliente::~Cliente(){}
