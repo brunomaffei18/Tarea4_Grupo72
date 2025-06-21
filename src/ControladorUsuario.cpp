@@ -121,7 +121,8 @@ DTUsuario ControladorUsuario::getUsuario(std::string nickname) {
 std::set<DTInmuebleListado> ControladorUsuario:: listarInmueblesNoAdministradosInmobiliaria(std::string nicknameInmobiliaria)
 {
     Inmobiliaria* inm= manejadorusu->getInmobiliaria(nicknameInmobiliaria);
-
+     std::set<DTInmuebleListado> listado;
+     
     std::map<std::string, Propietario*> mapa=  inm->getRepresentados();
     for(std::map<std::string,Propietario*>::iterator iter = mapa.begin(); iter != mapa.end(); ++iter)
     {
@@ -133,8 +134,16 @@ std::set<DTInmuebleListado> ControladorUsuario:: listarInmueblesNoAdministradosI
             std::set<AdministraPropiedad*>admi=adm->getInmueblesAdministrados();
                 for(std::set<AdministraPropiedad*>::iterator iti = admi.begin(); iti != admi.end(); ++iti)
                 {
-                AdministraPropiedad* johan=*iti;
-                if(johan);//Hay que implementar un getInmobiliaria desde AdministraPropiedad
+                    AdministraPropiedad* johan=*iti;
+                    if(johan->getInmobiliaria()==inm)
+                        {
+                            DTInmuebleListado dtlistado(
+                                adm->getCodigo(),
+                                adm->getDireccion(),
+                                iter->second->getNickname()
+                            );
+                            
+                        }
                 }
         }
     }
