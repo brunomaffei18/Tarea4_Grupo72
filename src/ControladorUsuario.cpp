@@ -167,8 +167,10 @@ void ControladorUsuario::altaAdministrarPropiedad(std::string nickNameInmobiliar
         if(itera!=pichu.end()){
             Inmueble * inmueble=itera->second;
             DTFecha* fecha=ControladorFechaActual ::getInstance()->getFechaActual();
-            AdministraPropiedad * admi= new AdministraPropiedad( fecha, inmueble, inmobiliaria);
-            inmueble->AgregarAdministrados(admi);
+            AdministraPropiedad admi( fecha, inmueble, inmobiliaria);
+            AdministraPropiedad * admin=&admi;
+            inmueble->AgregarAdministrados(admin);
+            inmobiliaria->agregarAdministracion(admin);
             flag==true;
         }
         else{
