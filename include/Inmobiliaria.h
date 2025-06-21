@@ -9,6 +9,7 @@
 #include "DTNotificacion.h"
 #include "Propietario.h"
 
+class AdministraPropiedad;
 class Inmobiliaria : public Usuario {
 private:
     std::string direccion;

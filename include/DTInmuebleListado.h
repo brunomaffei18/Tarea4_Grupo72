@@ -2,6 +2,7 @@
 #define DTINMUEBLELISTADO_H
 #include <string>
 #include <iostream>
+#include <map>
 
 
 class DTInmuebleListado {
@@ -15,7 +16,8 @@ class DTInmuebleListado {
         int getCodigo();
         std::string getDireccion();
         std::string getPropietario();
+        
+        bool operator<(const DTInmuebleListado& inmuebleB) const;
 };
-
  std::ostream& operator<<(std::ostream& os,  DTInmuebleListado dt);
 #endif

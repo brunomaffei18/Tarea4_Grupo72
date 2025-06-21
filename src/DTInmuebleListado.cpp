@@ -22,3 +22,7 @@ std::string DTInmuebleListado::getPropietario() {
     os<<"- Codigo: "<<dt.getCodigo()<<", direccion: "<<dt.getDireccion()<<", propietario: "<<dt.getPropietario();
     return os;
  };
+
+ bool DTInmuebleListado::operator<(const DTInmuebleListado& inmuebleB) const {
+    return this->codigo < inmuebleB.codigo;
+}

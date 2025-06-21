@@ -12,7 +12,7 @@
 #include "../include/Propietario.h"
 #include "../include/Cliente.h"
 #include "../include/ManejadorPublicaciones.h"
-#include "../include/ManejadorUsuario.h";
+#include "../include/ManejadorUsuario.h"
 
 ControladorInmueble :: ControladorInmueble()
 {
@@ -33,17 +33,14 @@ ControladorInmueble::~ControladorInmueble(){
 ControladorInmueble* ControladorInmueble::Instancia = NULL;
 
  DTInmueble ControladorInmueble::detalleInmueble(int codigoInmueble){
-    ManejadorInmueble* manejadorInmueble =ManejadorInmueble::getManejadorInmueble();
-    std::list<DTInmueble*> inmuebles = manejadorInmueble->listarInmuebles();
-    
-    for (std::list<DTInmueble*>::iterator i = inmuebles.begin(); i != inmuebles.end(); i++) {
-        if ((*i)->getCodigo() == codigoInmueble) {
-            DTInmueble result = *(*i);
-            delete *i;
-            return result;
+    std::list<DTInmueble> inmuebles = manejadorinm->listarInmuebles();
+
+    for (std::list<DTInmueble>::iterator i = inmuebles.begin(); i != inmuebles.end(); i++) {
+        if ((i)->getCodigo() == codigoInmueble) {
+            DTInmueble result;
         }
     }
-    delete manejadorInmueble;
+    return result;
     
 }
 void ControladorInmueble:: altaCasa(std::string direccion, int numeroPuerta, int superficie, int anoConstruccion, bool esPH, TipoTecho techo){
