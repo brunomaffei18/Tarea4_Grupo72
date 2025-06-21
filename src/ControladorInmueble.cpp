@@ -55,6 +55,7 @@ void ControladorInmueble:: altaCasa(std::string direccion, int numeroPuerta, int
         if (this->propietarioRecordado != NULL)
         {
         this->propietarioRecordado->vincularInmueble(casanueva);
+        casanueva->setPropietario(propietarioRecordado);
         }  
 };
 
@@ -67,6 +68,7 @@ void  ControladorInmueble:: altaApartamento(std::string direccion, int numeroPue
     if (this->propietarioRecordado != NULL)
         {
         this->propietarioRecordado->vincularInmueble(apartamentoNuevo);
+        apartamentoNuevo->setPropietario(propietarioRecordado);
         }
 };
 
@@ -74,7 +76,7 @@ std::set<DTInmuebleListado> ControladorInmueble::listarInmuebles(){
     std::map<int, Inmueble *> inmuebles = manejadorinm->getInmuebles();
     std::set<DTInmuebleListado> resultado;
     for (auto inmueble : inmuebles) {
-        DTInmuebleListado nuevoDT(inmueble.second->getCodigo() , inmueble.second->getDireccion(),"Aca iria el nick del propietario");
+        DTInmuebleListado nuevoDT(inmueble.second->getCodigo() , inmueble.second->getDireccion(),inmueble.second->getPropietario()->getNickname());
         resultado.insert(nuevoDT);
     }
     
