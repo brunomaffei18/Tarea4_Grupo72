@@ -12,7 +12,7 @@ class DTUsuario {
         DTUsuario(std::string nickname, std::string nombre);
         std::string getNickname();
         std::string getNombre();
-        bool operator<(DTUsuario& other);
+        bool operator<(const DTUsuario& other) const;
 };
 
 std::ostream& operator<<(std::ostream& os, DTUsuario& dt);

@@ -16,7 +16,7 @@ class ManejadorPublicaciones {
         int generarCodigo();
         void agregarPublicacion(Publicacion* publicacion);
         std::list<Publicacion*>listarPublicaciones();
-        ManejadorPublicaciones();
+        //ManejadorPublicaciones();
     
         ~ManejadorPublicaciones();
 };

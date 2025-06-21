@@ -3,6 +3,7 @@
 #include "../include/DTNotificacion.h"
 #include "../include/Inmueble.h"
 #include "../include/Propietario.h"
+#include "../include/Inmobiliaria.h"
 #include <string>
 #include <set>
 #include <map>
