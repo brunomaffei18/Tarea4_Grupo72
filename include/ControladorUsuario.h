@@ -4,12 +4,13 @@
 #include <string>
 #include <set>
 #include "../include/DTUsuario.h"
+#include "../include/AdministraPropiedad.h"
 #include "../include/Propietario.h"
 #include "../include/Cliente.h"
 #include "../include/Inmobiliaria.h"
 #include "../include/IControladorUsuario.h"
 #include "../include/DTInmuebleAdministrado.h"
-#include "ManejadorUsuario.h"
+#include "../include/ManejadorUsuario.h"
 
 
 

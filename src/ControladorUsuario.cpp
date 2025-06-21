@@ -150,6 +150,29 @@ std::set<DTInmuebleListado> ControladorUsuario:: listarInmueblesNoAdministradosI
 return listado;
 }        
 void ControladorUsuario::altaAdministrarPropiedad(std::string nickNameInmobiliaria,int codigoInmueble){
-    
+    Inmobiliaria* inmobiliaria = manejadorusu->getInmobiliaria(nickNameInmobiliaria);
+    std::map<std::string, Propietario*> mapa= manejadorusu->getPropietarios();
+    std::map<std::string,Propietario*>::iterator iterador = mapa.begin();
+    bool flag=true;
+    while(iterador != mapa.end() || flag==false )
+    {
+        Propietario* inmue=iterador->second;
+        std::map<int, Inmueble*> pichu=inmue->getPropiedades();
+        std::map<int, Inmueble*>::iterator itera=pichu.begin();
+        while(itera != pichu.end() || itera->second->getCodigo()!=codigoInmueble) {
+            ++itera;
+        }
+        if(itera!=pichu.end()){
+            Inmueble * inmueble=itera->second;
+            
+            flag==true;
+        }
+        else{
+            ++iterador;
+        }
+    }
+
+
+
 }
 
