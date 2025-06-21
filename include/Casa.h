@@ -13,6 +13,7 @@ class Casa : public Inmueble {
         Casa(bool esPH, TipoTecho techo,int codigo, std::string direccion, int numeroPuerta, int superficie, int anoConstruccion);
         bool getEsPH();
         TipoTecho getTecho();
+        TipoInmuebleenum::TipoInmueble getTipoInmueble() const override;
         ~Casa();
 };
 

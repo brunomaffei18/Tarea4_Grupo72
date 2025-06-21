@@ -17,3 +17,7 @@ Casa:: Casa(bool esPH, TipoTecho techo,int codigo, std::string direccion, int nu
         Casa::~Casa(){
         
         };
+
+    TipoInmuebleenum::TipoInmueble Casa::getTipoInmueble() const {
+        return TipoInmuebleenum::Casa;
+    }

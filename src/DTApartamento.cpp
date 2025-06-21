@@ -22,3 +22,16 @@ float DTApartamento::getGastosComunes() {
 DTApartamento::~DTApartamento(){
 
 }
+
+ std::ostream& operator<<(std::ostream& os,  DTApartamento dt) {
+   std::string ascensor;
+    if (dt.getTieneAscensor())
+    {
+        ascensor= "Si";
+    }else{
+        ascensor="No";
+    }
+    
+  os<<"Codigo: "<<dt.getCodigo()<<", direccion: "<<dt.getDireccion()<<", nro. puerta: "<<dt.getNumeroPuerta()<<", superficie: "<<dt.getSuperficie()<< "m2"<<", consturccion: "<<dt.getAnioConstruccion()<<", piso: "<<dt.getPiso()<<", ascensor: "<<ascensor<<", gastos comunes: "<<dt.getGastosComunes();
+    return os;
+}

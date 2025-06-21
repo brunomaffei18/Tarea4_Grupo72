@@ -21,3 +21,7 @@ bool Apartamento::getTieneAscensor() {
        Apartamento::~Apartamento(){
           
        };
+
+  TipoInmuebleenum::TipoInmueble Apartamento::getTipoInmueble() const{
+  return TipoInmuebleenum::Apartamento;
+  };

@@ -17,3 +17,17 @@ TipoTecho DTCasa::getTecho() {
 DTCasa::~DTCasa(){
     
 }
+
+
+ std::ostream& operator<<(std::ostream& os,  DTCasa dt){
+    std::string esph;
+    if (dt.getEsPH())
+    {
+        esph= "Si";
+    }else{
+        esph="No";
+    }
+
+   os<<"Codigo: "<<dt.getCodigo()<<", direccion: "<<dt.getDireccion()<<", nro. puerta: "<<dt.getNumeroPuerta()<<", superficie: "<<dt.getSuperficie()<< "m2, consturccion: "<<dt.getAnioConstruccion()<<", PH: "<<esph<<", Tipo de techo: "<<dt.getTecho()<< std::endl;;
+    return os;
+ }

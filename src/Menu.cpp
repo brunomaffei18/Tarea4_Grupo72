@@ -342,7 +342,7 @@ void consultaPublicaciones(){
     //Recorrer la coleccion Mostrar "- Codigo: xx, fecha: dd/mm/yyyy, texto: zzz, precio: aaa, inmobiliaria: bbb";
     //desde
      std::set<DTPublicacion*> publicaciones = ControladorPublicacion::getInstancia()->listarPublicaciones(tipoPublicacion, precioMinimo, precioMaximo, tipoInmueble);
-                 
+             
                     for (auto publicacione : publicaciones) {
                         std::cout<< publicacione << std::endl;
                     }
@@ -364,10 +364,15 @@ void consultaPublicaciones(){
         // Si es apartamento-> "Codigo: aaa, direccion: bbb, nro. puerta: ccc, superficie: xx m2, consturccion: dddd, piso: xx, ascensor: Si/No, gastos comunes: yyy"
         // Si es casa-> "Codigo: aaa, direccion: bbb, nro. puerta: ccc, superficie: xx m2, consturccion: dddd, PH: Si/No, Tipo de techo: Liviano/A dos aguas/Plano"
 //desde 
+DTInmueble inmueble = ControladorPublicacion::getInstancia()->detalleInmueblePublicacion(codigoPublicacion);
+       if (tipoInmueble==TipoInmuebleenum::Apartamento){
+           std::cout<< inmueble << std::endl;
+       }
+       if(tipoInmueble==TipoInmuebleenum::Casa){
+        std::cout<<inmueble<<std::endl;
+       }
+        //hasta
 
-
-//falta debido a que tendria que modificar una funcion 
-//hasta 
 
 
 }
@@ -380,7 +385,11 @@ void eliminarInmueble(){
     //TODO: Coleccion de DTInmuebleListado = Controlador->listarInmuebles();
     //Recorrer la coleccion Mostrar "- Codigo: xx, direccion: xxxx, propietario: bbbbb";
     //desde
-      
+      std::set<DTInmuebleListado> inmuebles = ControladorInmueble::getInstancia()->listarInmuebles();
+                 
+                    for (auto inmueble : inmuebles) {
+                        std::cout<< inmueble << std::endl;
+                    }
 
 
     //Hasta
@@ -393,6 +402,20 @@ void eliminarInmueble(){
     //Mostrarlo:
     // Si es apartamento-> "Codigo: aaa, direccion: bbb, nro. puerta: ccc, superficie: xx m2, consturccion: dddd, piso: xx, ascensor: Si/No, gastos comunes: yyy"
     // Si es casa-> "Codigo: aaa, direccion: bbb, nro. puerta: ccc, superficie: xx m2, consturccion: dddd, PH: Si/No, Tipo de techo: Liviano/A dos aguas/Plano"
+   //Desde
+    DTInmueble inmueble = ControladorInmueble::getInstancia()->detalleInmueble(codigoInmueble);
+                    Inmueble* inmuebletipo = ManejadorInmueble::getManejadorInmueble()->getInmueble(codigoInmueble);
+                    TipoInmuebleenum::TipoInmueble TipoIn=inmuebletipo->getTipoInmueble();
+         
+    
+       if (TipoIn==TipoInmuebleenum::Apartamento){
+           std::cout<< inmueble << std::endl;
+       }
+       if(TipoIn==TipoInmuebleenum::Casa){
+        std::cout<<inmueble<<std::endl;
+       }
+//hast
+    
     int deseaEliminar;
     std::cout << "¿Desea eliminar?: (1: Si, 0: No)";
     std::cin >> deseaEliminar;

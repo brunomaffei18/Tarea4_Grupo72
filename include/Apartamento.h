@@ -14,7 +14,7 @@ class Apartamento : public Inmueble {
        int getPiso();
        bool getTieneAscensor();
        float getGastosComunes();
-       
+       TipoInmuebleenum::TipoInmueble getTipoInmueble() const override;
         ~Apartamento();
 };
 
