@@ -36,12 +36,8 @@ Propietario* ManejadorUsuario::getPropietario(std::string nickname)
     return propietarios.at(nickname);
 };
 
-void ManejadorUsuario::liberarUsuario(Usuario* usuario)
-{
-
-};
-
+/*
 void ManejadorUsuario::eliminarUsuario(std::string nickname)
 {
     
-};
+};*/
