@@ -17,8 +17,8 @@ class ManejadorInmueble {
         void agregarInmueble(Inmueble* inmueble);
         Inmueble* getInmueble(int codigoInmueble);
         void eliminarInmueble(int codigoInmueble);
-        std::list<DTInmueble*> listarInmueblesAdministrados(Inmobiliaria* inmobiliaria);
-        std::list<DTInmueble*> listarInmuebles();
+        //std::list<DTInmueble> listarInmueblesAdministrados(Inmobiliaria* inmobiliaria);
+        std::list<DTInmueble> listarInmuebles();
         // std::list<DTInmuebleListado>ListarInmueblesListados();
         std::map<int,Inmueble*> getInmuebles();
         ~ManejadorInmueble();

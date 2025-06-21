@@ -36,5 +36,7 @@ std::list<std::string> Cliente::suscriptoActualmente() const{
 void Cliente::seDesuscribe(const std::string& nicknameInmobiliaria){
     suscripciones.erase(nicknameInmobiliaria);
 }
-
+void Cliente::seSuscribe(const std::string& nickInmobiliaria, const std::string& nickSubscriptor) {
+    suscripciones.insert(nickInmobiliaria);
+}
 Cliente::~Cliente(){}

@@ -49,12 +49,12 @@ ManejadorInmueble* ManejadorInmueble::getManejadorInmueble(){
 
 
         };
-        std::list<DTInmueble*> ManejadorInmueble::listarInmuebles(){
-            std::list<DTInmueble*> listaDTInmuebles;
+        std::list<DTInmueble> ManejadorInmueble::listarInmuebles(){
+            std::list<DTInmueble> listaDTInmuebles;
             for (auto i = inmuebles.begin(); i !=inmuebles.end(); i++)
             {
-                Inmueble* inmueble=i->second;
-                DTInmueble* DTinmuebles=new DTInmueble(inmueble->getCodigo(), inmueble->getDireccion(), inmueble->getNumeroPuerta(), inmueble->getSuperficie(), inmueble->getAnoConstruccion());
+                Inmueble* inmueble = i->second;
+                DTInmueble DTinmuebles=DTInmueble(inmueble->getCodigo(), inmueble->getDireccion(), inmueble->getNumeroPuerta(), inmueble->getSuperficie(), inmueble->getAnoConstruccion());
                 listaDTInmuebles.push_back(DTinmuebles);
             }
             return listaDTInmuebles;
