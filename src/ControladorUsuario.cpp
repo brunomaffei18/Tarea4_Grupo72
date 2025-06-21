@@ -142,12 +142,12 @@ std::set<DTInmuebleListado> ControladorUsuario:: listarInmueblesNoAdministradosI
                                 adm->getDireccion(),
                                 iter->second->getNickname()
                             );
-                            
+                            listado.insert(dtlistado);
                         }
                 }
         }
     }
-
+return listado;
 }        
 void ControladorUsuario::altaAdministrarPropiedad(std::string nickNameInmobiliaria,int codigoInmueble){
     
