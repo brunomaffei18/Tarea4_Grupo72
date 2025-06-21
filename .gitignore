@@ -35,4 +35,9 @@ DTNotificacion.o
 Subscirptor.o 
 Notificacion.o 
 main.o
+ControladorNotificaciones.o
+ControladorAdministrarInmueble.o
+ControladorInmueble.o
+ControladorPublicacion.o            
 AdministraPropiedad.o
+Subscriptor.o

@@ -3,10 +3,10 @@ OBJETOS = AdministraPropiedad.o Apartamento.o CargaDatos.o Casa.o \
 		  DTInmuebleAdministrado.o DTInmuebleListado.o DTPublicacion.o DTUsuario.o Factory.o \
 		  IControladorFechaActual.o Inmobiliaria.o Inmueble.o Menu.o Propietario.o Publicacion.o \
 		  TipoInmueble.o TipoPublicacion.o TipoTecho.o Usuario.o ManejadorInmueble.o ManejadorPublicaciones.o \
-		  ManejadorUsuario.o ControladorUsuario.o ControladorAdministrarInmueble.o ControladorInmueble.o ControladorPublicacion.o \
-		  ControladorNotificacion.o DTNotificacion.o Subscirptor.o Notificacion.o main.o \
+		  ManejadorUsuario.o ControladorUsuario.o ControladorInmueble.o ControladorPublicacion.o \
+		  ControladorNotificaciones.o DTNotificacion.o Subscriptor.o main.o \
 		  ControladorFechaActual.o IControladorFechaActual.o Factory.o ControladorUsuario.o \
-		  ControladorAdministrarInmueble.o ControladorInmueble.o ControladorPublicacion.o ControladorNotificacion.o Propietario.o 
+		  ControladorInmueble.o ControladorPublicacion.o Propietario.o 
 
 
 FUENTES = ./include/AdminsitraPropiedad.h ./src/AdminsitraPropiedad.cpp \
@@ -36,13 +36,11 @@ FUENTES = ./include/AdminsitraPropiedad.h ./src/AdminsitraPropiedad.cpp \
 		  ./include/ManejadorInmueble.h ./src/ManejadorInmueble.cpp \
 		  ./include/ManejadorPublicaciones.h ./src/ManejadorPublicaciones.cpp \
 		  ./include/ManejadorUsuario.h ./src/ManejadorUsuario.cpp \
-		  ./include/ControladorAdministrarInmueble.h ./src/ControladorAdministrarInmueble.cpp \
 		  ./include/ControladorInmueble.h ./src/ControladorInmueble.cpp \
 		  ./include/ControladorPublicacion.h ./src/ControladorPublicacion.cpp \
 		  ./include/DTNotificacion.h ./src/DTNotificacion.cpp \
-		  ./include/Subscirptor.h ./src/Subscirptor.cpp \
-		  ./include/Notificacion.h ./src/Notificacion.cpp \
-		  ./include/ControladorNotificacion.h ./src/ControladorNotificacion.cpp \
+		  ./include/Subscriptor.h ./src/Subscriptor.cpp \
+		  ./include/ControladorNotificaciones.h ./src/ControladorNotificaciones.cpp \
 		  ./include/ControladorUsuario.h ./src/ControladorUsuario.cpp \
 		  ./include/ControladorFechaActual.h ./src/ControladorFechaActual.cpp \
 		  ./include/AdministraPropiedad.h ./src/AdministraPropiedad.cpp \
@@ -50,11 +48,10 @@ FUENTES = ./include/AdminsitraPropiedad.h ./src/AdminsitraPropiedad.cpp \
 		  ./include/IControladorFechaActual.h ./src/IControladorFechaActual.cpp \
 		  ./include/ControladorFechaActual.h ./src/ControladorFechaActual.cpp \
 		  ./include/ControladorUsuario.h ./src/ControladorUsuario.cpp \
-		  ./include/ControladorAdministrarInmueble.h ./src/ControladorAdministrarInmueble.cpp \
 		  ./include/ControladorInmueble.h ./src/ControladorInmueble.cpp \
 		  ./include/ControladorPublicacion.h ./src/ControladorPublicacion.cpp \
-		  ./include/ControladorNotificacion.h ./src/ControladorNotificacion.cpp \
 		  ./include/Propietario.h ./src/Propietario.cpp 
+
 
 
 
@@ -63,11 +60,11 @@ ENTREGA = 72_lab4.zip
 
 OPCIONES = -o -g -c
 
-ejec: $(OBJETOS) main.cpp makefile
-	g++ -o principal $(OBJETOS) main.cpp
+ejec: $(OBJETOS) ./src/main.cpp Makefile
+	g++ -o principal $(OBJETOS) ./src/main.cpp
 
-main.o: main.cpp
-	$(CC) -c main.cpp -o main.o
+main.o: ./src/main.cpp
+	$(CC) -c ./src/main.cpp -o main.o
 
 ##Muy importente volver a chequear las dependencias y herencias para estas reglas
 DTInmueble.o: ./include/DTInmueble.h ./src/DTInmueble.cpp
@@ -156,8 +153,8 @@ Menu.o: ./include/Menu.h ./src/Menu.cpp
 ControladorUsuario.o: DTUsuario.o Propietario.o Cliente.o Inmobiliaria.o ./include/ControladorUsuario.h ./src/ControladorUsuario.cpp	
 	$(CC) $(OPCIONES) ./src/ControladorUsuario.cpp -o ControladorUsuario.o
 
-ControladorAdministrarInmueble.o: Inmobiliaria.o ManejadorInmueble.o ManejadorPublicaciones.o ManejadorUsuario.o ControladorUsuario.o ./include/ControladorAdministrarInmueble.h ./src/ControladorAdministrarInmueble.cpp
-	$(CC) $(OPCIONES) ./src/ControladorAdministrarInmueble.cpp -o ControladorAdministrarInmueble.o
+##ControladorAdministrarInmueble.o: Inmobiliaria.o ManejadorInmueble.o ManejadorPublicaciones.o ManejadorUsuario.o ControladorUsuario.o ./include/ControladorAdministrarInmueble.h ./src/ControladorAdministrarInmueble.cpp
+##	$(CC) $(OPCIONES) ./src/ControladorAdministrarInmueble.cpp -o ControladorAdministrarInmueble.o
 
 ##Falta herecia de IControladorInmueble
 ControladorInmueble.o: Inmobiliaria.o ManejadorInmueble.o ManejadorPublicaciones.o ManejadorUsuario.o ControladorUsuario.o ./include/ControladorInmueble.h ./src/ControladorInmueble.cpp
@@ -166,14 +163,14 @@ ControladorInmueble.o: Inmobiliaria.o ManejadorInmueble.o ManejadorPublicaciones
 ControladorPublicacion.o: Inmobiliaria.o ManejadorInmueble.o ManejadorPublicaciones.o ManejadorUsuario.o ControladorUsuario.o ./include/ControladorPublicacion.h ./src/ControladorPublicacion.cpp
 	$(CC) $(OPCIONES) ./src/ControladorPublicacion.cpp -o ControladorPublicacion.o
 
-ControladorNotificacion.o: Inmobiliaria.o ManejadorInmueble.o ManejadorPublicaciones.o ManejadorUsuario.o ControladorUsuario.o ./include/ControladorNotificacion.h ./src/ControladorNotificacion.cpp
-	$(CC) $(OPCIONES) ./src/ControladorNotificacion.cpp -o ControladorNotificacion.o
+ControladorNotificaciones.o: Inmobiliaria.o ManejadorInmueble.o ManejadorPublicaciones.o ManejadorUsuario.o ControladorUsuario.o ./include/ControladorNotificaciones.h ./src/ControladorNotificaciones.cpp
+	$(CC) $(OPCIONES) ./src/ControladorNotificaciones.cpp -o ControladorNotificaciones.o
 
-Subscirptor.o: DTFecha.o ./include/Subscirptor.h ./src/Subscirptor.cpp
-	$(CC) $(OPCIONES) ./src/Subscirptor.cpp -o Subscirptor.o	
+##Notificacion.o: DTFecha.o Subscriptor.o ./include/Notificacion.h ./src/Notificacion.cpp
+##	$(CC) $(OPCIONES) ./src/Notificacion.cpp -o Notificacion.o
 
-Notificacion.o: DTFecha.o Subscirptor.o ./include/Notificacion.h ./src/Notificacion.cpp
-	$(CC) $(OPCIONES) ./src/Notificacion.cpp -o Notificacion.o
+Subscriptor.o: DTFecha.o DTNotificacion.o ./include/Subscriptor.h ./src/Subscriptor.cpp
+	$(CC) $(OPCIONES) ./src/Subscriptor.cpp -o Subscriptor.o
 
 Propietario.o: Usuario.o DTUsuario.o ./include/Propietario.h ./src/Propietario.cpp
 	$(CC) $(OPCIONES) ./src/Propietario.cpp -o Propietario.o
@@ -181,6 +178,8 @@ Propietario.o: Usuario.o DTUsuario.o ./include/Propietario.h ./src/Propietario.c
 TipoInmueble.o: ./include/TipoInmueble.h ./src/TipoInmueble.cpp
 	$(CC) $(OPCIONES) ./src/TipoInmueble.cpp -o TipoInmueble.o
 
+DTNotificacion.o: DTFecha.o Subscriptor.o ./include/DTNotificacion.h ./src/DTNotificacion.cpp
+	$(CC) $(OPCIONES) ./src/DTNotificacion.cpp -o DTNotificacion.o
 
 
 clean:

@@ -1,5 +1,5 @@
-#include "TipoInmueble.h"
-#include "TipoPublicacion.h"
+#include "../include/TipoInmueble.h"
+#include "../include/TipoPublicacion.h"
 #include <string>
 #include "../include/DTNotificacion.h"
 
