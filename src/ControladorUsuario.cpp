@@ -138,7 +138,7 @@ std::set<DTInmuebleListado> ControladorUsuario:: listarInmueblesNoAdministradosI
     }
 */
 }        
-void ControladorUsuario::altaAdministrarPropiedad(std::string nickNameInmobiliaria,int codigoInmueble){
+void ControladorUsuario::altaAdministraPropiedad(std::string nickNameInmobiliaria,int codigoInmueble){
     
 }
 

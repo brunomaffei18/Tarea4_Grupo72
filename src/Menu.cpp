@@ -15,6 +15,10 @@
 #include "../include/DTUsuario.h"
 #include <string>
 #include <set>
+#include "../include/ControladorUsuario.h"
+#include "../include/ControladorInmueble.h"
+#include "../include/ControladorPublicacion.h"
+#include "../include/ControladorNotificaciones.h"
 
 void mostrarMenu() {
     std::cout << "=== Menu de Operaciones ===" << std::endl;
@@ -134,7 +138,8 @@ void altaUsuario(){
         std::getline(std::cin, apellido);
         std::cout << "Documento: ";
         std::getline(std::cin, documento);
-        //TODO: usuarioOk = ci->altaCliente(nickname, contrasena, nombre, email, apellido, documento);
+       // usuarioOk = ci->altaCliente(nickname, contrasena, nombre, email, apellido, documento);
+       usuarioOk = ControladorUsuario::getInstancia()->altaCliente(nickname, contrasena, nombre, email, apellido, documento);
 
     }else if (tipoUsuario == 1){
         std::cout << "Direccion: ";
@@ -144,6 +149,7 @@ void altaUsuario(){
         std::cout << "Telefono: ";
         std::getline(std::cin, telefono);
         //TODO: usuarioOk = ci->altaInmobiliaria(nickname, contrasena, nombre, email, direccion, url, telefono);
+         usuarioOk = ControladorUsuario::getInstancia()->altaInmobiliaria(nickname, contrasena, nombre, email, direccion, url, telefono);
 
     }else if (tipoUsuario == 2){
         std::cout << "Cuenta Bancaria: ";
@@ -151,6 +157,7 @@ void altaUsuario(){
         std::cout << "Telefono: ";
         std::getline(std::cin, telefono);
         //TODO: usuarioOk = ci->altaPropietario(nickname, contrasena, nombre, email, cuentaBancaria, telefono);
+        usuarioOk = ControladorUsuario::getInstancia()->altaPropietario(nickname, contrasena, nombre, email, cuentaBancaria, telefono);
 
     }
     if (usuarioOk){
@@ -207,6 +214,7 @@ void altaUsuario(){
                             techo = Plano;
                         }
                         //TODO: controlador->altaCasa(direccion, numeroPuerta, superficie, anoConstruccion, esPH, techo);
+                       ControladorInmueble::getInstancia()->altaCasa(direccion, numeroPuerta, superficie, anoConstruccion, esPH, techo);
                     }else{
                         int piso;
                         std::cout << "Piso: ";
@@ -222,6 +230,7 @@ void altaUsuario(){
                         std::cin >> gastosComunes;
                         std::cin.ignore();
                         //TODO: controlador->altaApartamento(direccion, numeroPuerta, superficie, anoConstruccion, piso, tieneAscensor, gastosComunes)
+                       ControladorInmueble::getInstancia()->altaApartamento(direccion, numeroPuerta, superficie, anoConstruccion, piso, tieneAscensor, gastosComunes);
                     }
                 }
             }
@@ -230,6 +239,7 @@ void altaUsuario(){
             std::cin.ignore();
         }
         //TODO: controlador->finalizarAltaUsuario();
+    ControladorUsuario::getInstancia()->finalizarAltaUsuario();
     }else{
         std::cout << "Error al crear el usuario" << std::endl;
     }
@@ -267,6 +277,7 @@ void altaPublicacion(){
     std::cin >> precio;
     std::cin.ignore();
     //TODO:Controlador->altaPublicacion(nicknameInmobiliaria, codigoInmueble, tipoPublicacion, texto, precio)
+     ControladorPublicacion::getInstancia()->altaPublicacion(nicknameInmobiliaria, codigoInmueble, tipoPublicacion, texto, precio);
 }
 
 void consultaPublicaciones(){
@@ -340,6 +351,7 @@ void eliminarInmueble(){
     std::cin.ignore();
     if (deseaEliminar == 1){
         //TODO: Controlador->eliminarInmueble(codigoInmueble)
+        ManejadorInmueble::getManejadorInmueble()->eliminarInmueble(codigoInmueble);
     }
 
 }
@@ -372,6 +384,8 @@ void altaAdministracionPropiedad(){
     std::cin >> codigoInmueble;
     std::cin.ignore();
     //TODO: Controlador->altaAdministraPropiedad(nicknameInmobiliaria, codigoInmueble);
+    ControladorUsuario::getInstancia()->altaAdministraPropiedad(nicknameInmobiliaria, codigoInmueble);
+  
 }
 
 void cargarDatos(){

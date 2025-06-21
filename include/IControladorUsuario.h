@@ -31,7 +31,7 @@ class IControladorUsuario
     virtual ~IControladorUsuario()=default;
 
     virtual std:: set<DTInmuebleListado> listarInmueblesNoAdministradosInmobiliaria(std::string nicknameInmobiliaria)=0;
-    virtual void altaAdministrarPropiedad(std::string nickNameInmobiliaria,int codigoInmueble)=0;
+    virtual void altaAdministraPropiedad(std::string nickNameInmobiliaria,int codigoInmueble)=0;
 
 };
 #endif
