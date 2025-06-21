@@ -28,8 +28,6 @@ class Cliente : public Usuario, public Subscriptor{
         void limpiarNotificaciones() override;
         std::list<std::string> suscriptoActualmente() const override;
         void seDesuscribe(const std::string& nicknameInmobiliaria) override;
-        virtual bool estaSuscriptoA(Inmobiliaria* inmo) const override; 
-    virtual void notificar(Publicacion*pub) override;
         ~Cliente();
 };
  
