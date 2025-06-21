@@ -10,7 +10,8 @@ class ManejadorPublicaciones {
         static ManejadorPublicaciones* instancia;
         std::map<int,Publicacion*> publicaciones;
         int codigo;
-        int codigoUltimaPUblicacion;
+        int codigoUltimaPUblicacionVenta;
+        int codigoUltimaPUblicacionAlquiler;
         ManejadorPublicaciones();
     public:
         static ManejadorPublicaciones* getManejadorPublicaciones();
@@ -18,8 +19,10 @@ class ManejadorPublicaciones {
         void agregarPublicacion(Publicacion* publicacion);
         std::list<Publicacion*>listarPublicaciones();
         //ManejadorPublicaciones();
-        void setCodigoUltimaPublicacion(int codigo);
-        int getCodigoUltimaPublicacion() const ;
+        void setCodigoUltimaPublicacionVenta(int codigo);
+        int getCodigoUltimaPublicacionVenta() const ;
+        void setCodigoUltimaPublicacionAlquiler(int codigo);
+        int getCodigoUltimaPublicacionAlquiler() const ;
     
         ~ManejadorPublicaciones();
 };

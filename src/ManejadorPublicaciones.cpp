@@ -27,14 +27,19 @@ ManejadorPublicaciones* ManejadorPublicaciones::getManejadorPublicaciones(){
          
         };
     
-  void ManejadorPublicaciones::setCodigoUltimaPublicacion(int codigo){
-    this->codigoUltimaPUblicacion=codigo;
+  void ManejadorPublicaciones::setCodigoUltimaPublicacionVenta(int codigo){
+    this->codigoUltimaPUblicacionVenta=codigo;
   };
-        int ManejadorPublicaciones::getCodigoUltimaPublicacion() const {
-            return this->codigoUltimaPUblicacion;
+        int ManejadorPublicaciones::getCodigoUltimaPublicacionVenta() const {
+            return this->codigoUltimaPUblicacionVenta;
         }
 
-
+void ManejadorPublicaciones:: setCodigoUltimaPublicacionAlquiler(int codigo){
+    this->codigoUltimaPUblicacionAlquiler = codigo;
+};
+        int ManejadorPublicaciones::getCodigoUltimaPublicacionAlquiler() const {
+            return this->codigoUltimaPUblicacionAlquiler;
+        };
 
 
 ManejadorPublicaciones::~ManejadorPublicaciones(){

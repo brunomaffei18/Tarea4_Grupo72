@@ -45,11 +45,19 @@
     Publicacion* activaActual;
     for (Publicacion* pub:publicaciones)
     {
-      if (pub->getCodigo()==manejadorpub->getCodigoUltimaPublicacion()){
-        pub->setActiva(false);
+      if (pub->getTipo()==tipoPublicacion){
+        if (tipoPublicacion==TipoPublicacion::Venta && pub->getCodigo()==manejadorpub->getCodigoUltimaPublicacionVenta()){
+          pub->setActiva(false);
+          manejadorpub->setCodigoUltimaPublicacionVenta(nuevoCodigo);
+        }else{
+          if(tipoPublicacion==TipoPublicacion::Alquiler && pub->getCodigo()==manejadorpub->getCodigoUltimaPublicacionAlquiler()){
+            pub->setActiva(false);
+            manejadorpub->setCodigoUltimaPublicacionAlquiler(nuevoCodigo);
+        }
       }
     }
-    manejadorpub->setCodigoUltimaPublicacion(nuevoCodigo);
+  }
+    
    
 
     Publicacion* nuevaPublicacion=new Publicacion(nuevoCodigo, &fecha,tipoPublicacion, texto, precio, activa);
