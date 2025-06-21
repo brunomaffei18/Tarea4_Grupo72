@@ -1,6 +1,7 @@
 #include "../include/ManejadorInmueble.h"
 #include "../include/Inmobiliaria.h"
 #include "../include/ManejadorUsuario.h"
+#include "../include/DTInmuebleListado.h"
 
 ManejadorInmueble* ManejadorInmueble::instancia = nullptr;
 
@@ -58,8 +59,15 @@ ManejadorInmueble* ManejadorInmueble::getManejadorInmueble(){
             }
             return listaDTInmuebles;
                 };
+        // std::list<DTInmuebleListado>ManejadorInmueble::ListarInmueblesListados(){
+        //         std::list<DTInmuebleListado> listyadelistados;
+        //         for(auto i=inmuebles.begin();i!=inmuebles.end();i++){
+        //             ManejadorUsuario* manejadorU=ManejadorUsuario::getManejadorUsuario();
+        //             std::map<std::string,Propietario*>& propietarios=manejadorU->getPropietarios();
 
-
+        //             DTInmuebleListado dtLIstadss=DTInmuebleListado(i->second->getCodigo(),i->second->getDireccion(),)
+        //         }
+        // }
         ManejadorInmueble::~ManejadorInmueble(){
             for (auto i = inmuebles.begin(); i != inmuebles.end(); i++)
                 {
@@ -68,3 +76,7 @@ ManejadorInmueble* ManejadorInmueble::getManejadorInmueble(){
             inmuebles.clear();
 
         };
+
+    std::map<int, Inmueble*> ManejadorInmueble::getInmuebles() {
+        return inmuebles;
+    }

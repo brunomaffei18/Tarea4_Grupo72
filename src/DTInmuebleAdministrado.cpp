@@ -23,6 +23,6 @@ DTInmuebleAdministrado::~DTInmuebleAdministrado(){
 }
 std::ostream& operator<<(std::ostream& os,  DTInmuebleAdministrado& dt){
  os<<"- Codigo: "<<dt.getCodigo()<<", Direccion: "<<dt.getDireccion()<<", Propietario: "<<dt.getFechaComienzo()->toString()<< std::endl;
-
+    return os;
 
 };

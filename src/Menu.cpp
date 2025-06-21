@@ -364,6 +364,8 @@ void consultaPublicaciones(){
         // Si es apartamento-> "Codigo: aaa, direccion: bbb, nro. puerta: ccc, superficie: xx m2, consturccion: dddd, piso: xx, ascensor: Si/No, gastos comunes: yyy"
         // Si es casa-> "Codigo: aaa, direccion: bbb, nro. puerta: ccc, superficie: xx m2, consturccion: dddd, PH: Si/No, Tipo de techo: Liviano/A dos aguas/Plano"
 //desde 
+
+
 //falta debido a que tendria que modificar una funcion 
 //hasta 
 
@@ -420,11 +422,26 @@ void altaAdministracionPropiedad(){
     std::cout << "Lista de Inmobiliarias:\n";
     //TODO: Coleccion de DTUsuario = controlador->listarInmobiliarias();
     //Recorrer la coleccion Mostrar "- Nickname: xx, Nombre: zz";
+    //desde
+   std::set<DTUsuario> inmobiliarias = ControladorUsuario::getInstancia()->ListarInmobiliarias();
+    for(auto inmobiliaria:inmobiliarias){
+        std::cout<<inmobiliaria << std::endl;
+    }
+//hasta
     std::cout << "Nickname de la inmobiliaria: ";
     std::string nicknameInmobiliaria;
     std::getline(std::cin, nicknameInmobiliaria);
     //TODO: Coleccion de DTInmuebleListado = Controlador->listarInmueblesNoAdministradosInmobiliaria(nicknameInmobiliaria);
     //Recorrer la coleccion Mostrar "- Codigo: xx, direccion: xxxx, propietario: bbbbb";
+//desde
+ std::set<DTInmuebleListado> inmueblesNoAdministrados = ControladorUsuario::getInstancia()->listarInmueblesNoAdministradosInmobiliaria(nicknameInmobiliaria);
+                 
+                    for (auto inmueble : inmueblesNoAdministrados) {
+                        std::cout<< inmueble << std::endl;
+                    }
+    //hasta
+
+
     std::cout << "Codigo del inmueble a administrar: ";
     int codigoInmueble;
     std::cin >> codigoInmueble;

@@ -22,4 +22,5 @@ bool DTUsuario::operator<(DTUsuario& other) {
  
 std::ostream& operator<<(std::ostream& os,  DTUsuario& dt){
   os<< "- Nickname: " << dt.getNickname()<< ", Nombre: " << dt.getNombre() << std::endl;
+  return os;
 }

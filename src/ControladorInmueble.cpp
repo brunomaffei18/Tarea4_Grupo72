@@ -4,6 +4,7 @@
 #include <string>
 #include "../include/Inmueble.h"
 #include <set>
+#include "../include/DTInmuebleListado.h"
 #include "../include/Casa.h"
 #include "../include/Apartamento.h"
 #include "../include/DTInmueble.h"
@@ -89,16 +90,19 @@ void  ControladorInmueble:: altaApartamento(std::string direccion, int numeroPue
 
 
 
-     std::set<DTInmueble*> ControladorInmueble::listarInmuebles(){
-      ManejadorInmueble* manejadorInmueble = ManejadorInmueble::getManejadorInmueble();
-     std::list<DTInmueble*> inmuebles = manejadorInmueble->listarInmuebles();
-     std::set<DTInmueble*> resultado;
-     for (std::list<DTInmueble*>::iterator it = inmuebles.begin(); it != inmuebles.end(); ++it) {
-         resultado.insert(*it);
-     }
+     std::set<DTInmuebleListado*> ControladorInmueble::listarInmuebles(){
+        
+
+        };
+
+    //  std::list<DTInmuebleListado> inmuebles = manejadorInmueble->listarInmuebles();
+    //  std::set<DTInmueble*> resultado;
+    //  for (std::list<DTInmueble*>::iterator it = inmuebles.begin(); it != inmuebles.end(); ++it) {
+    //      resultado.insert(*it);
+    //  }
     
-     return resultado;
-     };
+    //  return resultado;
+    
   
    void ControladorInmueble::setPropietarioRecordado(Propietario* prop){
     propietarioRecordado=prop;

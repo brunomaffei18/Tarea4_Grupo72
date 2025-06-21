@@ -17,3 +17,8 @@ std::string DTInmuebleListado::getDireccion() {
 std::string DTInmuebleListado::getPropietario() {
     return propietario;
 }
+
+ std::ostream& operator<<(std::ostream& os,  DTInmuebleListado dt){
+    os<<"- Codigo: "<<dt.getCodigo()<<", direccion: "<<dt.getDireccion()<<", propietario: "<<dt.getPropietario();
+    return os;
+ };

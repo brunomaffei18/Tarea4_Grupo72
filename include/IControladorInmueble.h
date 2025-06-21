@@ -1,6 +1,6 @@
 #ifndef ICONTROLADORINMUEBLE_H
 #define ICONTROLADORINMUEBLE_H
-
+#include"../include/DTInmuebleListado.h"
 #include <string>
 #include <set>
 #include "../include/DTInmueble.h"
@@ -14,7 +14,7 @@ class IControladorInmueble
 public:
     virtual DTInmueble detalleInmueble(int codigoInmueble)=0;
     //  virtual void eliminarInmueble(int codigoInmueble)=0;
-    virtual std::set<DTInmueble*> listarInmuebles()=0;
+    virtual std::set<DTInmuebleListado*> listarInmuebles()=0;
     virtual ~IControladorInmueble()=default;
     virtual void altaCasa(std::string direccion, int numeroPuerta, int superficie, int anoConstruccion, bool esPH, TipoTecho techo)=0;
     virtual void altaApartamento(std::string direccion, int numeroPuerta, int superficie, int anoConstruccion, int piso, bool tieneAscensor, float gastosComunes)=0;

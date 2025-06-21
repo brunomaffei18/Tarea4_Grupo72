@@ -28,7 +28,7 @@ public:
     DTInmueble detalleInmueble(int codigoInmueble);
     void setPropietarioRecordado(Propietario* prop);
 
-    std::set<DTInmueble*> listarInmuebles();
+    std::set<DTInmuebleListado*> listarInmuebles();
 //    void eliminarInmueble(int codigoInmueble);
     ~ControladorInmueble();
 };

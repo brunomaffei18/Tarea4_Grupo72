@@ -5,7 +5,7 @@
 #include "../include/DTFecha.h"
 #include"../include/ManejadorUsuario.h"
 #include "../include/ManejadorInmueble.h"
-#include "../include/ControladorAdministrarInmueble.h"
+
 #include <set>
 #include "../include/ManejadorNotificaciones.h"
 #include"../include/Subscriptor.h"

@@ -19,6 +19,8 @@ class ManejadorInmueble {
         void eliminarInmueble(int codigoInmueble);
         std::list<DTInmueble*> listarInmueblesAdministrados(Inmobiliaria* inmobiliaria);
         std::list<DTInmueble*> listarInmuebles();
+        // std::list<DTInmuebleListado>ListarInmueblesListados();
+        std::map<int,Inmueble*> getInmuebles();
         ~ManejadorInmueble();
 };
 
