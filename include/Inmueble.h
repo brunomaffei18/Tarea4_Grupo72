@@ -28,7 +28,7 @@ class Inmueble {
 
     void setPropietario(Propietario* p);
     virtual TipoInmuebleenum::TipoInmueble getTipoInmueble() const=0; 
-    void AgragarAdministrados(AdministraPropiedad*Administrados);
+    void AgregarAdministrados(AdministraPropiedad*Administrados);
     void EliminarPublicaciones();
     void eliminarAdministrados(AdministraPropiedad* administrados);
     ~Inmueble();

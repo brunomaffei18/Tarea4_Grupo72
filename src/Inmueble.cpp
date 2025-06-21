@@ -10,7 +10,7 @@
     this->superficie = superficie;
     this->anoConstruccion = anoConstruccion;
 };
-        void Inmueble::AgragarAdministrados(AdministraPropiedad *Administados){
+        void Inmueble::AgregarAdministrados(AdministraPropiedad *Administados){
             this->InmueblesAdministrados.insert(Administados);
         }
  void Inmueble::EliminarPublicaciones(){
