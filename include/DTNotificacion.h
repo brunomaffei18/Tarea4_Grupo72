@@ -4,6 +4,7 @@
 #include "TipoInmueble.h"
 #include "TipoPublicacion.h"
 #include <string>
+#include <iostream>
 
 class DTNotificacion
 {
@@ -27,6 +28,7 @@ public:
 };
 
 bool operator<(const DTNotificacion& a,const DTNotificacion& b);
+ std::ostream& operator<<(std::ostream& os, const DTNotificacion dt);
 
 
 #endif

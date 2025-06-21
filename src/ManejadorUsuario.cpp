@@ -36,7 +36,7 @@ Usuario* ManejadorUsuario::getUsuario(std::string nickname)
         return usu ;
 };
 
-Cliente* ManejadorUsuario::getCliente(std::string nickname);
+Cliente* ManejadorUsuario::getCliente(std::string nickname)
 { 
     cli=clientes.find(nickname);
     if(cli!=clientes.end()){
@@ -44,7 +44,7 @@ Cliente* ManejadorUsuario::getCliente(std::string nickname);
     }
     else
         return cli ;
-}
+};
 
 Propietario* ManejadorUsuario::getPropietario(std::string nickname)
 { 

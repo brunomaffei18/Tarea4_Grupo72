@@ -2,6 +2,7 @@
 #define DTCASA_H
 #include "DTInmueble.h"
 #include "TipoTecho.h"
+#include <iostream>
 
 class DTCasa :public DTInmueble {
     private:
@@ -14,5 +15,7 @@ class DTCasa :public DTInmueble {
         TipoTecho getTecho();
         virtual ~DTCasa();
 };
+
+ std::ostream& operator<<(std::ostream& os, const DTCasa dt);
 
 #endif

@@ -2,6 +2,7 @@
 #define DTINMUEBLEADMINISTRADO_H
 #include "DTFecha.h"
 #include <string>
+#include <iostream>
 
 class DTInmuebleAdministrado {
     private:
@@ -16,5 +17,7 @@ class DTInmuebleAdministrado {
         DTFecha* getFechaComienzo();
         ~DTInmuebleAdministrado();
 };
+
+std::ostream& operator<<(std::ostream& os, const DTInmuebleAdministrado& dt);
 
 #endif

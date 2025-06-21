@@ -1,6 +1,7 @@
 #ifndef DTUSUARIO_H
 #define DTUSUARIO_H
 #include <string>
+#include <iostream>
 
 class DTUsuario {
     private:
@@ -13,4 +14,7 @@ class DTUsuario {
         std::string getNombre();
         bool operator<(DTUsuario& other);
 };
+
+std::ostream& operator<<(std::ostream& os, const DTUsuario& dt);
+
 #endif

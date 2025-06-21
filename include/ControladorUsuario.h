@@ -36,7 +36,7 @@ public:
         void finalizarAltaCliente(); //consulta profe
         
         std:: set<DTInmuebleListado> listarInmueblesNoAdministradosInmobiliaria(std::string nicknameInmobiliaria);
-        void altaAdministraPropiedad(std::string nickNameInmobiliaria,int codigoInmueble);
+        void altaAdministrarPropiedad(std::string nickNameInmobiliaria,int codigoInmueble);
         
     ~ControladorUsuario();
 };

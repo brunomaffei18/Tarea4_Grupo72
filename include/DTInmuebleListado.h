@@ -1,6 +1,8 @@
 #ifndef DTINMUEBLELISTADO_H
 #define DTINMUEBLELISTADO_H
 #include <string>
+#include <iostream>
+
 
 class DTInmuebleListado {
     private:
@@ -15,4 +17,5 @@ class DTInmuebleListado {
         std::string getPropietario();
 };
 
+ std::ostream& operator<<(std::ostream& os, const DTInmuebleListado dt);
 #endif

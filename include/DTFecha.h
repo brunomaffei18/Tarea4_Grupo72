@@ -2,7 +2,7 @@
 #define DTFECHA
 
 #include <string>
-
+#include <iostream>
 
 class DTFecha {
     private:

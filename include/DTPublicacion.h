@@ -2,6 +2,7 @@
 #define DTPUBLICACION_H
 #include "DTFecha.h"
 #include <string>
+#include <iostream>
 
 class DTPublicacion {
     private:
@@ -20,5 +21,7 @@ class DTPublicacion {
         std::string getInmobiliaria();
         ~DTPublicacion();
 };
+
+std::ostream& operator<<(std::ostream& os, const DTPublicacion& dt);
 
 #endif
