@@ -1,9 +1,9 @@
 #ifndef PROPIETARIO_H
 #define PROPIETARIO_H
-#include "../include/Usuario.h"
-#include "../include/Subscriptor.h"
-#include "../include/DTNotificacion.h"
-#include "../include/Inmueble.h"
+#include "Usuario.h"
+#include "Subscriptor.h"
+#include "DTNotificacion.h"
+#include "Inmueble.h"
 #include <string>
 #include <set>
 #include <map>

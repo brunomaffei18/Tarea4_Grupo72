@@ -1,12 +1,12 @@
-#ifndef SUSCRIPTOR_H
-#define SUSCRIPTOR_H
+#ifndef SUBSCRIPTOR_H
+#define SUBSCRIPTOR_H
 
 #include <set>
 #include <list>
 #include <string>
 #include "DTNotificacion.h"
-#include "Inmobiliaria.h"
-#include "Publicacion.h"
+class Inmobiliaria;
+class Publicacion;
 
 class Subscriptor {
 public:
