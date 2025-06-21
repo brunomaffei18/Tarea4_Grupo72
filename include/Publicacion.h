@@ -32,6 +32,7 @@ public:
     bool verificarInmobiiaria(int codigoInmbo,int codigoInmueble,std::string nickNameInmobiliaria,std::string nickNameInmob);
     ~Publicacion();
     TipoPublicacion getTipo();
+    void setActiva(bool activa);
     std::string ConvertirPrecio();
 };
 

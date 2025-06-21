@@ -36,4 +36,12 @@ Publicacion::~Publicacion(){
     delete this->fecha;
 }
 
+void Publicacion::setAdministra(AdministraPropiedad* admin) {
+    this->adminProp = admin;
+}
+
+void Publicacion::setActiva(bool activa) {
+    this->activa = activa;
+}
+
 

@@ -42,6 +42,16 @@
     int nuevoCodigo=ManejadorPublicaciones::getManejadorPublicaciones()->generarCodigo();
     bool activa=true;
 
+    Publicacion* activaActual;
+    for (Publicacion* pub:publicaciones)
+    {
+      if (pub->getCodigo()==manejadorpub->getCodigoUltimaPublicacion()){
+        pub->setActiva(false);
+      }
+    }
+    manejadorpub->setCodigoUltimaPublicacion(nuevoCodigo);
+   
+
     Publicacion* nuevaPublicacion=new Publicacion(nuevoCodigo, &fecha,tipoPublicacion, texto, precio, activa);
     AdministraPropiedad * admin=new AdministraPropiedad(&fecha, inmueble, inmobiliaria);
     nuevaPublicacion->setAdministra(admin);

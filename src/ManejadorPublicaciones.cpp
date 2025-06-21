@@ -27,7 +27,12 @@ ManejadorPublicaciones* ManejadorPublicaciones::getManejadorPublicaciones(){
          
         };
     
-
+  void ManejadorPublicaciones::setCodigoUltimaPublicacion(int codigo){
+    this->codigoUltimaPUblicacion=codigo;
+  };
+        int ManejadorPublicaciones::getCodigoUltimaPublicacion() const {
+            return this->codigoUltimaPUblicacion;
+        }
 
 
 
