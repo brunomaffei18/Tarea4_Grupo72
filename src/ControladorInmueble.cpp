@@ -69,41 +69,18 @@ void  ControladorInmueble:: altaApartamento(std::string direccion, int numeroPue
         this->propietarioRecordado->vincularInmueble(apartamentoNuevo);
         }
 };
+
+std::set<DTInmuebleListado> ControladorInmueble::listarInmuebles(){
+    std::map<int, Inmueble *> inmuebles = manejadorinm->getInmuebles();
+    std::set<DTInmuebleListado> resultado;
+    for (auto inmueble : inmuebles) {
+        DTInmuebleListado nuevoDT(inmueble.second->getCodigo() , inmueble.second->getDireccion(),"Aca iria el nick del propietario");
+        resultado.insert(nuevoDT);
+    }
     
+    return resultado;
+};
 
-
-//    void ControladorInmueble::eliminarInmueble(int codigoInmueble){
-//         ManejadorUsuario* manejadorUsuario=ManejadorUsuario::getManejadorUsuario();
-//         std::map<std::string,Propietario*>& propietarios = manejadorUsuario->getPropietarios();
-       
-//         Inmueble*inmu=manejadorinm->getInmueble(codigoInmueble);
-//         inmu->EliminarPublicaciones();
-//         std::set<AdministraPropiedad*>administrar=inmu->getInmueblesAdministrados();
-//         for ( std::set<AdministraPropiedad*>::iterator i = administrar.begin(); i !=administrar.end(); i++)
-//         {
-            
-//         }
-         
-
-
-//      };
-
-
-
-     std::set<DTInmuebleListado*> ControladorInmueble::listarInmuebles(){
-        
-
-        };
-
-    //  std::list<DTInmuebleListado> inmuebles = manejadorInmueble->listarInmuebles();
-    //  std::set<DTInmueble*> resultado;
-    //  for (std::list<DTInmueble*>::iterator it = inmuebles.begin(); it != inmuebles.end(); ++it) {
-    //      resultado.insert(*it);
-    //  }
-    
-    //  return resultado;
-    
-  
-   void ControladorInmueble::setPropietarioRecordado(Propietario* prop){
+void ControladorInmueble::setPropietarioRecordado(Propietario* prop){
     propietarioRecordado=prop;
-   }
+}

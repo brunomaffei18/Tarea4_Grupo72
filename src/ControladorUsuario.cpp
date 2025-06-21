@@ -4,6 +4,7 @@
 #include "../include/Usuario.h"
 #include "../include/DTInmuebleAdministrado.h"
 #include "../include/ControladorFechaActual.h"
+#include "../include/ControladorInmueble.h"
 
 ControladorUsuario* ControladorUsuario::instancia = NULL;
 
@@ -37,6 +38,7 @@ bool ControladorUsuario::altaPropietario(std::string nickname, std::string contr
         return false;}
     Propietario* propietario = new Propietario(nickname, contrasena, nombre, email, cuentaBancaria, telefono);
     manejadorusu->agregarUsuario(propietario);
+    ControladorInmueble::getInstancia()->setPropietarioRecordado(propietario);
     return true;
 }
 std::set<DTInmuebleAdministrado> ControladorUsuario::listarInmueblesAdministrados(std::string nicknameInmobiliaria) {

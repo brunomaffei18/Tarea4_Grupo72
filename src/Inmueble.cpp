@@ -34,6 +34,14 @@ int Inmueble::getCodigo() {
     return this->codigo;
 }
 
+Propietario* Inmueble::getPropietario(){
+    return propietario;
+}
+
+void Inmueble::setPropietario(Propietario* p){
+  propietario=p;
+}
+
    std::string Inmueble:: getDireccion(){
 return this->direccion;
    };
