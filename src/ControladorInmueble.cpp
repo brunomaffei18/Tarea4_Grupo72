@@ -37,11 +37,10 @@ ControladorInmueble* ControladorInmueble::Instancia = NULL;
 
     for (std::list<DTInmueble>::iterator i = inmuebles.begin(); i != inmuebles.end(); i++) {
         if ((i)->getCodigo() == codigoInmueble) {
-            DTInmueble result;
+            DTInmueble result = *i;
+            return result;
         }
     }
-    return result;
-    
 }
 void ControladorInmueble:: altaCasa(std::string direccion, int numeroPuerta, int superficie, int anoConstruccion, bool esPH, TipoTecho techo){
     ManejadorInmueble* manejador=ManejadorInmueble::getManejadorInmueble();
