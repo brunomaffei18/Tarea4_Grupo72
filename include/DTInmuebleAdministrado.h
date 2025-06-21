@@ -18,6 +18,6 @@ class DTInmuebleAdministrado {
         ~DTInmuebleAdministrado();
 };
 
-std::ostream& operator<<(std::ostream& os, const DTInmuebleAdministrado& dt);
+std::ostream& operator<<(std::ostream& os,  DTInmuebleAdministrado& dt);
 
 #endif

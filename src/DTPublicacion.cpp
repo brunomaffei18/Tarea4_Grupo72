@@ -31,3 +31,8 @@ std::string DTPublicacion::getInmobiliaria() {
 DTPublicacion::~DTPublicacion(){
     delete fecha;
 }
+
+std::ostream& operator<<(std::ostream& os,  DTPublicacion& dt){
+os<<"- Codigo: "<<dt.getCodigo()<<", fecha: "<<dt.getFecha()<<", texto: "<<dt.getTexto()<<", precio: "<<dt.getPrecio()<<", inmobiliaria: "<<dt.getInmobiliaria()<< std::endl;
+
+};

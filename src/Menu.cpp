@@ -175,10 +175,20 @@ void altaUsuario(){
                     std::cout << "Lista de Propietarios:\n";
                     //TODO: Coleccion de DTUsuario = controlador->listarPropietarios();
                     //Recorrer la coleccion Mostrar "- Nickname: xx, Nombre: zz";
+                      //desde
+                    std::set<DTUsuario> propietarios = ControladorUsuario::getInstancia()->ListarPropietarios();
+                 
+                    for (auto propietario : propietarios) {
+                        std::cout<< propietario << std::endl;
+                    }
+                   
+               
+  //hasta
                     std::cout << "Nickname propietario a representar: ";
                     std::string nicknamePropietario;
                     std::getline(std::cin, nicknamePropietario);
                     //TODO: controlador->representarPropietario(nicknamePropietario)
+                    ControladorUsuario::getInstancia()->representarPropietario(nicknamePropietario);
                 }else if (tipoUsuario == 2){
                     int tipoInmueble;
                     std::cout << "Indique el tipo de inmueble (1: Casa, 0: Apartamento): ";
@@ -252,11 +262,28 @@ void altaPublicacion(){
     std::cout << "Lista de Inmobiliarias:\n";
     //TODO: Coleccion de DTUsuario = controlador->listarInmobiliarias();
     //Recorrer la coleccion Mostrar "- Nickname: xx, Nombre: zz";
+//desde
+ std::set<DTUsuario> inmobiliarias = ControladorUsuario::getInstancia()->ListarInmobiliarias();
+                 
+                    for (auto inmobiliaria : inmobiliarias) {
+                        std::cout<< inmobiliaria << std::endl;
+                    }
+
+//hasta
+
     std::cout << "Nickname de la inmobiliaria: ";
     std::string nicknameInmobiliaria;
     std::getline(std::cin, nicknameInmobiliaria);
     //TODO: Coleccion de DTInmuebleAdministrado = controlador->listarInmueblesAdministrados(nicknameInmobiliaria);
     //Recorrer la coleccion Mostrar "- Codigo: xx, Direccion: yy, Propietario: zzz"
+    //desde
+     std::set<DTInmuebleAdministrado> inmueblesAdministrados = ControladorUsuario::getInstancia()->listarInmueblesAdministrados(nicknameInmobiliaria);
+                 
+                    for (auto Administrados : inmueblesAdministrados) {
+                        std::cout<< Administrados << std::endl;
+                    }
+
+    //hasta
     int codigoInmueble;
     std::cout << "Inmueble: ";
     std::cin >> codigoInmueble;
@@ -313,6 +340,15 @@ void consultaPublicaciones(){
     std::cout << "Publicaciones encontradas:\n";
     //TODO: Coleccion de DTPublicacion = Controlador->listarPublicacion(tipoPublicacion, precionMinimo, precioMaximo, tipoInmueble);
     //Recorrer la coleccion Mostrar "- Codigo: xx, fecha: dd/mm/yyyy, texto: zzz, precio: aaa, inmobiliaria: bbb";
+    //desde
+     std::set<DTPublicacion*> publicaciones = ControladorPublicacion::getInstancia()->listarPublicaciones(tipoPublicacion, precioMinimo, precioMaximo, tipoInmueble);
+                 
+                    for (auto publicacione : publicaciones) {
+                        std::cout<< publicacione << std::endl;
+                    }
+
+
+    //hasta
     int verDetalle;
     std::cout << "Ver detalle de la publicacion: (1: Si, 0: No)";
     std::cin >> verDetalle;
@@ -327,7 +363,12 @@ void consultaPublicaciones(){
         //Mostrarlo:
         // Si es apartamento-> "Codigo: aaa, direccion: bbb, nro. puerta: ccc, superficie: xx m2, consturccion: dddd, piso: xx, ascensor: Si/No, gastos comunes: yyy"
         // Si es casa-> "Codigo: aaa, direccion: bbb, nro. puerta: ccc, superficie: xx m2, consturccion: dddd, PH: Si/No, Tipo de techo: Liviano/A dos aguas/Plano"
-    }
+//desde 
+//falta debido a que tendria que modificar una funcion 
+//hasta 
+
+
+}
 }
 
 void eliminarInmueble(){
@@ -336,6 +377,11 @@ void eliminarInmueble(){
     std::cout << "Listado de inmuebles:\n";
     //TODO: Coleccion de DTInmuebleListado = Controlador->listarInmuebles();
     //Recorrer la coleccion Mostrar "- Codigo: xx, direccion: xxxx, propietario: bbbbb";
+    //desde
+      
+
+
+    //Hasta
     std::cout << "Codigo del inmueble a eliminar: ";
     int codigoInmueble;
     std::cin >> codigoInmueble;
@@ -384,7 +430,7 @@ void altaAdministracionPropiedad(){
     std::cin >> codigoInmueble;
     std::cin.ignore();
     //TODO: Controlador->altaAdministraPropiedad(nicknameInmobiliaria, codigoInmueble);
-    ControladorUsuario::getInstancia()->altaAdministraPropiedad(nicknameInmobiliaria, codigoInmueble);
+    ControladorUsuario::getInstancia()->altaAdministrarPropiedad(nicknameInmobiliaria, codigoInmueble);
   
 }
 

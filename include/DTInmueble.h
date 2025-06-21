@@ -21,6 +21,6 @@ class DTInmueble {
         virtual ~DTInmueble();
 };
 
- std::ostream& operator<<(std::ostream& os, const DTInmueble dt);
+ std::ostream& operator<<(std::ostream& os,  DTInmueble dt);
 
 #endif

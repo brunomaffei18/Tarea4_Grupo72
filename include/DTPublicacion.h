@@ -22,6 +22,6 @@ class DTPublicacion {
         ~DTPublicacion();
 };
 
-std::ostream& operator<<(std::ostream& os, const DTPublicacion& dt);
+std::ostream& operator<<(std::ostream& os,  DTPublicacion& dt);
 
 #endif

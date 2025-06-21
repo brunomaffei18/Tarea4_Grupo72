@@ -17,6 +17,6 @@ class DTApartamento : public DTInmueble {
         virtual ~DTApartamento();
 };
 
- std::ostream& operator<<(std::ostream& os, const DTApartamento dt);
+ std::ostream& operator<<(std::ostream& os,  DTApartamento dt);
 
 #endif

@@ -15,6 +15,6 @@ class DTUsuario {
         bool operator<(DTUsuario& other);
 };
 
-std::ostream& operator<<(std::ostream& os, const DTUsuario& dt);
+std::ostream& operator<<(std::ostream& os, DTUsuario& dt);
 
 #endif

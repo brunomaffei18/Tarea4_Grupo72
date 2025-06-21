@@ -28,7 +28,7 @@ public:
 };
 
 bool operator<(const DTNotificacion& a,const DTNotificacion& b);
- std::ostream& operator<<(std::ostream& os, const DTNotificacion dt);
+ std::ostream& operator<<(std::ostream& os,  DTNotificacion dt);
 
 
 #endif

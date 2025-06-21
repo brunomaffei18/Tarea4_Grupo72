@@ -17,5 +17,5 @@ class DTInmuebleListado {
         std::string getPropietario();
 };
 
- std::ostream& operator<<(std::ostream& os, const DTInmuebleListado dt);
+ std::ostream& operator<<(std::ostream& os,  DTInmuebleListado dt);
 #endif

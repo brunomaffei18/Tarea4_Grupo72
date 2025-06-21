@@ -16,6 +16,6 @@ class DTCasa :public DTInmueble {
         virtual ~DTCasa();
 };
 
- std::ostream& operator<<(std::ostream& os, const DTCasa dt);
+ std::ostream& operator<<(std::ostream& os,  DTCasa dt);
 
 #endif

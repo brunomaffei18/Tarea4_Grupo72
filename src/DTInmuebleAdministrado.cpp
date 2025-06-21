@@ -21,3 +21,8 @@ DTFecha* DTInmuebleAdministrado::getFechaComienzo() {
 DTInmuebleAdministrado::~DTInmuebleAdministrado(){
     delete fechaComienzo;
 }
+std::ostream& operator<<(std::ostream& os,  DTInmuebleAdministrado& dt){
+ os<<"- Codigo: "<<dt.getCodigo()<<", Direccion: "<<dt.getDireccion()<<", Propietario: "<<dt.getFechaComienzo()->toString()<< std::endl;
+
+
+};
