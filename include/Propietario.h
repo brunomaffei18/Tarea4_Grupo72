@@ -3,10 +3,11 @@
 #include "Usuario.h"
 #include "Subscriptor.h"
 #include "DTNotificacion.h"
-#include "Inmueble.h"
 #include <string>
 #include <set>
 #include <map>
+
+class Inmueble;
 
 class Propietario : public Usuario, public Subscriptor{
     private:
