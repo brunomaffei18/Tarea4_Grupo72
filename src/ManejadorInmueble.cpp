@@ -6,10 +6,12 @@
 ManejadorInmueble* ManejadorInmueble::instancia =NULL;
 
 ManejadorInmueble* ManejadorInmueble::getManejadorInmueble(){
-    if(instancia==nullptr)
+    if(instancia==nullptr){
         instancia= new ManejadorInmueble();
     return instancia;
-}
+}else{
+    return NULL;
+}}
 
 
        ManejadorInmueble::ManejadorInmueble(){};
@@ -24,7 +26,9 @@ ManejadorInmueble* ManejadorInmueble::getManejadorInmueble(){
         Inmueble* ManejadorInmueble::getInmueble(int codigoInmueble){
             if(inmuebles.find(codigoInmueble)!=inmuebles.end()){
                 return inmuebles[codigoInmueble];
-            }
+            }else{
+                return NULL;
+                            }
 
         };
         void ManejadorInmueble::eliminarInmueble(int codigoInmueble){
@@ -78,5 +82,6 @@ ManejadorInmueble* ManejadorInmueble::getManejadorInmueble(){
         };
 
     std::map<int, Inmueble*> ManejadorInmueble::getInmuebles() {
+       
         return inmuebles;
     }

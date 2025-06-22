@@ -31,6 +31,9 @@ ManejadorPublicaciones* ManejadorPublicaciones::getManejadorPublicaciones(){
     this->codigoUltimaPUblicacionVenta=codigo;
   };
         int ManejadorPublicaciones::getCodigoUltimaPublicacionVenta() const {
+            if(this->codigoUltimaPUblicacionVenta==NULL){
+                return NULL;
+            }
             return this->codigoUltimaPUblicacionVenta;
         }
 
@@ -38,6 +41,9 @@ void ManejadorPublicaciones:: setCodigoUltimaPublicacionAlquiler(int codigo){
     this->codigoUltimaPUblicacionAlquiler = codigo;
 };
         int ManejadorPublicaciones::getCodigoUltimaPublicacionAlquiler() const {
+            if(this->codigoUltimaPUblicacionAlquiler==NULL){
+                return NULL;
+            }
             return this->codigoUltimaPUblicacionAlquiler;
         };
 
