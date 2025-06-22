@@ -155,8 +155,8 @@ void ControladorUsuario::altaAdministrarPropiedad(std::string nickNameInmobiliar
     Inmobiliaria* inmobiliaria = manejadorusu->getInmobiliaria(nickNameInmobiliaria);
     std::map<std::string, Propietario*> mapa= manejadorusu->getPropietarios();
     std::map<std::string,Propietario*>::iterator iterador = mapa.begin();
-    bool flag=true;
-    while(iterador != mapa.end() || flag==false )
+    bool flag=false;
+    while(iterador != mapa.end() && flag==false )
     {
         Propietario* inmue=iterador->second;
         std::map<int, Inmueble*> pichu=inmue->getPropiedades();

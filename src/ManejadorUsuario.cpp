@@ -14,6 +14,19 @@ ManejadorUsuario::ManejadorUsuario(){};
 void ManejadorUsuario:: agregarUsuario(Usuario* usuario)
 {
     usuarios.insert(std::pair<std::string, Usuario*>(usuario->getNickname(),usuario));
+    
+    if (Cliente* c=dynamic_cast<Cliente*>(usuario)){
+        clientes.insert(std::pair<std::string, Cliente*>(usuario->getNickname(), c));
+    }else{
+        if(Propietario*p=dynamic_cast<Propietario*>(usuario)){
+            propietarios.insert(std::pair<std::string,Propietario*>(usuario->getNickname(),p));
+        }else{
+            if(Inmobiliaria* i =dynamic_cast<Inmobiliaria*>(usuario)){
+                Inmobiliarias.insert(std::pair<std::string,Inmobiliaria*>(usuario->getNickname(),i));
+            }
+        }
+    }
+
 }
 
 
