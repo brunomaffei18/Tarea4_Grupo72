@@ -24,5 +24,6 @@ class DTPublicacion {
 };
 
 std::ostream& operator<<(std::ostream& os,  DTPublicacion& dt);
+bool operator<(const DTPublicacion& a, const DTPublicacion& b);
 
 #endif

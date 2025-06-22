@@ -335,7 +335,7 @@ void consultaPublicaciones(){
     std::cout << "Publicaciones encontradas:\n";
     //TODO: Coleccion de DTPublicacion = Controlador->listarPublicacion(tipoPublicacion, precionMinimo, precioMaximo, tipoInmueble);
     //Recorrer la coleccion Mostrar "- Codigo: xx, fecha: dd/mm/yyyy, texto: zzz, precio: aaa, inmobiliaria: bbb";
- std::set<DTPublicacion*> publicaciones = ControladorPublicacion::getInstancia()->listarPublicaciones(tipoPublicacion, precioMinimo, precioMaximo, tipoInmueble);
+ std::set<DTPublicacion> publicaciones = ControladorPublicacion::getInstancia()->listarPublicaciones(tipoPublicacion, precioMinimo, precioMaximo, tipoInmueble);
              
                     for (auto publicacione : publicaciones) {
                         std::cout<< publicacione << std::endl;

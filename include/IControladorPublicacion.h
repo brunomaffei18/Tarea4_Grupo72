@@ -15,7 +15,7 @@ class IControladorPublicacion
 {
 public:
     virtual bool altaPublicacion(std::string nicknameInmobiliaria, int codigoInmueble, TipoPublicacion tipoPublicacion, std::string texto, float precio) =0;
-    virtual std::set<DTPublicacion*> listarPublicaciones(TipoPublicacion tipoPublicacion, float precioMinimo, float precioMaximo, TipoInmuebleenum::TipoInmueble tipoInmueble) =0;
+    virtual std::set<DTPublicacion> listarPublicaciones(TipoPublicacion tipoPublicacion, float precioMinimo, float precioMaximo, TipoInmuebleenum::TipoInmueble tipoInmueble) =0;
     virtual DTPublicacion getPublicacion(int id) =0;
     virtual DTInmueble detalleInmueblePublicacion(int codigoPublicacion) =0;
     virtual ~IControladorPublicacion() = default;

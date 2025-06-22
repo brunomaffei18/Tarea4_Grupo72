@@ -96,19 +96,19 @@ for (Subscriptor* s:inmobiliaria->getSuscriptores()){
     
     }
 
-  std::set<DTPublicacion*> ControladorPublicacion::listarPublicaciones(TipoPublicacion tipoPublicacion, float precioMinimo, float precioMaximo, TipoInmuebleenum::TipoInmueble tipoInmueble){
-    std::set<DTPublicacion*> publicacionesFiltradas;
+  std::set<DTPublicacion> ControladorPublicacion::listarPublicaciones(TipoPublicacion tipoPublicacion, float precioMinimo, float precioMaximo, TipoInmuebleenum::TipoInmueble tipoInmueble){
+    std::set<DTPublicacion> publicacionesFiltradas;
     std::list<Publicacion*> listaPublicaciones = ManejadorPublicaciones::getManejadorPublicaciones()->listarPublicaciones();
     for (std::list<Publicacion*>::iterator i = listaPublicaciones.begin(); i !=listaPublicaciones.end(); i++)
     {
       if ((*i)->getTipo()==tipoPublicacion && (*i)->getPrecio()>precioMinimo&& (*i)->getPrecio()<precioMaximo)
       if (tipoInmueble==TipoInmuebleenum::Todos)
       {
-        DTPublicacion* dtdupPlicacion=new DTPublicacion((*i)->getCodigo(),(*i)->getFecha(),(*i)->getTexto(),(*i)->ConvertirPrecio(),(*i)->getInmobiliaria()->getNickname());
+        DTPublicacion dtdupPlicacion= DTPublicacion((*i)->getCodigo(),(*i)->getFecha(),(*i)->getTexto(),(*i)->ConvertirPrecio(),(*i)->getInmobiliaria()->getNickname());
         publicacionesFiltradas.insert(dtdupPlicacion);
       }else {
         if( tipoInmueble==(*i)->getInmueble()->getTipoInmueble()){
-          DTPublicacion* dtdupPlicacion=new DTPublicacion((*i)->getCodigo(),(*i)->getFecha(),(*i)->getTexto(),(*i)->ConvertirPrecio(),(*i)->getInmobiliaria()->getNickname());
+          DTPublicacion dtdupPlicacion= DTPublicacion((*i)->getCodigo(),(*i)->getFecha(),(*i)->getTexto(),(*i)->ConvertirPrecio(),(*i)->getInmobiliaria()->getNickname());
           publicacionesFiltradas.insert(dtdupPlicacion);
         }
       }
