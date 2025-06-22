@@ -1,5 +1,13 @@
 #include "../include/DTInmueble.h"
 
+DTInmueble::DTInmueble()
+{
+    this->codigo = -1;
+    this->direccion = "";
+    this->numeroPuerta = 0;
+    this->superficie = 0;
+    this->anioConstruccion = 0;
+}
 DTInmueble::DTInmueble(int codigo, std::string direccion, int numeroPuerta, int superficie, int anioConstruccion) {
     this->codigo = codigo;
     this->direccion = direccion;

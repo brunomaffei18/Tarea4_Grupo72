@@ -43,9 +43,9 @@ void ManejadorPublicaciones:: setCodigoUltimaPublicacionAlquiler(int codigo){
 };
 
  int ManejadorPublicaciones::getCodigoUltimaPublicacionAlquiler() const {
-            /*if(this->codigoUltimaPUblicacionAlquiler==NULL){
-                return NULL;
-            }*/
+            if(publicaciones.empty()){
+                return -1;//Aca habia un NULL y arriba un this->codigoUltimaPUblicacionAlquiler
+            }
             return this->codigoUltimaPUblicacionAlquiler;
         };
 
