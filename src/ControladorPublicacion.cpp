@@ -82,7 +82,7 @@ ControladorPublicacion::ControladorPublicacion() {
     
     
     
-    };
+    }
 
   std::set<DTPublicacion*> ControladorPublicacion::listarPublicaciones(TipoPublicacion tipoPublicacion, float precioMinimo, float precioMaximo, TipoInmuebleenum::TipoInmueble tipoInmueble){
     std::set<DTPublicacion*> publicacionesFiltradas;
@@ -104,7 +104,7 @@ ControladorPublicacion::ControladorPublicacion() {
     }
     return publicacionesFiltradas;
 
-    };
+    }
     DTPublicacion ControladorPublicacion::getPublicacion(int id){
      
 
@@ -116,7 +116,7 @@ ControladorPublicacion::ControladorPublicacion() {
         }
       }
       
-    };
+    }
     DTInmueble ControladorPublicacion::detalleInmueblePublicacion(int codigoPublicacion){
  std::list<Publicacion*> listaPublicaciones = ManejadorPublicaciones::getManejadorPublicaciones()->listarPublicaciones();
       for(std::list<Publicacion*>::iterator i=listaPublicaciones.begin();i!=listaPublicaciones.end();i++){
@@ -125,7 +125,7 @@ ControladorPublicacion::ControladorPublicacion() {
         }
       }
       
-    };
+    }
     ControladorPublicacion::~ControladorPublicacion(){
       
-    };
+    }
