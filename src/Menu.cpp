@@ -138,8 +138,8 @@ void altaUsuario(){
         std::getline(std::cin, apellido);
         std::cout << "Documento: ";
         std::getline(std::cin, documento);
-       // usuarioOk = ci->altaCliente(nickname, contrasena, nombre, email, apellido, documento);
-       usuarioOk = ControladorUsuario::getInstancia()->altaCliente(nickname, contrasena, nombre, email, apellido, documento);
+        //TODO: usuarioOk = ci->altaCliente(nickname, contrasena, nombre, email, apellido, documento);
+        usuarioOk = ControladorUsuario::getInstancia()->altaCliente(nickname, contrasena, nombre, email, apellido, documento);
 
     }else if (tipoUsuario == 1){
         std::cout << "Direccion: ";
@@ -149,7 +149,8 @@ void altaUsuario(){
         std::cout << "Telefono: ";
         std::getline(std::cin, telefono);
         //TODO: usuarioOk = ci->altaInmobiliaria(nickname, contrasena, nombre, email, direccion, url, telefono);
-         usuarioOk = ControladorUsuario::getInstancia()->altaInmobiliaria(nickname, contrasena, nombre, email, direccion, url, telefono);
+        usuarioOk = ControladorUsuario::getInstancia()->altaInmobiliaria(nickname, contrasena, nombre, email, direccion, url, telefono);
+
 
     }else if (tipoUsuario == 2){
         std::cout << "Cuenta Bancaria: ";
@@ -158,6 +159,7 @@ void altaUsuario(){
         std::getline(std::cin, telefono);
         //TODO: usuarioOk = ci->altaPropietario(nickname, contrasena, nombre, email, cuentaBancaria, telefono);
         usuarioOk = ControladorUsuario::getInstancia()->altaPropietario(nickname, contrasena, nombre, email, cuentaBancaria, telefono);
+
 
     }
     if (usuarioOk){
@@ -175,20 +177,16 @@ void altaUsuario(){
                     std::cout << "Lista de Propietarios:\n";
                     //TODO: Coleccion de DTUsuario = controlador->listarPropietarios();
                     //Recorrer la coleccion Mostrar "- Nickname: xx, Nombre: zz";
-                      //desde
-                    std::set<DTUsuario> propietarios = ControladorUsuario::getInstancia()->ListarPropietarios();
+             std::set<DTUsuario> propietarios = ControladorUsuario::getInstancia()->ListarPropietarios();
                  
                     for (auto propietario : propietarios) {
                         std::cout<< propietario << std::endl;
                     }
-                   
-               
-  //hasta
                     std::cout << "Nickname propietario a representar: ";
                     std::string nicknamePropietario;
                     std::getline(std::cin, nicknamePropietario);
                     //TODO: controlador->representarPropietario(nicknamePropietario)
-                    ControladorUsuario::getInstancia()->representarPropietario(nicknamePropietario);
+                     ControladorUsuario::getInstancia()->representarPropietario(nicknamePropietario);
                 }else if (tipoUsuario == 2){
                     int tipoInmueble;
                     std::cout << "Indique el tipo de inmueble (1: Casa, 0: Apartamento): ";
@@ -224,7 +222,8 @@ void altaUsuario(){
                             techo = Plano;
                         }
                         //TODO: controlador->altaCasa(direccion, numeroPuerta, superficie, anoConstruccion, esPH, techo);
-                       ControladorInmueble::getInstancia()->altaCasa(direccion, numeroPuerta, superficie, anoConstruccion, esPH, techo);
+                      ControladorInmueble::getInstancia()->altaCasa(direccion, numeroPuerta, superficie, anoConstruccion, esPH, techo);
+
                     }else{
                         int piso;
                         std::cout << "Piso: ";
@@ -240,16 +239,18 @@ void altaUsuario(){
                         std::cin >> gastosComunes;
                         std::cin.ignore();
                         //TODO: controlador->altaApartamento(direccion, numeroPuerta, superficie, anoConstruccion, piso, tieneAscensor, gastosComunes)
-                       ControladorInmueble::getInstancia()->altaApartamento(direccion, numeroPuerta, superficie, anoConstruccion, piso, tieneAscensor, gastosComunes);
+                        ControladorInmueble::getInstancia()->altaApartamento(direccion, numeroPuerta, superficie, anoConstruccion, piso, tieneAscensor, gastosComunes);
+
                     }
                 }
-            }
+            
             std::cout << "¿Quiere seguir ingresando? (1: Si, 0: No): ";
             std::cin >> salir;
             std::cin.ignore();
         }
+        }
         //TODO: controlador->finalizarAltaUsuario();
-    ControladorUsuario::getInstancia()->finalizarAltaUsuario();
+        ControladorUsuario::getInstancia()->finalizarAltaUsuario();
     }else{
         std::cout << "Error al crear el usuario" << std::endl;
     }
@@ -262,28 +263,21 @@ void altaPublicacion(){
     std::cout << "Lista de Inmobiliarias:\n";
     //TODO: Coleccion de DTUsuario = controlador->listarInmobiliarias();
     //Recorrer la coleccion Mostrar "- Nickname: xx, Nombre: zz";
-//desde
- std::set<DTUsuario> inmobiliarias = ControladorUsuario::getInstancia()->ListarInmobiliarias();
+     std::set<DTUsuario> inmobiliarias = ControladorUsuario::getInstancia()->ListarInmobiliarias();
                  
                     for (auto inmobiliaria : inmobiliarias) {
                         std::cout<< inmobiliaria << std::endl;
                     }
-
-//hasta
-
     std::cout << "Nickname de la inmobiliaria: ";
     std::string nicknameInmobiliaria;
     std::getline(std::cin, nicknameInmobiliaria);
     //TODO: Coleccion de DTInmuebleAdministrado = controlador->listarInmueblesAdministrados(nicknameInmobiliaria);
     //Recorrer la coleccion Mostrar "- Codigo: xx, Direccion: yy, Propietario: zzz"
-    //desde
      std::set<DTInmuebleAdministrado> inmueblesAdministrados = ControladorUsuario::getInstancia()->listarInmueblesAdministrados(nicknameInmobiliaria);
                  
                     for (auto Administrados : inmueblesAdministrados) {
                         std::cout<< Administrados << std::endl;
                     }
-
-    //hasta
     int codigoInmueble;
     std::cout << "Inmueble: ";
     std::cin >> codigoInmueble;
@@ -305,6 +299,7 @@ void altaPublicacion(){
     std::cin.ignore();
     //TODO:Controlador->altaPublicacion(nicknameInmobiliaria, codigoInmueble, tipoPublicacion, texto, precio)
      ControladorPublicacion::getInstancia()->altaPublicacion(nicknameInmobiliaria, codigoInmueble, tipoPublicacion, texto, precio);
+
 }
 
 void consultaPublicaciones(){
@@ -333,22 +328,20 @@ void consultaPublicaciones(){
     std::cin.ignore();
     TipoInmuebleenum::TipoInmueble tipoInmueble = TipoInmuebleenum::Todos;
     if(inTipoPublicacion == 1){
-        tipoInmueble =TipoInmuebleenum:: Casa;
+        tipoInmueble = TipoInmuebleenum::Casa;
     }else if(inTipoPublicacion == 2){
         tipoInmueble = TipoInmuebleenum::Apartamento;
     }
     std::cout << "Publicaciones encontradas:\n";
     //TODO: Coleccion de DTPublicacion = Controlador->listarPublicacion(tipoPublicacion, precionMinimo, precioMaximo, tipoInmueble);
     //Recorrer la coleccion Mostrar "- Codigo: xx, fecha: dd/mm/yyyy, texto: zzz, precio: aaa, inmobiliaria: bbb";
-    //desde
-     std::set<DTPublicacion*> publicaciones = ControladorPublicacion::getInstancia()->listarPublicaciones(tipoPublicacion, precioMinimo, precioMaximo, tipoInmueble);
+ std::set<DTPublicacion*> publicaciones = ControladorPublicacion::getInstancia()->listarPublicaciones(tipoPublicacion, precioMinimo, precioMaximo, tipoInmueble);
              
                     for (auto publicacione : publicaciones) {
                         std::cout<< publicacione << std::endl;
                     }
 
 
-    //hasta
     int verDetalle;
     std::cout << "Ver detalle de la publicacion: (1: Si, 0: No)";
     std::cin >> verDetalle;
@@ -363,19 +356,15 @@ void consultaPublicaciones(){
         //Mostrarlo:
         // Si es apartamento-> "Codigo: aaa, direccion: bbb, nro. puerta: ccc, superficie: xx m2, consturccion: dddd, piso: xx, ascensor: Si/No, gastos comunes: yyy"
         // Si es casa-> "Codigo: aaa, direccion: bbb, nro. puerta: ccc, superficie: xx m2, consturccion: dddd, PH: Si/No, Tipo de techo: Liviano/A dos aguas/Plano"
-//desde 
-DTInmueble inmueble = ControladorPublicacion::getInstancia()->detalleInmueblePublicacion(codigoPublicacion);
+    DTInmueble inmueble = ControladorPublicacion::getInstancia()->detalleInmueblePublicacion(codigoPublicacion);
        if (tipoInmueble==TipoInmuebleenum::Apartamento){
            std::cout<< inmueble << std::endl;
        }
        if(tipoInmueble==TipoInmuebleenum::Casa){
         std::cout<<inmueble<<std::endl;
        }
-        //hasta
-
-
-
-}
+    
+    }
 }
 
 void eliminarInmueble(){
@@ -384,15 +373,13 @@ void eliminarInmueble(){
     std::cout << "Listado de inmuebles:\n";
     //TODO: Coleccion de DTInmuebleListado = Controlador->listarInmuebles();
     //Recorrer la coleccion Mostrar "- Codigo: xx, direccion: xxxx, propietario: bbbbb";
-    //desde
-      std::set<DTInmuebleListado> inmuebles = ControladorInmueble::getInstancia()->listarInmuebles();
+     std::set<DTInmuebleListado> inmuebles = ControladorInmueble::getInstancia()->listarInmuebles();
                  
                     for (auto inmueble : inmuebles) {
                         std::cout<< inmueble << std::endl;
                     }
 
 
-    //Hasta
     std::cout << "Codigo del inmueble a eliminar: ";
     int codigoInmueble;
     std::cin >> codigoInmueble;
@@ -402,8 +389,7 @@ void eliminarInmueble(){
     //Mostrarlo:
     // Si es apartamento-> "Codigo: aaa, direccion: bbb, nro. puerta: ccc, superficie: xx m2, consturccion: dddd, piso: xx, ascensor: Si/No, gastos comunes: yyy"
     // Si es casa-> "Codigo: aaa, direccion: bbb, nro. puerta: ccc, superficie: xx m2, consturccion: dddd, PH: Si/No, Tipo de techo: Liviano/A dos aguas/Plano"
-   //Desde
-    DTInmueble inmueble = ControladorInmueble::getInstancia()->detalleInmueble(codigoInmueble);
+     DTInmueble inmueble = ControladorInmueble::getInstancia()->detalleInmueble(codigoInmueble);
                     Inmueble* inmuebletipo = ManejadorInmueble::getManejadorInmueble()->getInmueble(codigoInmueble);
                     TipoInmuebleenum::TipoInmueble TipoIn=inmuebletipo->getTipoInmueble();
          
@@ -414,21 +400,19 @@ void eliminarInmueble(){
        if(TipoIn==TipoInmuebleenum::Casa){
         std::cout<<inmueble<<std::endl;
        }
-//hast
-    
     int deseaEliminar;
     std::cout << "¿Desea eliminar?: (1: Si, 0: No)";
     std::cin >> deseaEliminar;
     std::cin.ignore();
     if (deseaEliminar == 1){
         //TODO: Controlador->eliminarInmueble(codigoInmueble)
-        ManejadorInmueble::getManejadorInmueble()->eliminarInmueble(codigoInmueble);
+         ManejadorInmueble::getManejadorInmueble()->eliminarInmueble(codigoInmueble);
     }
 
 }
 
 void suscribirseNotificaciones(){
-    Factory* factory = Factory::getInstance();
+ Factory* factory = Factory::getInstance();
 
     std::cout << "Listado de Inmobiliarias:\n";
     std::set<DTUsuario> inmobiliarias = ControladorUsuario::getInstancia()->ListarInmobiliarias();
@@ -444,7 +428,7 @@ void suscribirseNotificaciones(){
 }
 
 void consultaNotificaciones(){
-  std::cout << "Ingrese su nickname (cliente o propietario): ";
+ std::cout << "Ingrese su nickname (cliente o propietario): ";
   std::string subscriptor;
   std::getline(std::cin, subscriptor);
    std::set<DTNotificacion> notificaciones=ControladorNotificaciones::getInstance()->consultarNotificaciones(subscriptor);
@@ -491,32 +475,27 @@ void eliminarSuscripciones(){
    
 }
 
-
 void altaAdministracionPropiedad(){
     Factory* factory = Factory::getInstance();
 
     std::cout << "Lista de Inmobiliarias:\n";
     //TODO: Coleccion de DTUsuario = controlador->listarInmobiliarias();
     //Recorrer la coleccion Mostrar "- Nickname: xx, Nombre: zz";
-    //desde
-   std::set<DTUsuario> inmobiliarias = ControladorUsuario::getInstancia()->ListarInmobiliarias();
+    std::set<DTUsuario> inmobiliarias = ControladorUsuario::getInstancia()->ListarInmobiliarias();
     for(auto inmobiliaria:inmobiliarias){
         std::cout<<inmobiliaria << std::endl;
     }
-//hasta
+
     std::cout << "Nickname de la inmobiliaria: ";
     std::string nicknameInmobiliaria;
     std::getline(std::cin, nicknameInmobiliaria);
     //TODO: Coleccion de DTInmuebleListado = Controlador->listarInmueblesNoAdministradosInmobiliaria(nicknameInmobiliaria);
     //Recorrer la coleccion Mostrar "- Codigo: xx, direccion: xxxx, propietario: bbbbb";
-//desde
  std::set<DTInmuebleListado> inmueblesNoAdministrados = ControladorUsuario::getInstancia()->listarInmueblesNoAdministradosInmobiliaria(nicknameInmobiliaria);
                  
                     for (auto inmueble : inmueblesNoAdministrados) {
                         std::cout<< inmueble << std::endl;
                     }
-    //hasta
-
 
     std::cout << "Codigo del inmueble a administrar: ";
     int codigoInmueble;
