@@ -28,7 +28,7 @@ bool DTInmuebleAdministrado::operator<(const DTInmuebleAdministrado& other) cons
 
 
 std::ostream& operator<<(std::ostream& os,  DTInmuebleAdministrado& dt){
- os<<"- Codigo: "<<dt.getCodigo()<<", Direccion: "<<dt.getDireccion()<<", Propietario: "<<dt.getFechaComienzo()->toString()<< std::endl;
+ os<<"- Codigo: "<<dt.getCodigo()<<", Direccion: "<<dt.getDireccion()<<", Propietario: ";
     return os;
 
 };

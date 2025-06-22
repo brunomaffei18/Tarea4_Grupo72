@@ -276,7 +276,8 @@ void altaPublicacion(){
      std::set<DTInmuebleAdministrado> inmueblesAdministrados = ControladorUsuario::getInstancia()->listarInmueblesAdministrados(nicknameInmobiliaria);
                  
                     for (auto Administrados : inmueblesAdministrados) {
-                        std::cout<< Administrados << std::endl;
+                        std::string nickPropietario = ManejadorInmueble::getManejadorInmueble()->getInmueble(Administrados.getCodigo())->getPropietario()->getNickname();
+                        std::cout<< Administrados <<nickPropietario<<std::endl;
                     }
     int codigoInmueble;
     std::cout << "Inmueble: ";
