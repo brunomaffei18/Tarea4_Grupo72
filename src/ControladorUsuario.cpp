@@ -151,36 +151,56 @@ std::set<DTInmuebleListado> ControladorUsuario:: listarInmueblesNoAdministradosI
     }
 return listado;
 }        
-void ControladorUsuario::altaAdministrarPropiedad(std::string nickNameInmobiliaria,int codigoInmueble){
+// void ControladorUsuario::altaAdministrarPropiedad(std::string nickNameInmobiliaria,int codigoInmueble){
+//     Inmobiliaria* inmobiliaria = manejadorusu->getInmobiliaria(nickNameInmobiliaria);
+//     std::map<std::string, Propietario*> mapa= manejadorusu->getPropietarios();
+//     std::map<std::string,Propietario*>::iterator iterador = mapa.begin();
+//     bool flag=false;
+//     while(iterador != mapa.end() && flag==false )
+//     {
+//         Propietario* inmue=iterador->second;
+//         std::map<int, Inmueble*> pichu=inmue->getPropiedades();
+//         std::map<int, Inmueble*>::iterator itera=pichu.begin();
+//         while(itera != pichu.end() || itera->second->getCodigo()!=codigoInmueble) {
+//             ++itera;
+//         }
+//         if(itera!=pichu.end()){
+//             Inmueble * inmueble=itera->second;
+//             DTFecha* fecha=ControladorFechaActual ::getInstance()->getFechaActual();
+//             AdministraPropiedad admi( fecha, inmueble, inmobiliaria);
+//             AdministraPropiedad * admin=&admi;
+//             inmueble->AgregarAdministrados(admin);
+//             inmobiliaria->agregarAdministracion(admin);
+//             flag==true;
+//         }
+//         else{
+//             ++iterador;
+//         }
+//     }
+
+
+
+// }
+void ControladorUsuario::altaAdministrarPropiedad(std::string nickNameInmobiliaria, int codigoInmueble) {
     Inmobiliaria* inmobiliaria = manejadorusu->getInmobiliaria(nickNameInmobiliaria);
-    std::map<std::string, Propietario*> mapa= manejadorusu->getPropietarios();
-    std::map<std::string,Propietario*>::iterator iterador = mapa.begin();
-    bool flag=false;
-    while(iterador != mapa.end() && flag==false )
-    {
-        Propietario* inmue=iterador->second;
-        std::map<int, Inmueble*> pichu=inmue->getPropiedades();
-        std::map<int, Inmueble*>::iterator itera=pichu.begin();
-        while(itera != pichu.end() || itera->second->getCodigo()!=codigoInmueble) {
-            ++itera;
-        }
-        if(itera!=pichu.end()){
-            Inmueble * inmueble=itera->second;
-            DTFecha* fecha=ControladorFechaActual ::getInstance()->getFechaActual();
-            AdministraPropiedad admi( fecha, inmueble, inmobiliaria);
-            AdministraPropiedad * admin=&admi;
+    std::map<std::string, Propietario*> mapa = manejadorusu->getPropietarios();
+
+    for (auto& [nick, propietario] : mapa) {
+        std::map<int, Inmueble*> propiedades = propietario->getPropiedades();
+        auto it = propiedades.find(codigoInmueble);
+
+        if (it != propiedades.end()) {
+            Inmueble* inmueble = it->second;
+            DTFecha* fecha = ControladorFechaActual::getInstance()->getFechaActual();
+            AdministraPropiedad* admin = new AdministraPropiedad(fecha, inmueble, inmobiliaria);
+
             inmueble->AgregarAdministrados(admin);
             inmobiliaria->agregarAdministracion(admin);
-            flag==true;
-        }
-        else{
-            ++iterador;
+            break;  // Ya encontramos el inmueble, no necesitamos seguir buscando
         }
     }
-
-
-
 }
+
 
 ControladorUsuario::~ControladorUsuario() {
    

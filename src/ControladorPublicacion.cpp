@@ -29,36 +29,42 @@ ControladorPublicacion::ControladorPublicacion() {
     bool ControladorPublicacion::altaPublicacion(std::string nicknameInmobiliaria, int codigoInmueble, TipoPublicacion tipoPublicacion, std::string texto, float precio)
     {
       ManejadorPublicaciones* manejador=ManejadorPublicaciones::getManejadorPublicaciones(); 
-      std::list<Publicacion*> publicaciones=manejador->listarPublicaciones();
-      bool exist=false;
-      DTFecha fecha= ControladorFechaActual::getInstance()->getFechaActual();
-      for (std::list<Publicacion*>::iterator i=publicaciones.begin();i!=publicaciones.end() && exist==false ;i++){
-        if( (*i)->getFecha()->operator==(&fecha) && (*i)->getTipo()==tipoPublicacion){
-          Inmobiliaria* inmobiliaria=(*i)->getInmobiliaria();
-          Inmueble* inmueble=(*i)->getInmueble();
-          if(inmueble->getCodigo()==codigoInmueble && inmobiliaria->getNickname()==nicknameInmobiliaria){
-            exist=true;
-          }
+      ManejadorInmueble* manejadorinmu=ManejadorInmueble::getManejadorInmueble();
+      ManejadorUsuario* manejadorusu=ManejadorUsuario::getManejadorUsuario();
+       
+        if (!manejador || !manejadorusu || !manejadorinmu)
+        throw std::runtime_error("Error al obtener algún manejador.");
+      
+   
+    Inmobiliaria* inmobiliaria = manejadorusu->getInmobiliaria(nicknameInmobiliaria);
+    Inmueble* inmueble = manejadorinmu->getInmueble(codigoInmueble);
+      
+    if (!inmobiliaria || !inmueble)
+        throw std::runtime_error("Inmobiliaria o inmueble no encontrado.");
 
+      std::list<Publicacion*> publicaciones=manejador->listarPublicaciones();
+     
+      DTFecha *fecha= new DTFecha(ControladorFechaActual::getInstance()->getFechaActual());
+
+      for (auto pub: publicaciones){  
+      if ((pub->getFecha()->operator== (fecha)) && pub->getTipo() == tipoPublicacion && pub->getInmueble()->getCodigo() == codigoInmueble && pub->getInmobiliaria()->getNickname() == nicknameInmobiliaria) {
+            delete fecha;
+            return false;
         }
       }
-      if (exist){
-        return false;
-      }
-    Inmobiliaria* inmobiliaria = ManejadorUsuario::getManejadorUsuario()->getInmobiliaria(nicknameInmobiliaria);
-    Inmueble* inmueble = ManejadorInmueble::getManejadorInmueble()->getInmueble(codigoInmueble);
-    int nuevoCodigo=ManejadorPublicaciones::getManejadorPublicaciones()->generarCodigo();
-    bool activa=true;
-
-    Publicacion* activaActual;
+    
+  
+ 
+  int nuevoCodigo=manejador->generarCodigo();
+  
     for (Publicacion* pub:publicaciones)
     {
-      if (pub->getTipo()==tipoPublicacion){
-        if (tipoPublicacion==TipoPublicacion::Venta && pub->getCodigo()==manejadorpub->getCodigoUltimaPublicacionVenta()){
+      if (pub->getTipo()==tipoPublicacion && pub->getInmueble()->getCodigo()==codigoInmueble){
+        if (tipoPublicacion==Venta && pub->getCodigo()==manejador->getCodigoUltimaPublicacionVenta()){
           pub->setActiva(false);
           manejadorpub->setCodigoUltimaPublicacionVenta(nuevoCodigo);
         }else{
-          if(tipoPublicacion==TipoPublicacion::Alquiler && pub->getCodigo()==manejadorpub->getCodigoUltimaPublicacionAlquiler()){
+          if(tipoPublicacion==Alquiler && pub->getCodigo()==manejador->getCodigoUltimaPublicacionAlquiler()){
             pub->setActiva(false);
             manejadorpub->setCodigoUltimaPublicacionAlquiler(nuevoCodigo);
         }
@@ -67,18 +73,22 @@ ControladorPublicacion::ControladorPublicacion() {
   }
     
    
-
-    Publicacion* nuevaPublicacion=new Publicacion(nuevoCodigo, &fecha,tipoPublicacion, texto, precio, activa);
-    AdministraPropiedad * admin=new AdministraPropiedad(&fecha, inmueble, inmobiliaria);
+    AdministraPropiedad * admin=new AdministraPropiedad(fecha, inmueble, inmobiliaria);
+    Publicacion* nuevaPublicacion=new Publicacion(nuevoCodigo, fecha,tipoPublicacion, texto, precio, true);
+   
     nuevaPublicacion->setAdministra(admin);
     manejador->agregarPublicacion(nuevaPublicacion);
+    inmueble->AgregarAdministrados(admin);
+    inmobiliaria->agregarAdministracion(admin);
 
-    for (std::list<Subscriptor*>::iterator i = ManejadorNotificaciones::getInstance()->getSubs().begin(); i != ManejadorNotificaciones::getInstance()->getSubs().end(); i++)
-    {
-      if((*i)->estaSuscriptoA(inmobiliaria)){
-        (*i)->notificar(nuevaPublicacion);
-      }
-    }
+    
+for (Subscriptor* s:inmobiliaria->getSuscriptores()){
+  if (s&&s->estaSuscriptoA(inmobiliaria)){
+    s->notificar(nuevaPublicacion);
+  }
+}
+
+
     
     return true;// lo agregue por que tiraba warning de que no devolvia valor booleano
     
