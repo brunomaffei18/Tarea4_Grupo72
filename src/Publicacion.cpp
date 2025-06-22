@@ -27,9 +27,13 @@ bool Publicacion::verificarInmobiiaria(int codigoInmbo,int codigoInmueble,std::s
     return ((codigoInmbo==codigoInmueble) && (nickNameInmob==nickNameInmobiliaria));
 }
 
-std::string ConvertirPrecio(Publicacion* p) {
+/*std::string Publicacion::ConvertirPrecio(Publicacion* p) {
     std::string precioSTR = std::to_string(p->getPrecio());
     return precioSTR;
+}*/
+
+std::string Publicacion::ConvertirPrecio() {
+    return std::to_string(this->precio);
 }
 
 Publicacion::~Publicacion(){

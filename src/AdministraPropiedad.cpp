@@ -43,3 +43,7 @@ AdministraPropiedad::~AdministraPropiedad(){
 
     Publicaciones.clear();
 }
+
+DTFecha* AdministraPropiedad::getFechaPublicacion(){
+    return this->fecha;
+}

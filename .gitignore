@@ -41,3 +41,4 @@ ControladorInmueble.o
 ControladorPublicacion.o            
 AdministraPropiedad.o
 Subscriptor.o
+ManejadorNotificaciones.o
