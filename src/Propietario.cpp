@@ -80,4 +80,12 @@ void Propietario::seDesuscribe(const std::string& nicknameInmobiliaria){
      void Propietario::notificar(Publicacion*pub) {
         DTNotificacion n=DTNotificacion(pub->getInmueble()->getCodigo(), pub->getInmobiliaria()->getNickname(), pub->getTipo(), pub->getInmueble()->getTipoInmueble(), pub->getTexto());
      };
+
+std::string Propietario::getNickname() const {
+    return Usuario::getNickname();
+}
+
+
+
+
 Propietario::~Propietario() {}

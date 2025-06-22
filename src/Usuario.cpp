@@ -8,22 +8,24 @@ Usuario::Usuario(std::string nickname, std::string contrasena, std::string nombr
     this->email = email;
 }
 
-std::string Usuario::getNickname() {
+std::string Usuario::getNickname() const{
     return nickname;
 }
 
-std::string Usuario::getContrasena() {
+std::string Usuario::getContrasena() const{
     return contrasena;
 }
 
-std::string Usuario::getNombre() {
+std::string Usuario::getNombre() const{
     return nombre;
 }
 
-std::string Usuario::getEmail() {
+std::string Usuario::getEmail() const{
     return email;
 }
 
-DTUsuario Usuario::getDatos() {
+DTUsuario Usuario::getDatos() const{
     return DTUsuario(nombre, email);
 }
+
+Usuario::~Usuario() {}

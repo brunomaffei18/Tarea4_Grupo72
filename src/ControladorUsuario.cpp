@@ -6,6 +6,8 @@
 #include "../include/ControladorFechaActual.h"
 #include "../include/ControladorInmueble.h"
 
+
+
 ControladorUsuario* ControladorUsuario::instancia = NULL;
 
 ControladorUsuario::ControladorUsuario() {
@@ -164,7 +166,11 @@ void ControladorUsuario::altaAdministrarPropiedad(std::string nickNameInmobiliar
         }
         if(itera!=pichu.end()){
             Inmueble * inmueble=itera->second;
-            
+            DTFecha* fecha=ControladorFechaActual ::getInstance()->getFechaActual();
+            AdministraPropiedad admi( fecha, inmueble, inmobiliaria);
+            AdministraPropiedad * admin=&admi;
+            inmueble->AgregarAdministrados(admin);
+            inmobiliaria->agregarAdministracion(admin);
             flag==true;
         }
         else{

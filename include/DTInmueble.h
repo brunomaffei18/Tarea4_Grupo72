@@ -18,9 +18,10 @@ class DTInmueble {
         int getNumeroPuerta();
         int getSuperficie();
         int getAnioConstruccion();
+        friend std::ostream& operator<<(std::ostream& os, DTInmueble dt);
         virtual ~DTInmueble();
 };
 
- std::ostream& operator<<(std::ostream& os,  DTInmueble dt);
+
 
 #endif

@@ -47,4 +47,11 @@ void Cliente::seSuscribe(const std::string& nickInmobiliaria, const std::string&
      void Cliente::notificar(Publicacion*pub) {
         DTNotificacion n=DTNotificacion(pub->getInmueble()->getCodigo(), pub->getInmobiliaria()->getNickname(), pub->getTipo(), pub->getInmueble()->getTipoInmueble(), pub->getTexto());
      };
+
+std::string Cliente::getNickname() const {
+    return Usuario::getNickname(); 
+}
+
+
+
 Cliente::~Cliente(){}

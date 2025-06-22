@@ -28,6 +28,14 @@ int DTInmueble::getAnioConstruccion() {
     return anioConstruccion;
 }
 
+std::ostream& operator<<(std::ostream& os, DTInmueble& dt) {
+    os << "Código: " << dt.getCodigo() << ", Dirección: " << dt.getDireccion();
+    return os;
+}
+
+
+
+
 DTInmueble::~DTInmueble(){
     
 }
