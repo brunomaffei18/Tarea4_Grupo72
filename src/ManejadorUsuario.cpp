@@ -36,6 +36,18 @@ Propietario* ManejadorUsuario::getPropietario(std::string nickname)
     return propietarios.at(nickname);
 };
 
+std::map<std::string,Propietario*>& ManejadorUsuario::getPropietarios()
+{
+    return propietarios;
+}
+std::map<std::string,Inmobiliaria*>&  ManejadorUsuario::getInmobiliarias()
+{
+    return Inmobiliarias;
+}
+std::map<std::string,Cliente*>&  ManejadorUsuario::getClientes()
+{
+    return clientes;
+}
 /*
 void ManejadorUsuario::eliminarUsuario(std::string nickname)
 {
