@@ -13,6 +13,13 @@
 #include "../include/DTInmueble.h"
 #include "../include/TipoInmueble.h"
 
+
+ControladorPublicacion* ControladorPublicacion::Instancia=NULL;
+ControladorPublicacion::ControladorPublicacion() {
+    // ni idea
+}
+
+
   ControladorPublicacion* ControladorPublicacion::getInstancia(){
     if (Instancia==NULL){
         Instancia=new ControladorPublicacion();

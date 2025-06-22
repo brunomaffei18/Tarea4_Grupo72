@@ -12,13 +12,13 @@ class Usuario {
 
     public:
         Usuario(std::string nickname, std::string contrasena, std::string nombre, std::string email);
-        std::string getNickname();
-        std::string getContrasena();
-        std::string getNombre();
-        std::string getEmail();
+        std::string getNickname() const;
+        std::string getContrasena() const;
+        std::string getNombre() const;
+        std::string getEmail() const;
         
 
-        DTUsuario getDatos();
+        DTUsuario getDatos() const;
 
         virtual ~Usuario();
 };

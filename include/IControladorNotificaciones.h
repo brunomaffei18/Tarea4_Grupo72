@@ -12,12 +12,12 @@
 class IControladorNotificaciones {
 public:
 
-    virtual void subscribirse(const std::string& nickName, const std::list<std::string>& inmobiliarias);
-    virtual std::set<DTNotificacion> consultarNotificaciones(const std::string& nickName);
-    virtual void eliminarSubscripciones(const std::string& nickName, const std::list<std::string>& inmobiliarias);
-    virtual std::list<std::string> nuevasSuscribciones(const std::string& nicknameInteresado);
-    virtual void seSuscribe(const std::string& nicknameInmobiliaria, const std::string& nicknameInteresado);
-    virtual std::list<std::string> listarInmobiliariasSuscriptas(const std::string& nicknameSubscriptor);
+    virtual void subscribirse(const std::string& nickName, const std::list<std::string>& inmobiliarias)=0;
+    virtual std::set<DTNotificacion> consultarNotificaciones(const std::string& nickName)=0;
+    virtual void eliminarSubscripciones(const std::string& nickName, const std::list<std::string>& inmobiliarias)=0;
+    virtual std::list<std::string> nuevasSuscribciones(const std::string& nicknameInteresado)=0;
+    virtual void seSuscribe(const std::string& nicknameInmobiliaria, const std::string& nicknameInteresado)=0;
+    virtual std::list<std::string> listarInmobiliariasSuscriptas(const std::string& nicknameSubscriptor)=0;
     virtual ~IControladorNotificaciones()=default;
 };
 

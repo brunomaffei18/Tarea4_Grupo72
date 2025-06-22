@@ -4,9 +4,7 @@ OBJETOS = AdministraPropiedad.o Apartamento.o CargaDatos.o Casa.o \
 		  IControladorFechaActual.o Inmobiliaria.o Inmueble.o Menu.o Propietario.o Publicacion.o \
 		  TipoInmueble.o TipoPublicacion.o TipoTecho.o Usuario.o ManejadorInmueble.o ManejadorPublicaciones.o \
 		  ManejadorUsuario.o ControladorUsuario.o ControladorInmueble.o ControladorPublicacion.o \
-		  ControladorNotificaciones.o DTNotificacion.o Subscriptor.o main.o \
-		  ControladorFechaActual.o IControladorFechaActual.o Factory.o ControladorUsuario.o \
-		  ControladorInmueble.o ControladorPublicacion.o Propietario.o 
+		  ControladorNotificaciones.o DTNotificacion.o Subscriptor.o main.o
 
 
 FUENTES = ./include/AdminsitraPropiedad.h ./src/AdminsitraPropiedad.cpp \
@@ -42,15 +40,11 @@ FUENTES = ./include/AdminsitraPropiedad.h ./src/AdminsitraPropiedad.cpp \
 		  ./include/Subscriptor.h ./src/Subscriptor.cpp \
 		  ./include/ControladorNotificaciones.h ./src/ControladorNotificaciones.cpp \
 		  ./include/ControladorUsuario.h ./src/ControladorUsuario.cpp \
-		  ./include/ControladorFechaActual.h ./src/ControladorFechaActual.cpp \
 		  ./include/AdministraPropiedad.h ./src/AdministraPropiedad.cpp \
 		  ./include/Factory.h ./src/Factory.cpp \
-		  ./include/IControladorFechaActual.h ./src/IControladorFechaActual.cpp \
-		  ./include/ControladorFechaActual.h ./src/ControladorFechaActual.cpp \
-		  ./include/ControladorUsuario.h ./src/ControladorUsuario.cpp \
-		  ./include/ControladorInmueble.h ./src/ControladorInmueble.cpp \
 		  ./include/ControladorPublicacion.h ./src/ControladorPublicacion.cpp \
-		  ./include/Propietario.h ./src/Propietario.cpp 
+		  ./include/main.h ./src/main.cpp \
+		  ./include/Inmobiliaria.h ./src/Inmobiliaria.cpp 
 
 
 
@@ -61,7 +55,7 @@ ENTREGA = 72_lab4.zip
 OPCIONES = -o -g -c
 
 ejec: $(OBJETOS) ./src/main.cpp Makefile
-	g++ -o principal $(OBJETOS) ./src/main.cpp
+	g++ -o principal $(OBJETOS) 
 
 main.o: ./src/main.cpp
 	$(CC) -c ./src/main.cpp -o main.o
