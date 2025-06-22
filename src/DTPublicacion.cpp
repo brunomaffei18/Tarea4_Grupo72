@@ -1,5 +1,11 @@
 #include "../include/DTPublicacion.h"
-
+DTPublicacion::DTPublicacion(){
+this->codigo = -1;                      
+    this->fecha = new DTFecha();           
+    this->texto = "";
+    this->precio = "";
+    this->inmobiliaria = "";
+}
 DTPublicacion::DTPublicacion(int codigo, DTFecha* fecha, std::string texto, std::string precio, std::string inmobiliaria) {
     this->codigo = codigo;
     this->fecha = new DTFecha(fecha);

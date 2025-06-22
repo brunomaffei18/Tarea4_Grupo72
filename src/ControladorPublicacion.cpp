@@ -97,7 +97,7 @@ ControladorPublicacion::ControladorPublicacion() {
         DTPublicacion* dtdupPlicacion=new DTPublicacion((*i)->getCodigo(),(*i)->getFecha(),(*i)->getTexto(),(*i)->ConvertirPrecio(),(*i)->getInmobiliaria()->getNickname());
         publicacionesFiltradas.insert(dtdupPlicacion);
       }else {
-        if( tipoInmueble==(*i)->getTipo()){
+        if( tipoInmueble==(*i)->getInmueble()->getTipoInmueble()){
           DTPublicacion* dtdupPlicacion=new DTPublicacion((*i)->getCodigo(),(*i)->getFecha(),(*i)->getTexto(),(*i)->ConvertirPrecio(),(*i)->getInmobiliaria()->getNickname());
           publicacionesFiltradas.insert(dtdupPlicacion);
         }
@@ -117,7 +117,7 @@ ControladorPublicacion::ControladorPublicacion() {
           
         }
       }
-      
+      return DTPublicacion();
     }
     DTInmueble ControladorPublicacion::detalleInmueblePublicacion(int codigoPublicacion){
  std::list<Publicacion*> listaPublicaciones = ManejadorPublicaciones::getManejadorPublicaciones()->listarPublicaciones();

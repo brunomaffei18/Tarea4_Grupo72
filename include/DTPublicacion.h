@@ -13,6 +13,7 @@ class DTPublicacion {
         std::string inmobiliaria;
 
     public:
+        DTPublicacion();
         DTPublicacion(int codigo, DTFecha* fecha, std::string texto, std::string precio, std::string inmobiliaria);
         int getCodigo();
         DTFecha* getFecha();

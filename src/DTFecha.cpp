@@ -1,7 +1,11 @@
 #include "../include/DTFecha.h"
 #include <sstream>
 #include <iostream>
-
+DTFecha::DTFecha(){
+    this->anio = 0;
+    this->mes = 0;
+    this->dia = 0;
+};
 DTFecha::DTFecha(int dia, int mes, int anio) {
     this->anio = anio;
     this->mes = mes;
