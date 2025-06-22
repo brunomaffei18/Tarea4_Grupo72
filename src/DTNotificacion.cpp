@@ -30,3 +30,12 @@ bool operator<(const DTNotificacion& a, const DTNotificacion& b) {
         return a.getCodigo() < b.getCodigo();
     return a.getNickInmobiliaria() < b.getNickInmobiliaria();
 }
+
+std::ostream& operator<<(std::ostream& os, const DTNotificacion& dt) {
+    os << "Código Inmueble: " << dt.getCodigo()
+       << ", Inmobiliaria: " << dt.getNickInmobiliaria()
+       << ", Tipo Publicación: " << dt.getTipoPubli()
+       << ", Tipo Inmueble: " << dt.getTipoInmueble()
+       << ", Texto: " << dt.getTxt();
+    return os;
+}

@@ -182,3 +182,6 @@ void ControladorUsuario::altaAdministrarPropiedad(std::string nickNameInmobiliar
 
 }
 
+ControladorUsuario::~ControladorUsuario() {
+   
+}

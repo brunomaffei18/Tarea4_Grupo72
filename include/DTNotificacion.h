@@ -21,14 +21,14 @@ public:
     int getCodigo() const;
     std::string getNickInmobiliaria() const;
     TipoPublicacion getTipoPubli() const;
-   TipoInmuebleenum:: TipoInmueble getTipoInmueble() const;
+    TipoInmuebleenum:: TipoInmueble getTipoInmueble() const;
     std::string getTxt() const;
     
     ~DTNotificacion();
 };
 
 bool operator<(const DTNotificacion& a,const DTNotificacion& b);
- std::ostream& operator<<(std::ostream& os,  DTNotificacion dt);
+std::ostream& operator<<(std::ostream& os, const DTNotificacion& dt);
 
 
 #endif

@@ -28,12 +28,17 @@ int DTInmueble::getAnioConstruccion() {
     return anioConstruccion;
 }
 
-std::ostream& operator<<(std::ostream& os, DTInmueble& dt) {
+/*std::ostream& operator<<(std::ostream& os, DTInmueble& dt) {
     os << "Código: " << dt.getCodigo() << ", Dirección: " << dt.getDireccion();
     return os;
+}*/
+
+std::ostream& operator<<(std::ostream& os, DTInmueble dt) {
+    os << "Código: " << dt.getCodigo() << ", Dirección: " << dt.getDireccion()
+       << ", Número de Puerta: " << dt.getNumeroPuerta() << ", Superficie: " << dt.getSuperficie()
+       << ", Año de Construcción: " << dt.getAnioConstruccion();
+    return os;
 }
-
-
 
 
 DTInmueble::~DTInmueble(){

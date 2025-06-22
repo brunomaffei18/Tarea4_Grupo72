@@ -48,6 +48,13 @@ std::map<std::string,Cliente*>&  ManejadorUsuario::getClientes()
 {
     return clientes;
 }
+
+
+ManejadorUsuario::~ManejadorUsuario(){
+    
+}
+
+
 /*
 void ManejadorUsuario::eliminarUsuario(std::string nickname)
 {

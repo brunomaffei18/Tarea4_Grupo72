@@ -29,7 +29,7 @@ class ManejadorUsuario {
         Inmobiliaria* getInmobiliaria(std::string nickname);
 
         bool existeUsuario(std::string nickname);
-        ~ManejadorUsuario();
+        virtual ~ManejadorUsuario();
 };
 
 #endif

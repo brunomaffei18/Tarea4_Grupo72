@@ -4,7 +4,7 @@ OBJETOS = AdministraPropiedad.o Apartamento.o CargaDatos.o Casa.o \
 		  IControladorFechaActual.o Inmobiliaria.o Inmueble.o Menu.o Propietario.o Publicacion.o \
 		  TipoInmueble.o TipoPublicacion.o TipoTecho.o Usuario.o ManejadorInmueble.o ManejadorPublicaciones.o \
 		  ManejadorUsuario.o ControladorUsuario.o ControladorInmueble.o ControladorPublicacion.o \
-		  ControladorNotificaciones.o DTNotificacion.o Subscriptor.o main.o ManejadorNotificaciones.o 
+		  ControladorNotificaciones.o DTNotificacion.o Subscriptor.o main.o ManejadorNotificaciones.o TipoEnumToString.o
 
 
 FUENTES = ./include/AdminsitraPropiedad.h ./src/AdminsitraPropiedad.cpp \
@@ -45,7 +45,8 @@ FUENTES = ./include/AdminsitraPropiedad.h ./src/AdminsitraPropiedad.cpp \
 		  ./include/ControladorPublicacion.h ./src/ControladorPublicacion.cpp \
 		  ./include/main.h ./src/main.cpp \
 		  ./include/Inmobiliaria.h ./src/Inmobiliaria.cpp \
-		  ./include/ManejadorNotificaciones.h ./src/ManejadorNotificaciones.cpp
+		  ./include/ManejadorNotificaciones.h ./src/ManejadorNotificaciones.cpp \
+		  ./include/TipoEnumToString.h ./src/TipoEnumToString.cpp
 
 
 
@@ -170,7 +171,10 @@ Propietario.o: Usuario.o DTUsuario.o ./include/Propietario.h ./src/Propietario.c
 TipoInmueble.o: ./include/TipoInmueble.h ./src/TipoInmueble.cpp
 	$(CC) $(OPCIONES) ./src/TipoInmueble.cpp -o TipoInmueble.o
 
-DTNotificacion.o: DTFecha.o Subscriptor.o ./include/DTNotificacion.h ./src/DTNotificacion.cpp
+TipoEnumToString.o: ./src/TipoEnumToString.cpp
+	$(CC) $(OPCIONES) ./src/TipoEnumToString.cpp -o TipoEnumToString.o
+
+DTNotificacion.o: DTFecha.o Subscriptor.o  ./include/DTNotificacion.h ./src/DTNotificacion.cpp
 	$(CC) $(OPCIONES) ./src/DTNotificacion.cpp -o DTNotificacion.o
 
 ManejadorNotificaciones.o: DTNotificacion.o Subscriptor.o ./include/ManejadorNotificaciones.h ./src/ManejadorNotificaciones.cpp
