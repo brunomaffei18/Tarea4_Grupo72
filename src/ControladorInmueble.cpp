@@ -73,8 +73,12 @@ std::set<DTInmuebleListado> ControladorInmueble::listarInmuebles(){
     std::map<int, Inmueble *> inmuebles = manejadorinm->getInmuebles();
     std::set<DTInmuebleListado> resultado;
     for (auto inmueble : inmuebles) {
-        DTInmuebleListado nuevoDT(inmueble.second->getCodigo() , inmueble.second->getDireccion(),inmueble.second->getPropietario()->getNickname());
-        resultado.insert(nuevoDT);
+        if (inmueble.second->getPropietario() != NULL)
+        {
+            DTInmuebleListado nuevoDT(inmueble.second->getCodigo() , inmueble.second->getDireccion(),inmueble.second->getPropietario()->getNickname());
+            resultado.insert(nuevoDT);
+        }
+        
     }
     
     return resultado;

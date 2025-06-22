@@ -6,12 +6,11 @@
 ManejadorInmueble* ManejadorInmueble::instancia =NULL;
 
 ManejadorInmueble* ManejadorInmueble::getManejadorInmueble(){
-    if(instancia==nullptr){
+    if(instancia==NULL){
         instancia= new ManejadorInmueble();
+    }
     return instancia;
-}else{
-    return NULL;
-}}
+}
 
 
        ManejadorInmueble::ManejadorInmueble(){};
