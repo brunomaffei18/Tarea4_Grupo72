@@ -428,10 +428,26 @@ void eliminarInmueble(){
 }
 
 void suscribirseNotificaciones(){
+    Factory* factory = Factory::getInstance();
+
+    std::cout << "Listado de Inmobiliarias:\n";
+    std::set<DTUsuario> inmobiliarias = ControladorUsuario::getInstancia()->ListarInmobiliarias();
+    for (auto inmobiliaria : inmobiliarias) {
+        std::cout<< inmobiliaria << std::endl;
+    }
+    std::cout<<"Ingresar el Nickname de la inmobiliaria a suscribirse:";
+    std::string nicknameInmobiliaria;
+    std::getline(std::cin, nicknameInmobiliaria);
+    ControladorNotificaciones::getInstance()->subscribirse(nicknameInmobiliaria,ControladorNotificaciones::getInstance()->nuevasSuscribciones(nicknameInmobiliaria));
+
 
 }
 
 void consultaNotificaciones(){
+    Factory* factory = Factory::getInstance();
+    std::string subsriptor=ControladorUsuario::getInstancia().
+   std::set<DTPublicacion>notificaciones=ControladorNotificaciones::getInstance()->consultarNotificaciones();
+    std::set<DTPublicacion*> notificaciones = ControladorNotificaciones::getInstancia()->consultarNotificaciones();
 
 }
 
