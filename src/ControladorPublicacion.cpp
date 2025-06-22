@@ -126,7 +126,7 @@ ControladorPublicacion::ControladorPublicacion() {
           return DTInmueble((*i)->getInmueble()->getCodigo(),(*i)->getInmueble()->getDireccion(),(*i)->getInmueble()->getNumeroPuerta(),(*i)->getInmueble()->getSuperficie(),(*i)->getInmueble()->getAnoConstruccion());
         }
       }
-      
+      return DTInmueble();
     }
     ControladorPublicacion::~ControladorPublicacion(){
       
