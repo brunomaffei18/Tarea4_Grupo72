@@ -26,7 +26,8 @@ ControladorPublicacion::ControladorPublicacion() {
     }
     return Instancia;
   };
-    bool ControladorPublicacion::altaPublicacion(std::string nicknameInmobiliaria, int codigoInmueble, TipoPublicacion tipoPublicacion, std::string texto, float precio){
+    bool ControladorPublicacion::altaPublicacion(std::string nicknameInmobiliaria, int codigoInmueble, TipoPublicacion tipoPublicacion, std::string texto, float precio)
+    {
       ManejadorPublicaciones* manejador=ManejadorPublicaciones::getManejadorPublicaciones(); 
       std::list<Publicacion*> publicaciones=manejador->listarPublicaciones();
       bool exist=false;
@@ -79,6 +80,7 @@ ControladorPublicacion::ControladorPublicacion() {
       }
     }
     
+    return true;// lo agregue por que tiraba warning de que no devolvia valor booleano
     
     
     
