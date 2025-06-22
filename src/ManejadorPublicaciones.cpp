@@ -30,9 +30,10 @@ ManejadorPublicaciones* ManejadorPublicaciones::getManejadorPublicaciones(){
   void ManejadorPublicaciones::setCodigoUltimaPublicacionVenta(int codigo){
     this->codigoUltimaPUblicacionVenta=codigo;
   };
-        int ManejadorPublicaciones::getCodigoUltimaPublicacionVenta() const {
-            if(this->codigoUltimaPUblicacionVenta==NULL){
-                return NULL;
+
+   int ManejadorPublicaciones::getCodigoUltimaPublicacionVenta() const {
+            if(publicaciones.empty()){
+                return -1;//Aca habia un NULL y arriba un this->codigoUltimaPUblicacionVenta
             }
             return this->codigoUltimaPUblicacionVenta;
         }
@@ -40,10 +41,11 @@ ManejadorPublicaciones* ManejadorPublicaciones::getManejadorPublicaciones(){
 void ManejadorPublicaciones:: setCodigoUltimaPublicacionAlquiler(int codigo){
     this->codigoUltimaPUblicacionAlquiler = codigo;
 };
-        int ManejadorPublicaciones::getCodigoUltimaPublicacionAlquiler() const {
-            if(this->codigoUltimaPUblicacionAlquiler==NULL){
+
+ int ManejadorPublicaciones::getCodigoUltimaPublicacionAlquiler() const {
+            /*if(this->codigoUltimaPUblicacionAlquiler==NULL){
                 return NULL;
-            }
+            }*/
             return this->codigoUltimaPUblicacionAlquiler;
         };
 
