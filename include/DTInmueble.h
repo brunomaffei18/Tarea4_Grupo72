@@ -12,6 +12,7 @@ class DTInmueble {
         int anioConstruccion;
 
     public:
+        DTInmueble();
         DTInmueble(int codigo, std::string direccion, int numeroPuerta, int superficie, int anioConstruccion);
         int getCodigo();
         std::string getDireccion();

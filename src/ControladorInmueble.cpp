@@ -41,6 +41,7 @@ ControladorInmueble* ControladorInmueble::Instancia = NULL;
             return result;
         }
     }
+   return DTInmueble();
 }
 void ControladorInmueble:: altaCasa(std::string direccion, int numeroPuerta, int superficie, int anoConstruccion, bool esPH, TipoTecho techo){
     ManejadorInmueble* manejador=ManejadorInmueble::getManejadorInmueble();
