@@ -444,16 +444,27 @@ void suscribirseNotificaciones(){
 }
 
 void consultaNotificaciones(){
-    Factory* factory = Factory::getInstance();
-    std::string subsriptor=ControladorUsuario::getInstancia().
-   std::set<DTPublicacion>notificaciones=ControladorNotificaciones::getInstance()->consultarNotificaciones();
-    std::set<DTPublicacion*> notificaciones = ControladorNotificaciones::getInstancia()->consultarNotificaciones();
-
+  std::cout << "Ingrese su nickname (cliente o propietario): ";
+  std::string subscriptor;
+  std::getline(std::cin, subscriptor);
+   std::set<DTNotificacion> notificaciones=ControladorNotificaciones::getInstance()->consultarNotificaciones(subscriptor);
+    if (notificaciones.empty()) {
+        std::cout << "No hay notificaciones nuevas." << std::endl;
+        
+}else{
+    std::cout<<"Notificaciones nuevas:\n";
+    for (const auto&n : notificaciones)
+    {
+        std::cout<<n<<std::endl;
+    }
+    
+}
 }
 
 void eliminarSuscripciones(){
 
 }
+
 
 void altaAdministracionPropiedad(){
     Factory* factory = Factory::getInstance();
