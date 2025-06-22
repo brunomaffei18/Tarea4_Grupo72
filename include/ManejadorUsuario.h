@@ -21,7 +21,7 @@ class ManejadorUsuario {
         std::map<std::string,Inmobiliaria*>& getInmobiliarias();
         std::map<std::string,Cliente*>& getClientes();
         virtual void agregarUsuario(Usuario* usuario);
-        void liberarUsuario(Usuario* usuario);
+       // void liberarUsuario(Usuario* usuario);
         void eliminarUsuario(std::string nickname);
         virtual Propietario* getPropietario(std::string nickname);
         Cliente* getCliente(std::string nickname);

@@ -11,6 +11,12 @@ ManejadorUsuario* ManejadorUsuario::getManejadorUsuario(){
 
 ManejadorUsuario::ManejadorUsuario(){};
 
+void ManejadorUsuario:: agregarUsuario(Usuario* usuario)
+{
+    usuarios.insert(std::pair<std::string, Usuario*>(usuario->getNickname(),usuario));
+}
+
+
 bool ManejadorUsuario::existeUsuario(std::string nickname)
 { 
     return (usuarios.find(nickname) != usuarios.end());
@@ -19,7 +25,7 @@ bool ManejadorUsuario::existeUsuario(std::string nickname)
 Inmobiliaria* ManejadorUsuario::getInmobiliaria(std::string nickname)
 { 
     return Inmobiliarias.at(nickname);
-};
+}
 
 Usuario* ManejadorUsuario::getUsuario(std::string nickname)
 { 
@@ -55,8 +61,8 @@ ManejadorUsuario::~ManejadorUsuario(){
 }
 
 
-/*
+
 void ManejadorUsuario::eliminarUsuario(std::string nickname)
 {
     
-};*/
+}
