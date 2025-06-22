@@ -1,7 +1,7 @@
 #include "../include/ManejadorUsuario.h"
 #include "../include/ManejadorInmueble.h"
 
-ManejadorUsuario* ManejadorUsuario::instancia = nullptr;
+ManejadorUsuario* ManejadorUsuario::instancia =NULL;
 
 ManejadorUsuario* ManejadorUsuario::getManejadorUsuario(){
     if(instancia==nullptr)
@@ -22,25 +22,37 @@ bool ManejadorUsuario::existeUsuario(std::string nickname)
     return (usuarios.find(nickname) != usuarios.end());
 }
 
-Inmobiliaria* ManejadorUsuario::getInmobiliaria(std::string nickname)
-{ 
-    return Inmobiliarias.at(nickname);
+Inmobiliaria* ManejadorUsuario::getInmobiliaria(std::string nickname) {
+    auto it = Inmobiliarias.find(nickname);
+    if (it != Inmobiliarias.end())
+        return it->second;
+
+    return NULL;
 }
 
-Usuario* ManejadorUsuario::getUsuario(std::string nickname)
-{ 
-    return usuarios.at(nickname);
-};
+Usuario* ManejadorUsuario::getUsuario(std::string nickname) {
+    auto it = usuarios.find(nickname);
+    if (it != usuarios.end())
+        return it->second;
 
-Cliente* ManejadorUsuario::getCliente(std::string nickname)
-{ 
-    return clientes.at(nickname);
-};
+    return NULL;
+}
 
-Propietario* ManejadorUsuario::getPropietario(std::string nickname)
-{ 
-    return propietarios.at(nickname);
-};
+Cliente* ManejadorUsuario::getCliente(std::string nickname) {
+    auto it = clientes.find(nickname);
+    if (it != clientes.end())
+        return it->second;
+
+    return NULL;
+}
+
+Propietario* ManejadorUsuario::getPropietario(std::string nickname) {
+    auto it = propietarios.find(nickname);
+    if (it != propietarios.end())
+        return it->second;
+
+    return NULL;
+}
 
 std::map<std::string,Propietario*>& ManejadorUsuario::getPropietarios()
 {

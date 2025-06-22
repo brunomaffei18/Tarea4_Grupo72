@@ -1,6 +1,6 @@
 #include "../include/ManejadorPublicaciones.h"
 
-ManejadorPublicaciones* ManejadorPublicaciones::instancia = nullptr;
+ManejadorPublicaciones* ManejadorPublicaciones::instancia =NULL;
 
 ManejadorPublicaciones* ManejadorPublicaciones::getManejadorPublicaciones(){
     if(instancia==nullptr)
@@ -44,5 +44,5 @@ void ManejadorPublicaciones:: setCodigoUltimaPublicacionAlquiler(int codigo){
 
 ManejadorPublicaciones::~ManejadorPublicaciones(){
     delete instancia;
-    instancia = nullptr;
+    instancia =NULL;
 }  

@@ -8,13 +8,13 @@
 
 #include <cstddef>
 
-Factory* Factory::instance = nullptr;
+Factory* Factory::instance =NULL;
 
 Factory::Factory() {
 }
 
 Factory* Factory::getInstance() {
-    if (instance == nullptr) {
+    if (instance ==NULL) {
         instance = new Factory();
     }
     return instance;
@@ -42,5 +42,5 @@ IControladorNotificaciones* Factory::getControladorNotificaciones(){
     
 Factory::~Factory(){
     delete instance;
-    instance = nullptr;
+    instance =NULL;
 }   

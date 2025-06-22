@@ -3,7 +3,7 @@
 #include "../include/ManejadorUsuario.h"
 #include "../include/DTInmuebleListado.h"
 
-ManejadorInmueble* ManejadorInmueble::instancia = nullptr;
+ManejadorInmueble* ManejadorInmueble::instancia =NULL;
 
 ManejadorInmueble* ManejadorInmueble::getManejadorInmueble(){
     if(instancia==nullptr)
