@@ -462,7 +462,33 @@ void consultaNotificaciones(){
 }
 
 void eliminarSuscripciones(){
-
+ std::cout<<"Ingrese su nickname (cliente o propietario): ";
+  std::string subscriptor;
+  std::getline(std::cin, subscriptor);
+   std::list<std::string>suscripciones=ControladorNotificaciones::getInstance()->listarInmobiliariasSuscriptas(subscriptor);
+   if(suscripciones.empty()){
+    std::cout<<"No tiene suscripciones Activas."<<std::endl;
+    return;
+   }
+//    std::cout<<"Suscripciones Activas:\n";
+//    for (const auto&s :suscripciones){
+//         std::cout<<s<<std::endl;
+//    }
+   std::list<std::string> Aeliminar;
+   int opcion=1;
+   while (opcion==1)
+   {
+    std::cout<<"Ingrese el nickname de la inmobiliaria a eliminar suscripcion: ";
+    std::string nickname;
+    std::getline(std::cin, nickname);
+    Aeliminar.push_back(nickname);
+    std::cout<<"¿Desea eliminar otra suscripcion?(1:Si, 0:No):";
+    std::cin>>opcion;
+    std::cin.ignore();
+   }
+   ControladorNotificaciones::getInstance()->eliminarSubscripciones(subscriptor,Aeliminar);
+   std::cout<<"Suscripcion eliminada correctamente."<<std::endl;
+   
 }
 
 
