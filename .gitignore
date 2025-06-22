@@ -42,3 +42,5 @@ ControladorPublicacion.o
 AdministraPropiedad.o
 Subscriptor.o
 ManejadorNotificaciones.o
+TipoEnumToString.o
+principal
