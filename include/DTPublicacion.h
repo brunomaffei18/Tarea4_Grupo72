@@ -21,9 +21,10 @@ class DTPublicacion {
         std::string getPrecio();
         std::string getInmobiliaria();
         ~DTPublicacion();
+
+        bool operator<(const DTPublicacion& a) const;
 };
 
 std::ostream& operator<<(std::ostream& os,  DTPublicacion& dt);
-bool operator<(const DTPublicacion& a, const DTPublicacion& b);
 
 #endif

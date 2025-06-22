@@ -25,9 +25,9 @@
         };
         Inmueble::~Inmueble(){
 
-          for (std::set<AdministraPropiedad*>::iterator i =InmueblesAdministrados.begin();i!=InmueblesAdministrados.end();i++){
-            delete *i;
-          }
+          // for (std::set<AdministraPropiedad*>::iterator i =InmueblesAdministrados.begin();i!=InmueblesAdministrados.end();i++){
+          //   delete *i;
+          // }
           InmueblesAdministrados.clear();
         };
 int Inmueble::getCodigo() {

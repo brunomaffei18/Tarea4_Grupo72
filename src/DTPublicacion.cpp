@@ -43,6 +43,6 @@ os<<"- Codigo: "<<dt.getCodigo()<<", fecha: "<<dt.getFecha()<<", texto: "<<dt.ge
     return os;
 };
 
-bool  operator<( DTPublicacion& a,  DTPublicacion& b) {
-    return a.getCodigo() < b.getCodigo();  
+bool DTPublicacion::operator<(const DTPublicacion& a) const {
+    return this->codigo < a.codigo; 
 }

@@ -20,12 +20,14 @@ Inmobiliaria* AdministraPropiedad::getInmobiliaria(){
 }
 
 //Asumo que elimina todas las publicaciones, si deberia desactivarlas falda el metodo en Publicaciones.h
-void AdministraPropiedad::DarBajaPublicaciones(){
-std::map<int, Publicacion*>::iterator it;
-for (it = Publicaciones.begin(); it != Publicaciones.end(); ++it){
-    Publicaciones.erase(it->first);
+void AdministraPropiedad::DarBajaPublicaciones() {
+    auto it = Publicaciones.begin();
+    while (it != Publicaciones.end()) {
+        delete it->second;
+        it = Publicaciones.erase(it);
+    }
 }
-}
+
 
 //Asumo que elimina unicamente la publicacion que se le pasa.
 void AdministraPropiedad::borrarPublicacion(Publicacion p){

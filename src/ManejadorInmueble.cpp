@@ -38,7 +38,6 @@ ManejadorInmueble* ManejadorInmueble::getManejadorInmueble(){
                 admin->DarBajaPublicaciones();
                     Inmobiliaria*i=admin->getInmobiliaria();
                 i->eliminarAdministracion(admin);
-                delete admin;
             }
             ManejadorUsuario* manejdorU=ManejadorUsuario::getManejadorUsuario();
             std::map<std::string,Propietario*>& propietario=manejdorU->getPropietarios();
