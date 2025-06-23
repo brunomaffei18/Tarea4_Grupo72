@@ -182,6 +182,8 @@ return listado;
 
 // }
 void ControladorUsuario::altaAdministrarPropiedad(std::string nickNameInmobiliaria, int codigoInmueble) {
+    std::map<std::string, Inmobiliaria*>  mapainmobiliaria = manejadorusu->getInmobiliarias();
+    if(mapainmobiliaria.find(nickNameInmobiliaria)!=mapainmobiliaria.end()){
     Inmobiliaria* inmobiliaria = manejadorusu->getInmobiliaria(nickNameInmobiliaria);
     std::map<std::string, Propietario*> mapa = manejadorusu->getPropietarios();
 
@@ -199,6 +201,7 @@ void ControladorUsuario::altaAdministrarPropiedad(std::string nickNameInmobiliar
             break;  // Ya encontramos el inmueble, no necesitamos seguir buscando
         }
     }
+}
 }
 
 
