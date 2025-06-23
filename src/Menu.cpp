@@ -415,16 +415,24 @@ void eliminarInmueble(){
 void suscribirseNotificaciones(){
  Factory* factory = Factory::getInstance();
 
+    std::cout << "Ingrese su nickname (cliente o propietario): ";
+    std::string nicknameUsuario;
+    std::getline(std::cin, nicknameUsuario);
+
     std::cout << "Listado de Inmobiliarias:\n";
     std::set<DTUsuario> inmobiliarias = ControladorUsuario::getInstancia()->ListarInmobiliarias();
     for (auto inmobiliaria : inmobiliarias) {
-        std::cout<< inmobiliaria << std::endl;
+        std::cout << inmobiliaria << std::endl;
     }
-    std::cout<<"Ingresar el Nickname de la inmobiliaria a suscribirse:";
+    std::cout << "Ingresar el Nickname de la inmobiliaria a suscribirse: ";
     std::string nicknameInmobiliaria;
     std::getline(std::cin, nicknameInmobiliaria);
-    ControladorNotificaciones::getInstance()->subscribirse(nicknameInmobiliaria,ControladorNotificaciones::getInstance()->nuevasSuscribciones(nicknameInmobiliaria));
 
+    std::list<std::string> listaInmobiliarias;
+    listaInmobiliarias.push_back(nicknameInmobiliaria);
+
+    ControladorNotificaciones::getInstance()->subscribirse(nicknameUsuario, listaInmobiliarias);
+    std::cout << "Suscripción realizada correctamente." << std::endl;
 
 }
 
@@ -451,14 +459,15 @@ void eliminarSuscripciones(){
   std::string subscriptor;
   std::getline(std::cin, subscriptor);
    std::list<std::string>suscripciones=ControladorNotificaciones::getInstance()->listarInmobiliariasSuscriptas(subscriptor);
+    std::cout<<"Suscripciones Activas:\n";
+   for (const auto&s :suscripciones){
+       std::cout<<s<<std::endl;
+   }
    if(suscripciones.empty()){
     std::cout<<"No tiene suscripciones Activas."<<std::endl;
     return;
    }
-//    std::cout<<"Suscripciones Activas:\n";
-//    for (const auto&s :suscripciones){
-//         std::cout<<s<<std::endl;
-//    }
+   
    std::list<std::string> Aeliminar;
    int opcion=1;
    while (opcion==1)
