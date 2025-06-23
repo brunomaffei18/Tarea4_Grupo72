@@ -5,7 +5,7 @@
 #include "../include/DTInmuebleAdministrado.h"
 #include "../include/ControladorFechaActual.h"
 #include "../include/ControladorInmueble.h"
-
+#include "../include/ManejadorNotificaciones.h"
 
 
 ControladorUsuario* ControladorUsuario::instancia = NULL;
@@ -33,6 +33,7 @@ bool ControladorUsuario::altaInmobiliaria(std::string nickname, std::string cont
         return false;}
     Inmobiliaria* inmobiliaria = new Inmobiliaria(nickname, contrasena, nombre, email, direccion, url, telefono);
     manejadorusu->agregarUsuario(inmobiliaria);
+   ManejadorNotificaciones::getInstance()->agregarInmobiliaria(inmobiliaria);
     return true;
 }
 bool ControladorUsuario::altaPropietario(std::string nickname, std::string contrasena, std::string nombre, std::string email, std::string cuentaBancaria,std::string telefono) {

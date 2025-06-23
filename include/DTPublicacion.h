@@ -15,6 +15,8 @@ class DTPublicacion {
     public:
         DTPublicacion();
         DTPublicacion(int codigo, DTFecha* fecha, std::string texto, std::string precio, std::string inmobiliaria);
+        DTPublicacion(const DTPublicacion& other);             // Constructor copia
+        DTPublicacion& operator=(const DTPublicacion& other);
         int getCodigo();
         DTFecha* getFecha();
         std::string getTexto();
