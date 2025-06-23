@@ -182,26 +182,38 @@ return listado;
 
 // }
 void ControladorUsuario::altaAdministrarPropiedad(std::string nickNameInmobiliaria, int codigoInmueble) {
-    std::map<std::string, Inmobiliaria*>  mapainmobiliaria = manejadorusu->getInmobiliarias();
-    if(mapainmobiliaria.find(nickNameInmobiliaria)!=mapainmobiliaria.end()){
-    Inmobiliaria* inmobiliaria = manejadorusu->getInmobiliaria(nickNameInmobiliaria);
-    std::map<std::string, Propietario*> mapa = manejadorusu->getPropietarios();
+    std::map<std::string, Inmobiliaria*> mapaInmobiliarias = manejadorusu->getInmobiliarias();
 
-    for (auto& [nick, propietario] : mapa) {
+    auto itInmo = mapaInmobiliarias.find(nickNameInmobiliaria);
+    if (itInmo == mapaInmobiliarias.end()) {
+        return;
+    }
+    Inmobiliaria* inmobiliaria = itInmo->second;
+    std::map<std::string, Propietario*> mapaPropietarios = manejadorusu->getPropietarios();
+
+    for (auto& [nick, propietario] : mapaPropietarios) {
         std::map<int, Inmueble*> propiedades = propietario->getPropiedades();
-        auto it = propiedades.find(codigoInmueble);
+        auto itInmueble = propiedades.find(codigoInmueble);
 
-        if (it != propiedades.end()) {
-            Inmueble* inmueble = it->second;
+        if (itInmueble != propiedades.end()) {
+            Inmueble* inmueble = itInmueble->second;
+
+            std::set<AdministraPropiedad*> administraciones = inmueble->getInmueblesAdministrados();
+            for (AdministraPropiedad* admin : administraciones) {
+                if (admin->getInmobiliaria() == inmobiliaria) {
+                    return;  // ya esta administrado
+                }
+            }
             DTFecha* fecha = ControladorFechaActual::getInstance()->getFechaActual();
-            AdministraPropiedad* admin = new AdministraPropiedad(fecha, inmueble, inmobiliaria);
+            AdministraPropiedad admin =  AdministraPropiedad(fecha, inmueble, inmobiliaria);
+            AdministraPropiedad * administra=&admin;
 
-            inmueble->AgregarAdministrados(admin);
-            inmobiliaria->agregarAdministracion(admin);
-            break;  // Ya encontramos el inmueble, no necesitamos seguir buscando
+            inmueble->AgregarAdministrados(administra);
+            inmobiliaria->agregarAdministracion(administra);
+            return;  // Administración creada, se termina
         }
     }
-}
+
 }
 
 
