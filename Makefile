@@ -54,7 +54,7 @@ FUENTES = ./include/AdminsitraPropiedad.h ./src/AdminsitraPropiedad.cpp \
 CC = g++
 ENTREGA = 72_lab4.zip
 
-OPCIONES = -std=c++17 -g -c
+OPCIONES =  -g -c
 
 ejec: $(OBJETOS) ./src/main.cpp Makefile
 	g++ -o principal $(OBJETOS) 
@@ -174,7 +174,7 @@ TipoInmueble.o: ./include/TipoInmueble.h ./src/TipoInmueble.cpp
 TipoEnumToString.o: ./src/TipoEnumToString.cpp
 	$(CC) $(OPCIONES) ./src/TipoEnumToString.cpp -o TipoEnumToString.o
 
-DTNotificacion.o: DTFecha.o Subscriptor.o  ./include/DTNotificacion.h ./src/DTNotificacion.cpp
+DTNotificacion.o: DTFecha.o ./include/DTNotificacion.h ./src/DTNotificacion.cpp
 	$(CC) $(OPCIONES) ./src/DTNotificacion.cpp -o DTNotificacion.o
 
 ManejadorNotificaciones.o: DTNotificacion.o Subscriptor.o ./include/ManejadorNotificaciones.h ./src/ManejadorNotificaciones.cpp
