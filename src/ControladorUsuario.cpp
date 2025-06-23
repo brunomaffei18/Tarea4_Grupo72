@@ -184,7 +184,7 @@ return listado;
 void ControladorUsuario::altaAdministrarPropiedad(std::string nickNameInmobiliaria, int codigoInmueble) {
     
     ManejadorUsuario* mu = ManejadorUsuario::getManejadorUsuario();
-    if (mu == nullptr)        
+    if (mu == NULL)        
         return;
 
     std::map<std::string, Inmobiliaria*> mapaInmobiliarias = manejadorusu->getInmobiliarias();
