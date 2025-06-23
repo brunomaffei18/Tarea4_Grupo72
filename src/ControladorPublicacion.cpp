@@ -26,97 +26,124 @@ ControladorPublicacion::ControladorPublicacion() {
     }
     return Instancia;
   };
-    bool ControladorPublicacion::altaPublicacion(std::string nicknameInmobiliaria, int codigoInmueble, TipoPublicacion tipoPublicacion, std::string texto, float precio)
-    {
-      ManejadorPublicaciones* manejador=ManejadorPublicaciones::getManejadorPublicaciones(); 
-      ManejadorInmueble* manejadorinmu=ManejadorInmueble::getManejadorInmueble();
-      ManejadorUsuario* manejadorusu=ManejadorUsuario::getManejadorUsuario();
-       
-        if (!manejador || !manejadorusu || !manejadorinmu)
-        throw std::runtime_error("Error al obtener algún manejador.");
-      
-   
+bool ControladorPublicacion::altaPublicacion(std::string nicknameInmobiliaria, int codigoInmueble, 
+                                             TipoPublicacion tipoPublicacion, std::string texto, float precio)
+{
+    ManejadorPublicaciones* manejador = ManejadorPublicaciones::getManejadorPublicaciones(); 
+    ManejadorInmueble* manejadorinmu = ManejadorInmueble::getManejadorInmueble();
+    ManejadorUsuario* manejadorusu = ManejadorUsuario::getManejadorUsuario();
+
+    if (!manejador || !manejadorusu || !manejadorinmu)
+        return false;
+
     Inmobiliaria* inmobiliaria = manejadorusu->getInmobiliaria(nicknameInmobiliaria);
     Inmueble* inmueble = manejadorinmu->getInmueble(codigoInmueble);
-      
+
     if (!inmobiliaria || !inmueble)
-        throw std::runtime_error("Inmobiliaria o inmueble no encontrado.");
+        return false;
 
-      std::list<Publicacion*> publicaciones=manejador->listarPublicaciones();
-     
-      DTFecha *fecha= new DTFecha(ControladorFechaActual::getInstance()->getFechaActual());
+    std::list<Publicacion*> publicaciones = manejador->listarPublicaciones();
 
-      for (auto pub: publicaciones){  
-      if ((pub->getFecha()->operator== (fecha)) && pub->getTipo() == tipoPublicacion && pub->getInmueble()->getCodigo() == codigoInmueble && pub->getInmobiliaria()->getNickname() == nicknameInmobiliaria) {
+    DTFecha* fecha = new DTFecha(ControladorFechaActual::getInstance()->getFechaActual());
+
+    for (auto pub : publicaciones) {  
+        bool mismaFecha = (*(pub->getFecha()) == *fecha);
+        bool mismoTipo = (pub->getTipo() == tipoPublicacion);
+        bool mismoInmueble = (pub->getInmueble()->getCodigo() == codigoInmueble);
+        bool mismaInmobiliaria = (pub->getInmobiliaria()->getNickname() == nicknameInmobiliaria);
+        bool mismoTexto = (pub->getTexto() == texto);
+        bool mismoPrecio = (pub->getPrecio() == precio);
+
+        if (mismaFecha && mismoTipo && mismoInmueble && mismaInmobiliaria && mismoTexto && mismoPrecio) {
             delete fecha;
             return false;
         }
-      }
-    
-  
- 
-  int nuevoCodigo=manejador->generarCodigo();
-  
-    for (Publicacion* pub:publicaciones)
-    {
-      if (pub->getTipo()==tipoPublicacion && pub->getInmueble()->getCodigo()==codigoInmueble){
-        if (tipoPublicacion==Venta && pub->getCodigo()==manejador->getCodigoUltimaPublicacionVenta()){
-          pub->setActiva(false);
-          manejadorpub->setCodigoUltimaPublicacionVenta(nuevoCodigo);
-        }else{
-          if(tipoPublicacion==Alquiler && pub->getCodigo()==manejador->getCodigoUltimaPublicacionAlquiler()){
-            pub->setActiva(false);
-            manejadorpub->setCodigoUltimaPublicacionAlquiler(nuevoCodigo);
-        }
-      }
     }
-  }
-    
-   
-    AdministraPropiedad * admin=new AdministraPropiedad(fecha, inmueble, inmobiliaria);
-    Publicacion* nuevaPublicacion=new Publicacion(nuevoCodigo, fecha,tipoPublicacion, texto, precio, true);
-   
+
+    int nuevoCodigo = manejador->generarCodigo();
+
+    for (Publicacion* pub : publicaciones) {
+        if (pub->getTipo() == tipoPublicacion && pub->getInmueble()->getCodigo() == codigoInmueble) {
+            if (tipoPublicacion == Venta && pub->getCodigo() == manejador->getCodigoUltimaPublicacionVenta()) {
+                pub->setActiva(false);
+                manejador->setCodigoUltimaPublicacionVenta(nuevoCodigo);
+            } else if (tipoPublicacion == Alquiler && pub->getCodigo() == manejador->getCodigoUltimaPublicacionAlquiler()) {
+                pub->setActiva(false);
+                manejador->setCodigoUltimaPublicacionAlquiler(nuevoCodigo);
+            }
+        }
+    }
+
+   std::set<AdministraPropiedad *> admins = inmobiliaria->getAdministraciones();
+   AdministraPropiedad* admin; 
+   for (auto adm : admins)
+   {
+    if (adm->getInmueble() == inmueble)
+    {
+      admin = adm;
+    }
+   }
+    Publicacion* nuevaPublicacion = new Publicacion(nuevoCodigo, fecha, tipoPublicacion, texto, precio, true);
+
     nuevaPublicacion->setAdministra(admin);
     manejador->agregarPublicacion(nuevaPublicacion);
-    inmueble->AgregarAdministrados(admin);
-    inmobiliaria->agregarAdministracion(admin);
 
-    
-for (Subscriptor* s:inmobiliaria->getSuscriptores()){
-  if (s&&s->estaSuscriptoA(inmobiliaria)){
-    s->notificar(nuevaPublicacion);
-  }
+    for (Subscriptor* s : inmobiliaria->getSuscriptores()) {
+        if (s && s->estaSuscriptoA(inmobiliaria)) {
+            s->notificar(nuevaPublicacion);
+        }
+    }
+
+    return true;
 }
 
 
-    
-    return true;// lo agregue por que tiraba warning de que no devolvia valor booleano
-    
-    
-    
-    }
 
-  std::set<DTPublicacion> ControladorPublicacion::listarPublicaciones(TipoPublicacion tipoPublicacion, float precioMinimo, float precioMaximo, TipoInmuebleenum::TipoInmueble tipoInmueble){
+
+
+std::set<DTPublicacion> ControladorPublicacion::listarPublicaciones(
+    TipoPublicacion tipoPublicacion, 
+    float precioMinimo, 
+    float precioMaximo, 
+    TipoInmuebleenum::TipoInmueble tipoInmueble
+) {
     std::set<DTPublicacion> publicacionesFiltradas;
     std::list<Publicacion*> listaPublicaciones = ManejadorPublicaciones::getManejadorPublicaciones()->listarPublicaciones();
-    for (std::list<Publicacion*>::iterator i = listaPublicaciones.begin(); i !=listaPublicaciones.end(); i++)
-    {
-      if ((*i)->getTipo()==tipoPublicacion && (*i)->getPrecio()>precioMinimo&& (*i)->getPrecio()<precioMaximo)
-      if (tipoInmueble==TipoInmuebleenum::Todos)
-      {
-        DTPublicacion dtdupPlicacion= DTPublicacion((*i)->getCodigo(),(*i)->getFecha(),(*i)->getTexto(),(*i)->ConvertirPrecio(),(*i)->getInmobiliaria()->getNickname());
-        publicacionesFiltradas.insert(dtdupPlicacion);
-      }else {
-        if( tipoInmueble==(*i)->getInmueble()->getTipoInmueble()){
-          DTPublicacion dtdupPlicacion= DTPublicacion((*i)->getCodigo(),(*i)->getFecha(),(*i)->getTexto(),(*i)->ConvertirPrecio(),(*i)->getInmobiliaria()->getNickname());
-          publicacionesFiltradas.insert(dtdupPlicacion);
-        }
-      }
-      
-    }
-    return publicacionesFiltradas;
 
+    for (Publicacion* pub : listaPublicaciones) {
+        // Solo mostrar publicaciones activas
+        if (!pub->esActiva())
+            continue;
+
+        // Filtro por tipo de publicación
+        if (pub->getTipo() != tipoPublicacion)
+            continue;
+
+        // Filtro por precio
+        if (pub->getPrecio() < precioMinimo || pub->getPrecio() > precioMaximo)
+            continue;
+
+        // Filtro por tipo de inmueble
+        if (tipoInmueble != TipoInmuebleenum::Todos &&
+            pub->getInmueble()->getTipoInmueble() != tipoInmueble)
+            continue;
+
+        // Si pasó todos los filtros, agregamos la publicación
+        DTPublicacion dtpub(
+            pub->getCodigo(),
+            pub->getFecha(),
+            pub->getTexto(),
+            pub->ConvertirPrecio(),
+            pub->getInmobiliaria()->getNickname()
+        );
+        publicacionesFiltradas.insert(dtpub);
     }
+
+    return publicacionesFiltradas;
+}
+
+
+
     DTPublicacion ControladorPublicacion::getPublicacion(int id){
      
 

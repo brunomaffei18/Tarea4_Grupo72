@@ -51,3 +51,7 @@ std::ostream& operator<<(std::ostream& os, DTFecha* fecha) {
     os << fecha->toString();
     return os;
 }
+
+bool DTFecha::operator==(const DTFecha& other) const {
+    return (dia == other.dia) && (mes == other.mes) && (anio == other.anio);
+}
